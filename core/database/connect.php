@@ -6,7 +6,6 @@
 	$mysql_user = $DB_USER;
 	$mysql_password = $DB_PASSWORD;
 	
-	mysql_connect($mysql_host, $mysql_user, $mysql_password) or die ('There was an error with loging into the database.');
+	$connection = mysqli_connect($mysql_host, $mysql_user, $mysql_password) or die ('There was an error with loging into the database.');
 	
-	mysql_select_db($mysql_database) or die ('There was an error with connecting to the database.');
-?>
+	mysqli_select_db($connection, $mysql_database) or die ('There was an error with connecting to the database.');
