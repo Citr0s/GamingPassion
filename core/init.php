@@ -6,8 +6,6 @@
 	require_once 'functions/posts-functions.php';
 	require_once 'functions/users-functions.php';
 	require_once 'functions/error-functions.php';
-	
-	error_reporting(0);
 
 	$username = $_SESSION['username'];
 
