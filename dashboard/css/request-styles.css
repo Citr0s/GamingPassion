@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font:15px Tahoma;	
+}
+input, textarea, select{
+	padding:8px;
+	background-color:#FFF;
+	border:1px solid #bcbcbc;
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+	border-radius:1px;
+	color:#777;
+	font:12px Arial;
+}
+h1{
+	font:20px Tahoma;
+	width:100%;
+	padding-bottom:5px;
+	border-bottom:1px solid #999;	
+}
+h2{
+	font:18px Tahoma;
+	width:100%;
+}
+#wrapper{
+	width:600px;
+	padding:5px;
+	border:1px solid #ccc;
+}
+.red-message{
+	padding:10px;
+	margin:5px;
+	border:1px solid red;
+	background-color:#FFAAAC;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.green-message{
+	padding:10px;
+	margin:5px;
+	border:1px solid green;
+	background-color:#CAFFCA;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+table{
+	border:1px solid #666;	
+}
+input{
+	padding:5px;
+}
+textarea{
+	padding:5px;
+	width:500px;
+	height:150px;
+}
+.button{
+	position: relative;
+	display: inline-block;
+	font-size: 13px;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #87C83E;
+	background-image: -moz-linear-gradient(#89CA3F, #6EA62E);
+	background-image: -webkit-linear-gradient(#89CA3F, #6EA62E);
+	background-image: linear-gradient(#89CA3F, #6EA62E);
+	background-repeat: repeat-x;
+	border:none;
+	color:#FFF;
+	padding:5px 10px;
+	border-top: 1px solid #B4DE86;
+	border-radius: 2px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-appearance: none;
+}
+.button:hover{
+	border-top: 1px solid #757575;
+	background-image: -moz-linear-gradient(#666666, #666666);
+	background-image: -webkit-linear-gradient(#666666, #666666);
+	background-image: linear-gradient(#666666, #666666);
+}
