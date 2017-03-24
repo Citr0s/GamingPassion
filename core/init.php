@@ -7,7 +7,7 @@
 	$connection = new Database(mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE));
 
     session_start();
- 
+    
 	require_once 'database/connect.php';
 	require_once 'functions/general-functions.php';
 	require_once 'functions/posts-functions.php';
