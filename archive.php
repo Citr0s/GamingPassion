@@ -20,9 +20,9 @@
 				<div id="main-content">
 				<?php
 					if(isset($_GET['id'])){
-						showOnePost();
+						showOnePost($connection);
 					}else{
-						showArchivePosts();
+						showArchivePosts($connection);
 					}
 				?>
 				</div>
