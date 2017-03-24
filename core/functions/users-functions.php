@@ -5,18 +5,18 @@ function loggedIn(){
 		return $logged_in;
 	}
 }
-function loginCheck($username, $password){
+function loginCheck($connection, $username, $password){
 	
-	sanitise($username);
-	sanitise($password);
+	sanitise($connection, $username);
+	sanitise($connection, $password);
 	
 	if(empty($username) || empty($password)){	
 		header("Location: login.php?error=1");
 	}elseif(!empty($username) && !empty($password)){
 		
-		$data = mysql_query("SELECT * FROM `users` WHERE '$username' = `username` LIMIT 1");
+		$data = mysqli_query($connection, "SELECT * FROM `users` WHERE '$username' = `username` LIMIT 1");
 		
-		while($row = mysql_fetch_array($data)){
+		while($row = mysqli_fetch_array($data)){
 			$user_info = array($row['user_id'], $row['username'], $row['password'], $row['email'], $row['active'], $row['status'], $row['joined']);
 		}
 		
@@ -32,12 +32,12 @@ function loginCheck($username, $password){
 		}
 	}
 }
-function adminCheck(){
+function adminCheck($connection){
 	$username = $_SESSION['username'];
 	
-	$data = mysql_query("SELECT * FROM users WHERE '$username' = username LIMIT 1");
+	$data = mysqli_query($connection, "SELECT * FROM users WHERE '$username' = username LIMIT 1");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$user_info = array($row['user_id'], $row['username'], $row['password'], $row['email'], $row['active'], $row['status'], $row['joined']);
 	}
 	
@@ -45,12 +45,12 @@ function adminCheck(){
 		header("Location: 	index.php");
 	}
 }
-function adminUser(){
+function adminUser($connection){
 	$username = $_SESSION['username'];
 	
-	$data = mysql_query("SELECT * FROM users WHERE '$username' = username LIMIT 1");
+	$data = mysqli_query($connection, "SELECT * FROM users WHERE '$username' = username LIMIT 1");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$user_info = array($row['user_id'], $row['username'], $row['password'], $row['email'], $row['active'], $row['status'], $row['joined']);
 	}
 	
@@ -59,12 +59,12 @@ function adminUser(){
 		return $adminCheck;
 	}
 }
-function modUser(){
+function modUser($connection){
 	$username = $_SESSION['username'];
 	
-	$data = mysql_query("SELECT * FROM users WHERE '$username' = username LIMIT 1");
+	$data = mysql_query($connection, "SELECT * FROM users WHERE '$username' = username LIMIT 1");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$user_info = array($row['user_id'], $row['username'], $row['password'], $row['email'], $row['active'], $row['status'], $row['joined']);
 	}
 	
@@ -73,12 +73,12 @@ function modUser(){
 		return $modCheck;
 	}
 }
-function showOneUser(){	
+function showOneUser($connection){
 	$user = $_GET['user'];
 
-	$data2 = mysql_query("SELECT * FROM `mod_users` ORDER BY user_id");
+	$data2 = mysqli_query($connection, "SELECT * FROM `mod_users` ORDER BY user_id");
 	
-	while($row2 = mysql_fetch_array($data2)){
+	while($row2 = mysqli_fetch_array($data2)){
 		if($user == $row2['username']){
 			$user_exists = true;
 			break;

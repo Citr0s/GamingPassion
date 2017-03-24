@@ -378,7 +378,7 @@ function showAllPostsDashboard(){
 			settype($average_rating, 'float');
 		}
 		
-		if(loggedIn() && notVoted($post_id)){
+		if(loggedIn() && notVoted($connection, $post_id)){
 			$rating = '
 	        	<div class="stars-bg">
 	        		<a href="../article/vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>

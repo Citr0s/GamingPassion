@@ -36,9 +36,9 @@
 					$badge_count = 0;
 					$overall_badge_count = 0;
 					//Pasjonat - Ta odznaka nagradzamy uzytkownikow ktorzy dolaczyli do Gaming-Passion w pierwszym roku. Tak dziekujemy tym co pomogli stworzyc nasze spoleczenstwo pasjonatow gier komputerowych na Gaming-Passion.
-					$user_data = mysql_query("SELECT * FROM `users` WHERE username = '$username'"); 
+					$user_data = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$username'");
 					
-					while($user_row = mysql_fetch_array($user_data)){
+					while($user_row = mysqli_fetch_array($user_data)){
 						$joined = strtotime($user_row['joined']);
 						$start_of_one_year = mktime(0, 0, 0, 4, 20, 2013);
 						$end_of_one_year = mktime(0, 0, 0, 4, 20, 2014);
@@ -91,7 +91,7 @@
 					/** Perfectionist End **/
 					
 					//Poczatkujacy Komentator - Po raz pierwszy skomentowales jakiegos posta.
-					$user_data = mysql_query("SELECT * FROM `comments` WHERE `comment_author` = '$username' AND `active` = 1"); 
+					$user_data = mysqli_query($connection, "SELECT * FROM `comments` WHERE `comment_author` = '$username' AND `active` = 1");
 					$comment_count = 0;
 					$badge_komentator_1 = false;
 					$badge_komentator_10 = false;
@@ -99,20 +99,20 @@
 					$badge_mailman = false;
 					$overall_badge_count += 4;
 					
-					while($user_row = mysql_fetch_array($user_data)){
+					while($user_row = mysqli_fetch_array($user_data)){
 						$comment_count++;
 					}
 					
 					/** Judge Start **/
 
-					$data = mysql_query("SELECT * FROM `ratings` WHERE author = '$username'"); 
+					$data = mysqli_query($connection, "SELECT * FROM `ratings` WHERE author = '$username'");
 					$ratings_count = 0;
 					$badge_judge = false;
 					$badge_judge_10 = false;
 					$badge_judge_100 = false;
 					$overall_badge_count += 3;
 					
-					while($row = mysql_fetch_array($data)){
+					while($row = mysqli_fetch_array($data)){
 						$ratings_count++;
 					}
 					/*
@@ -196,10 +196,10 @@
 					}
 					
 					
-					$data2b = mysql_query("SELECT * FROM `private_messages` WHERE `from` = '$username'");
+					$data2b = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$username'");
 					$mail_count = 0;
 					
-					while($row2b = mysql_fetch_array($data2b)){
+					while($row2b = mysqli_fetch_array($data2b)){
 						$mail_count++;
 					}
 

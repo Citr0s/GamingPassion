@@ -17,11 +17,11 @@
 				<?php
 					$user = $_GET['user'];
 				
-					$data = mysql_query("SELECT * FROM `users` WHERE '$user' = username");	
+					$data = mysqli_query($connection, "SELECT * FROM `users` WHERE '$user' = username");
 					
 					$comment_count = 0;
 				
-					while($row = mysql_fetch_array($data)){
+					while($row = mysqli_fetch_array($data)){
 						$active = $row['active'];
 						$thumbnail = $row['thumbnail'];
 						$email = $row['email'];
@@ -55,7 +55,7 @@
 							$from = ' - ';	
 						}
 						
-						$data2a = mysql_query("SELECT * FROM `comments` WHERE `comment_author` = '$user' AND `active` = 1 ORDER BY `comment_id`");
+						$data2a = mysqli_query($connection, "SELECT * FROM `comments` WHERE `comment_author` = '$user' AND `active` = 1 ORDER BY `comment_id`");
 						$post_count = 0;
 						$comment_count = 0;
 						$badge_komentator_1 = false;
@@ -64,14 +64,14 @@
 						$badge_mailman = false;
 						$badge_count = 0;
 						
-						while($row2a = mysql_fetch_array($data2a)){
+						while($row2a = mysqli_fetch_array($data2a)){
 							$comment_count++;
 						}
 						
-						$data2b = mysql_query("SELECT * FROM `private_messages` WHERE `from` = '$user'");
+						$data2b = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user'");
 						$mail_count = 0;
 						
-						while($row2b = mysql_fetch_array($data2b)){
+						while($row2b = mysqli_fetch_array($data2b)){
 							$mail_count++;
 						}
 						
@@ -115,14 +115,14 @@
 
 						/** Judge Start **/
 
-						$data2 = mysql_query("SELECT * FROM `ratings` WHERE author = '$user'"); 
+						$data2 = mysqli_query($connection, "SELECT * FROM `ratings` WHERE author = '$user'");
 						$ratings_count = 0;
 						$badge_judge = false;
 						$badge_judge_10 = false;
 						$badge_judge_100 = false;
 						$overall_badge_count += 3;
 						
-						while($row2 = mysql_fetch_array($data2)){
+						while($row2 = mysqli_fetch_array($data2)){
 							$ratings_count++;
 						}
 						/*
@@ -229,15 +229,15 @@
 							$years2 = ' - ';	
 						}
 						
-						$comment_data2 = mysql_query("SELECT * FROM `comments` WHERE `comment_author` = '$user' AND `active` = 1 ORDER BY `comment_id` LIMIT 1");
+						$comment_data2 = mysqli_query($connection, "SELECT * FROM `comments` WHERE `comment_author` = '$user' AND `active` = 1 ORDER BY `comment_id` LIMIT 1");
 						
-						while($comment_row2 = mysql_fetch_array($comment_data2)){
+						while($comment_row2 = mysqli_fetch_array($comment_data2)){
 							$first_comment = $comment_row2['timestamp'];
 						}
 						
-						$data = mysql_query("SELECT * FROM `posts` WHERE '$user' = `post_author` AND `public` = 1");
+						$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE '$user' = `post_author` AND `public` = 1");
 						$post_count = 0;
-						while($row2 = mysql_fetch_array($data)){
+						while($row2 = mysqli_fetch_array($data)){
 							$post_count++;
 						}
 						
@@ -328,9 +328,9 @@
 												<h3>POSTS ('.$post_count.')</h3>
 											</div>
 								';
-											$post_data = mysql_query("SELECT * FROM `posts` WHERE `post_author` = '$user' AND `public` = 1 ORDER BY `post_id` DESC");
+											$post_data = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_author` = '$user' AND `public` = 1 ORDER BY `post_id` DESC");
 											$post_count = 0;
-											while($post_row = mysql_fetch_array($post_data)){
+											while($post_row = mysqli_fetch_array($post_data)){
 												$timestamp = strtotime($post_row['timestamp']);
 												$date =  date('d/m/Y', $timestamp);
 												$time = date('G:i', $timestamp);
@@ -382,18 +382,18 @@
 												<h3>COMMENTS ('.$comment_count.')</h3>
 											</div>
 								';
-											$comment_data = mysql_query("SELECT * FROM `comments` WHERE comment_author = '$user'  AND `active` = 1 ORDER BY comment_id DESC");
+											$comment_data = mysqli_query($connection, "SELECT * FROM `comments` WHERE comment_author = '$user'  AND `active` = 1 ORDER BY comment_id DESC");
 											$comment_count = 0;
-											while($comment_row = mysql_fetch_array($comment_data)){
+											while($comment_row = mysqli_fetch_array($comment_data)){
 												$timestamp = strtotime($comment_row['timestamp']);
 												$date =  date('d/m/Y', $timestamp);
 												$time = date('G:i', $timestamp);
 												$comment_count++;
 												$comment_post_id = $comment_row['comment_post_id'];
 												
-												$post_data = mysql_query("SELECT * FROM `posts` WHERE post_id = $comment_post_id");
+												$post_data = mysqli_query($connection, "SELECT * FROM `posts` WHERE post_id = $comment_post_id");
 												
-												while($post_row = mysql_fetch_array($post_data)){
+												while($post_row = mysqli_fetch_array($post_data)){
 													$post_id = $post_row['post_id'];
 													$post_title = $post_row['post_title'];
 													break;

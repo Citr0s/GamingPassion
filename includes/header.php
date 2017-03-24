@@ -168,7 +168,7 @@
 										<li><a href="logout.php">Logout</a></li>
 										<li><a href="messages.php">Private Messages</a></li>';
 
-										if(adminUser() || moduser()){
+										if(adminUser($connection) || moduser($connection)){
 											echo '
 												<li><a href="/techblog/dashboard">Dashbaord</a></li>
 											';
@@ -180,7 +180,7 @@
 							}else{
 								echo '
 									<ul>
-										<li><a href="login.php">My Account</a></li>
+										<li><a hrefg="login.php">My Account</a></li>
 										<li><a href="login.php">Badges</a></li>
 										<li><a href="login.php">Login</a></li>
 										<li><a href="register.php">Register</a></li>

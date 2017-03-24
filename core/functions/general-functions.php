@@ -1,14 +1,14 @@
 <?php
-function sanitise($object){
-	htmlentities(mysql_real_escape_string($object));
+function sanitise($connection, $object){
+	htmlentities(mysqli_real_escape_string($connection, $object));
 }
 function clear($object){
 	htmlentities($object, ENT_QUOTES, 'UTF-8');	
 }
-function notVoted($post_id){
-	$data = mysql_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
+function notVoted($connection, $post_id){
+	$data = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
 
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$author = $row['author'];
 	}
 

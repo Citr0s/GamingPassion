@@ -193,7 +193,7 @@ function showAllPosts($connection){
 			settype($average_rating, 'float');
 		}
 		
-		if(loggedIn() && notVoted($post_id)){
+		if(loggedIn() && notVoted($connection, $post_id)){
 			$rating = '
 	        	<div class="stars-bg">
 	        		<a href="vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>
@@ -396,7 +396,7 @@ function showNewsPosts($connection){
 			settype($average_rating, 'float');
 		}
 		
-		if(loggedIn() && notVoted($post_id)){
+		if(loggedIn() && notVoted($connection, $post_id)){
 			$rating = '
 	        	<div class="stars-bg">
 	        		<a href="vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>
@@ -599,7 +599,7 @@ function showReviewPosts($connection){
 			settype($average_rating, 'float');
 		}
 		
-		if(loggedIn() && notVoted($post_id)){
+		if(loggedIn() && notVoted($connection, $post_id)){
 			$rating = '
 	        	<div class="stars-bg">
 	        		<a href="vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>
@@ -802,7 +802,7 @@ function showGuidePosts(){
 			settype($average_rating, 'float');
 		}
 		
-		if(loggedIn() && notVoted($post_id)){
+		if(loggedIn() && notVoted($connection, $post_id)){
 			$rating = '
 	        	<div class="stars-bg">
 	        		<a href="vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>
@@ -1005,7 +1005,7 @@ function showGameplayPosts(){
 			settype($average_rating, 'float');
 		}
 		
-		if(loggedIn() && notVoted($post_id)){
+		if(loggedIn() && notVoted($connection, $post_id)){
 			$rating = '
 	        	<div class="stars-bg">
 	        		<a href="vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>
@@ -1207,7 +1207,7 @@ function showArchivePosts($connection){
 			settype($average_rating, 'float');
 		}
 		
-		if(loggedIn() && notVoted($post_id)){
+		if(loggedIn() && notVoted($connection, $post_id)){
 			$rating = '
 	        	<div class="stars-bg">
 	        		<a href="vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>
@@ -1383,7 +1383,7 @@ function showOnePost($connection){
 			settype($average_rating, 'float');
 		}
 		
-		if(loggedIn() && notVoted($post_id)){
+		if(loggedIn() && notVoted($connection, $post_id)){
 			$rating = '
 	        	<div class="stars-bg">
 	        		<a href="vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>
@@ -1713,12 +1713,12 @@ function showOnePost($connection){
 		}
 	}
 }
-function receivedMessages(){
+function receivedMessages($connection){
 	$user = $_SESSION['username'];
-	$data = mysql_query("SELECT * FROM `private_messages` WHERE `to` = '$user' AND `active` = 1 ORDER BY `message_id` DESC LIMIT 5");
+	$data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `to` = '$user' AND `active` = 1 ORDER BY `message_id` DESC LIMIT 5");
 	$message_count = 0;
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$message_id = $row['message_id'];
 		$title = $row['title'];
 		$from = $row['from'];
@@ -1777,12 +1777,12 @@ function receivedMessages(){
 		echo '<div class="inbox-post"><center>Your inbox is empty.</center></div>';
 	}
 }
-function receivedMessagesFull(){
+function receivedMessagesFull($connection){
 	$user = $_SESSION['username'];
-	$data = mysql_query("SELECT * FROM `private_messages` WHERE `to` = '$user' AND `active` = 1 ORDER BY `message_id` DESC");
+	$data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `to` = '$user' AND `active` = 1 ORDER BY `message_id` DESC");
 	$message_count = 0;
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$message_id = $row['message_id'];
 		$title = $row['title'];
 		$from = $row['from'];
