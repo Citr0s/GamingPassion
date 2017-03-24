@@ -270,32 +270,7 @@ function showAllPosts($connection){
 					<div class="post-info"><a href="profile.php?user='.$post_author.'">'.$post_author.'</a> at '.$time.' on '.$day.' '.$month.' '.$year.'</div>
 					<div class="post-image"><a href="?id='.$post_id.'"><img src="'.$thumbnail.'" /></a></div>
 					<div class="post-sample">'.$post_content.'<div class="read-full-article"><a href="?id='.$post_id.'" class="read-full-article-hover">Read full post ></a></div></div>
-				</div>';/*
-
-				<div class="post">
-					<div class="float-left">
-						<div class="date">
-							<div class="month">'.$month.'</div>
-							<div class="day">'.$day.'</div>
-						</div>
-					</div>
-					<div class="float-left" style="width:600px;">
-						<span class="post-h1"><a href="/?id='.$post_id.'" title="'.strtoupper($post_title).'">'.strtoupper($post_title).'</a></span>
-						<h6><table><tr><td valign="middle">'.$date.', dodał: <a href="http://gaming-passion.com/profile/?user='.$post_author.'">'.$post_author.'</a> | Ocena:</td><td valign="middle">'.$rating.'</td><td valign="middle">('.$total_ratings.')</td><td><div style="margin-left:5px;">
-					<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fgaming-passion.eu%2Findex.php%3Fpost_id%3D'.$post_id.'&amp;send=false&amp;layout=button_count&amp;width=110&amp;show_faces=false&amp;font=arial&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
-				</div></td></tr></table></h6>
-					</div>
-					<div class="holder"></div>
-					<div class="float-left">
-						<a href="/?id='.$post_id.'" title="'.strtoupper($post_title).'"><div class="small-post-image" style="background-image:url('.$thumbnail.'); "></div></a>
-					</div>
-					<div class="float-left" style="width:370px; padding:0px 15px; text-align:justify;">
-							<p>'.substr($post_content, 0,255).'</p>
-							<p style="float:right;">'.$end.'</p>
-					</div>
-					<div class="holder"></div>
-				</div>
-				';*/
+				</div>';
 		}
 		$comment_count = 0;
 	}
@@ -303,12 +278,12 @@ function showAllPosts($connection){
 		echo '<center><div class="empty_result">Currently there are no records in our database.</div></center>';
 	}
 }
-function showNewsPosts(){
-	$data = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'news' AND `section` = 'pl' AND public = 1 ORDER BY `post_id` DESC LIMIT 10");
+function showNewsPosts($connection){
+	$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'news' AND `section` = 'pl' AND public = 1 ORDER BY `post_id` DESC LIMIT 10");
 	$post_count = 0;
 	$comment_count = 0;
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$timestamp = strtotime($row['timestamp']);
 		$date =  date('d.m.Y', $timestamp);
 		$time = date('G:i', $timestamp);
@@ -390,9 +365,9 @@ function showNewsPosts(){
 
 		$year =  date('Y', $timestamp);
 
-		$comment_data = mysql_query("SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
+		$comment_data = mysqli_query($connection, "SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
 		
-		while($comment_row = mysql_fetch_array($comment_data)){
+		while($comment_row = mysqli_fetch_array($comment_data)){
 			$comment_count++;
 		}
 
@@ -408,8 +383,8 @@ function showNewsPosts(){
 		
 		$total_ratings = 0;
 		$total_score = 0;
-		$datax = mysql_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
-		while($rowx = mysql_fetch_array($datax)){
+		$datax = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
+		while($rowx = mysqli_fetch_array($datax)){
 			$rating = $rowx['rating'];
 			$author = $rowx['author'];
 			$total_score += $rating;
