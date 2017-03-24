@@ -1,9 +1,8 @@
 <?php
-function savePost(){
-
-	$query = mysql_query("SELECT * FROM `posts` ORDER BY `post_id` DESC LIMIT 1");
+function savePost($connection){
+    $query = mysqli_query($connection, "SELECT * FROM `posts` ORDER BY `post_id` DESC LIMIT 1");
 	
-	while($row = mysql_fetch_array($query)){
+	while($row = mysqli_fetch_array($query)){
 		$post_id = $row['post_id'] + 1;
 	}
 
@@ -74,12 +73,12 @@ function savePost(){
 		
 	}
 }
-function showAllPosts(){
-	$data = mysql_query("SELECT * FROM `posts` WHERE section = 'pl' AND public = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
+function showAllPosts($connection){
+	$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE section = 'pl' AND public = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
 	$post_count = 0;
 	$comment_count = 0;
 		
-	while($row = mysql_fetch_array($data)){		
+	while($row = mysqli_fetch_array($data)){
 		$timestamp = strtotime($row['timestamp']);
 		$date =  date('d.m.Y', $timestamp);
 		$time = date('G:i', $timestamp);
@@ -163,9 +162,9 @@ function showAllPosts(){
 
 		$year =  date('Y', $timestamp);
 
-		$comment_data = mysql_query("SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
+		$comment_data = mysqli_query($connection, "SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
 		
-		while($comment_row = mysql_fetch_array($comment_data)){
+		while($comment_row = mysqli_fetch_array($comment_data)){
 			$comment_count++;
 		}
 
@@ -181,8 +180,8 @@ function showAllPosts(){
 		
 		$total_ratings = 0;
 		$total_score = 0;
-		$datax = mysql_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
-		while($rowx = mysql_fetch_array($datax)){
+		$datax = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
+		while($rowx = mysqli_fetch_array($datax)){
 			$rating = $rowx['rating'];
 			$author = $rowx['author'];
 			$total_score += $rating;

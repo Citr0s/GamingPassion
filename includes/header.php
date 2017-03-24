@@ -2,17 +2,15 @@
 	$isMobile = false;
 	$isBot = false;
 
-	$op = strtolower($_SERVER['HTTP_X_OPERAMINI_PHONE']);
 	$ua = strtolower($_SERVER['HTTP_USER_AGENT']);
 	$ac = strtolower($_SERVER['HTTP_ACCEPT']);
 	$ip = $_SERVER['REMOTE_ADDR'];
 
 	$isMobile = strpos($ac, 'application/vnd.wap.xhtml+xml') !== false
-			|| $op != ''
-			|| strpos($ua, 'sony') !== false 
-			|| strpos($ua, 'symbian') !== false 
-			|| strpos($ua, 'nokia') !== false 
-			|| strpos($ua, 'samsung') !== false 
+			|| strpos($ua, 'sony') !== false
+			|| strpos($ua, 'symbian') !== false
+			|| strpos($ua, 'nokia') !== false
+			|| strpos($ua, 'samsung') !== false
 			|| strpos($ua, 'mobile') !== false
 			|| strpos($ua, 'windows ce') !== false
 			|| strpos($ua, 'epoc') !== false
@@ -52,22 +50,22 @@
 			|| strpos($ua, 'wap1.') !== false
 			|| strpos($ua, 'wap2.') !== false;
 
-			$isBot =  $ip == '66.249.65.39' 
-			|| strpos($ua, 'googlebot') !== false 
-			|| strpos($ua, 'mediapartners') !== false 
-			|| strpos($ua, 'yahooysmcm') !== false 
+			$isBot =  $ip == '66.249.65.39'
+			|| strpos($ua, 'googlebot') !== false
+			|| strpos($ua, 'mediapartners') !== false
+			|| strpos($ua, 'yahooysmcm') !== false
 			|| strpos($ua, 'baiduspider') !== false
 			|| strpos($ua, 'msnbot') !== false
 			|| strpos($ua, 'slurp') !== false
 			|| strpos($ua, 'ask') !== false
 			|| strpos($ua, 'teoma') !== false
-			|| strpos($ua, 'spider') !== false 
-			|| strpos($ua, 'heritrix') !== false 
-			|| strpos($ua, 'attentio') !== false 
-			|| strpos($ua, 'twiceler') !== false 
-			|| strpos($ua, 'irlbot') !== false 
-			|| strpos($ua, 'fast crawler') !== false                        
-			|| strpos($ua, 'fastmobilecrawl') !== false 
+			|| strpos($ua, 'spider') !== false
+			|| strpos($ua, 'heritrix') !== false
+			|| strpos($ua, 'attentio') !== false
+			|| strpos($ua, 'twiceler') !== false
+			|| strpos($ua, 'irlbot') !== false
+			|| strpos($ua, 'fast crawler') !== false
+			|| strpos($ua, 'fastmobilecrawl') !== false
 			|| strpos($ua, 'jumpbot') !== false
 			|| strpos($ua, 'googlebot-mobile') !== false
 			|| strpos($ua, 'yahooseeker') !== false

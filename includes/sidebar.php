@@ -1,9 +1,9 @@
 	            <div id="sidebar">
 				<?php
-	                $data = mysql_query("SELECT * FROM `posts` WHERE `section` = 'pl' AND public = 1 ORDER BY `post_id` DESC LIMIT 10, 10"); 
+	                $data = mysqli_query($connection, "SELECT * FROM `posts` WHERE `section` = 'pl' AND public = 1 ORDER BY `post_id` DESC LIMIT 10, 10");
 	                $post_count = 0;
 	                
-	                while($row = mysql_fetch_array($data)){
+	                while($row = mysqli_fetch_array($data)){
 	                    
 	                    $timestamp = strtotime($row['timestamp']);
 	                    $date =  date('d/m/Y', $timestamp);

@@ -22,7 +22,7 @@
 					if(isset($_GET['id'])){
 						showOnePost();
 					}else{
-						showAllPosts();
+						showAllPosts($connection);
 					}
 				?>
 				</div>
