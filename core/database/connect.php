@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '../../credentials.php';
+    require_once __DIR__ . '/../../credentials.php';
 
 	$mysql_host = DB_HOST;
 	$mysql_database = DB_DATABASE;
