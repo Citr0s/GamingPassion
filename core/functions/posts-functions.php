@@ -1317,16 +1317,16 @@ function showArchivePosts(){
 		echo '<center><div class="empty_result">Currently there are no records in our database.</div></center>';
 	}
 }
-function showOnePost(){
+function showOnePost($connection){
 	if(isset($_GET['id'])){
 		$post_id = $_GET['id'];
 	}elseif(isset($_GET['post_id'])){
 		$post_id = $_GET['post_id'];
 	}
 	
-	$data2 = mysql_query("SELECT * FROM `posts` ORDER BY post_id DESC LIMIT 1");
+	$data2 = mysqli_query($connection, "SELECT * FROM `posts` ORDER BY post_id DESC LIMIT 1");
 	
-	while($row2 = mysql_fetch_array($data2)){
+	while($row2 = mysqli_fetch_array($data2)){
 		$top_post_id = $row2['post_id'];		
 	}
 	
@@ -1334,10 +1334,10 @@ function showOnePost(){
 		echo '<center><h1>Post not found.</h1><br /><p><a href="index.php">HOME</a></p></center>';
 	}
 	
-	$data = mysql_query("SELECT * FROM `posts` WHERE section = 'pl' AND `post_id` = $post_id ORDER BY `post_id` DESC LIMIT 1");	
+	$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE section = 'pl' AND `post_id` = $post_id ORDER BY `post_id` DESC LIMIT 1");
 	$comment_count = 0;
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$timestamp = strtotime($row['timestamp']);
 		$date =  date('d.m.Y', $timestamp);
 		$time = date('G:i', $timestamp);
@@ -1395,8 +1395,8 @@ function showOnePost(){
 		
 		$total_ratings = 0;
 		$total_score = 0;
-		$datax = mysql_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
-		while($rowx = mysql_fetch_array($datax)){
+		$datax = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
+		while($rowx = mysqli_fetch_array($datax)){
 			$rating = $rowx['rating'];
 			$author = $rowx['author'];
 			$total_score += $rating;
@@ -1462,33 +1462,34 @@ function showOnePost(){
 		}
 		
 
-		$comment_data = mysql_query("SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
+		$comment_data = mysqli_query($connection, "SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
 		
-		while($comment_row = mysql_fetch_array($comment_data)){
+		while($comment_row = mysqli_fetch_array($comment_data)){
 			$comment_count++;
 		}
 
 		if(empty($thumbnail)){
 			$thumbnail = 'css/images/image-missing.png';	
 		}
-		
-		$user = $_SESSION['username'];
-		$data = mysql_query("SELECT * FROM `comments` WHERE `comment_author` = '$user' ORDER BY timestamp DESC LIMIT 1");
-		
-		while($row = mysql_fetch_array($data)){
-			$last_comment_time = $row['timestamp'];
-		}
-		
-		$last_comment_time = strtotime($last_comment_time);
-		$today = time();
 
-		$time_difference = $today - $last_comment_time;
-		
-		$time_difference = 300 - $time_difference;
-		
-		$minutes = intval(date('i', $time_difference));
-		$seconds = intval(date('s', $time_difference));
-		
+		if(isset($_SESSION['username'])) {
+            $user = $_SESSION['username'];
+            $data = mysqli_query($connection, "SELECT * FROM `comments` WHERE `comment_author` = '$user' ORDER BY timestamp DESC LIMIT 1");
+
+            while ($row = mysqli_fetch_array($data)) {
+                $last_comment_time = $row['timestamp'];
+            }
+
+            $last_comment_time = strtotime($last_comment_time);
+            $today = time();
+
+            $time_difference = $today - $last_comment_time;
+
+            $time_difference = 300 - $time_difference;
+
+            $minutes = intval(date('i', $time_difference));
+            $seconds = intval(date('s', $time_difference));
+        }
 		if($public == 1 || adminUser()){
 				if(isset($_GET['success'])){
 					echo '<div class="green-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Your comment has been successfully posted.</td></tr></table></div>';
@@ -1569,8 +1570,8 @@ function showOnePost(){
 				</div>
 			<h2 style="border-bottom:2px solid #ccc; padding-bottom:3px;">Tags</h2>
 			';
-				$tags_data = mysql_query("SELECT * FROM `posts` WHERE post_id = $post_id");
-				while($tags_row = mysql_fetch_array($tags_data)){
+				$tags_data = mysqli_query($connection, "SELECT * FROM `posts` WHERE post_id = $post_id");
+				while($tags_row = mysqli_fetch_array($tags_data)){
 						$tags = explode(", ", $tags_row['tags']);
 						$a = count($tags);
 						$b = 0;
@@ -1590,9 +1591,9 @@ function showOnePost(){
 				'; ?>
 			<?php			
 				$post_id = $_GET['id'];
-                $comment_data = mysql_query("SELECT * FROM `comments` WHERE `comment_post_id` = '$post_id' AND `active` = 1 ORDER BY timestamp DESC");
+                $comment_data = mysqli_query($connection, "SELECT * FROM `comments` WHERE `comment_post_id` = '$post_id' AND `active` = 1 ORDER BY timestamp DESC");
 				$comment_count = 0;
-				while($comment_row = mysql_fetch_array($comment_data)){
+				while($comment_row = mysqli_fetch_array($comment_data)){
 					$timestamp = strtotime($comment_row['timestamp']);
 					$date =  date('d.m.Y', $timestamp);
 					$time = date('G:i', $timestamp);
