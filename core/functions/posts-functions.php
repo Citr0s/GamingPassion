@@ -481,12 +481,12 @@ function showNewsPosts($connection){
 		echo '<center><div class="empty_result">Currently there are no records in our database.</div></center>';
 	}
 }
-function showReviewPosts(){
-	$data = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'recenzja' AND `section` = 'pl' AND public = 1 ORDER BY `post_id` DESC LIMIT 10");
+function showReviewPosts($connection){
+	$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'recenzja' AND `section` = 'pl' AND public = 1 ORDER BY `post_id` DESC LIMIT 10");
 	$post_count = 0;
 	$comment_count = 0;
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$timestamp = strtotime($row['timestamp']);
 		$date =  date('d.m.Y', $timestamp);
 		$time = date('G:i', $timestamp);
