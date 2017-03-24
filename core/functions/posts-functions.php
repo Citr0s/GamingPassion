@@ -80,8 +80,6 @@ function showAllPosts($connection){
 		
 	while($row = mysqli_fetch_array($data)){
 		$timestamp = strtotime($row['timestamp']);
-		$date =  date('d.m.Y', $timestamp);
-		$time = date('G:i', $timestamp);
 		$post_id = $row['post_id'];
 		$post_title = $row['post_title'];
 		$post_author = $row['post_author'];
@@ -94,26 +92,6 @@ function showAllPosts($connection){
 		$years_ago = intval(((time() - $timestamp) / 86400) / 365);
 
 		$time = date("H:i", $timestamp);
-		
-		if($hours_ago < 1){
-			$hours_ago = 'less than an hour ago';
-		}elseif($hours_ago == 1){
-			$hours_ago = $hours_ago.' hour ago';
-		}elseif($hours_ago < 5){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 5 && $hours_ago < 22){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 22 && $hours_ago < 24){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 24 && $days_ago == 1){
-			$hours_ago = $days_ago.' day ago';
-		}elseif($days_ago > 1){
-			$hours_ago = $days_ago.' days ago';
-		}elseif($days_ago > 365 && $years_ago >= 1){
-			$hours_ago = $years_ago.' year ago';
-		}elseif($years_ago > 1){
-			$hours_ago = $years_ago.' years ago';
-		}
 		
 		$day =  date('d', $timestamp);
 		$month =  date('m', $timestamp);
@@ -170,12 +148,6 @@ function showAllPosts($connection){
 
 		if(empty($thumbnail)){
 			$thumbnail = 'css/images/image-missing.png';	
-		}
-		
-		if(strlen($post_content) > 255){
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(czytaj dalej / skomentuj)</a>';
-		}else{
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(skomentuj)</a>';
 		}
 		
 		$total_ratings = 0;
@@ -298,26 +270,6 @@ function showNewsPosts($connection){
 		$days_ago = intval((time() - $timestamp) / 86400);
 		$years_ago = intval(((time() - $timestamp) / 86400) / 365);
 		
-		if($hours_ago < 1){
-			$hours_ago = 'less than an hour ago';
-		}elseif($hours_ago == 1){
-			$hours_ago = $hours_ago.' hour ago';
-		}elseif($hours_ago < 5){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 5 && $hours_ago < 22){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 22 && $hours_ago < 24){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 24 && $days_ago == 1){
-			$hours_ago = $days_ago.' day ago';
-		}elseif($days_ago > 1){
-			$hours_ago = $days_ago.' days ago';
-		}elseif($days_ago > 365 && $years_ago >= 1){
-			$hours_ago = $years_ago.' year ago';
-		}elseif($years_ago > 1){
-			$hours_ago = $years_ago.' years ago';
-		}
-		
 		$day =  date('d', $timestamp);
 		$month =  date('m', $timestamp);
 		
@@ -375,18 +327,11 @@ function showNewsPosts($connection){
 			$thumbnail = 'css/images/image-missing.png';	
 		}
 		
-		if(strlen($post_content) > 255){
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(czytaj dalej / skomentuj)</a>';
-		}else{
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(skomentuj)</a>';
-		}
-		
 		$total_ratings = 0;
 		$total_score = 0;
 		$datax = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
 		while($rowx = mysqli_fetch_array($datax)){
 			$rating = $rowx['rating'];
-			$author = $rowx['author'];
 			$total_score += $rating;
 			$total_ratings++;
 		}
@@ -501,26 +446,6 @@ function showReviewPosts($connection){
 		$days_ago = intval((time() - $timestamp) / 86400);
 		$years_ago = intval(((time() - $timestamp) / 86400) / 365);
 		
-		if($hours_ago < 1){
-			$hours_ago = 'less than an hour ago';
-		}elseif($hours_ago == 1){
-			$hours_ago = $hours_ago.' hour ago';
-		}elseif($hours_ago < 5){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 5 && $hours_ago < 22){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 22 && $hours_ago < 24){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 24 && $days_ago == 1){
-			$hours_ago = $days_ago.' day ago';
-		}elseif($days_ago > 1){
-			$hours_ago = $days_ago.' days ago';
-		}elseif($days_ago > 365 && $years_ago >= 1){
-			$hours_ago = $years_ago.' year ago';
-		}elseif($years_ago > 1){
-			$hours_ago = $years_ago.' years ago';
-		}
-		
 		$day =  date('d', $timestamp);
 		$month =  date('m', $timestamp);
 		
@@ -578,18 +503,11 @@ function showReviewPosts($connection){
 			$thumbnail = 'css/images/image-missing.png';	
 		}
 		
-		if(strlen($post_content) > 255){
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(czytaj dalej / skomentuj)</a>';
-		}else{
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(skomentuj)</a>';
-		}
-		
 		$total_ratings = 0;
 		$total_score = 0;
-		$datax = mysql_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
+		$datax = mysqli_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
 		while($rowx = mysql_fetch_array($datax)){
 			$rating = $rowx['rating'];
-			$author = $rowx['author'];
 			$total_score += $rating;
 			$total_ratings++;
 		}
@@ -704,26 +622,6 @@ function showGuidePosts(){
 		$days_ago = intval((time() - $timestamp) / 86400);
 		$years_ago = intval(((time() - $timestamp) / 86400) / 365);
 		
-		if($hours_ago < 1){
-			$hours_ago = 'less than an hour ago';
-		}elseif($hours_ago == 1){
-			$hours_ago = $hours_ago.' hour ago';
-		}elseif($hours_ago < 5){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 5 && $hours_ago < 22){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 22 && $hours_ago < 24){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 24 && $days_ago == 1){
-			$hours_ago = $days_ago.' day ago';
-		}elseif($days_ago > 1){
-			$hours_ago = $days_ago.' days ago';
-		}elseif($days_ago > 365 && $years_ago >= 1){
-			$hours_ago = $years_ago.' year ago';
-		}elseif($years_ago > 1){
-			$hours_ago = $years_ago.' years ago';
-		}
-		
 		$day =  date('d', $timestamp);
 		$month =  date('m', $timestamp);
 		
@@ -781,18 +679,11 @@ function showGuidePosts(){
 			$thumbnail = 'css/images/image-missing.png';	
 		}
 		
-		if(strlen($post_content) > 255){
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(czytaj dalej / skomentuj)</a>';
-		}else{
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(skomentuj)</a>';
-		}
-		
 		$total_ratings = 0;
 		$total_score = 0;
 		$datax = mysql_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
 		while($rowx = mysql_fetch_array($datax)){
 			$rating = $rowx['rating'];
-			$author = $rowx['author'];
 			$total_score += $rating;
 			$total_ratings++;
 		}
@@ -894,7 +785,6 @@ function showGameplayPosts(){
 	
 	while($row = mysql_fetch_array($data)){
 		$timestamp = strtotime($row['timestamp']);
-		$date =  date('d.m.Y', $timestamp);
 		$time = date('G:i', $timestamp);
 		$post_id = $row['post_id'];
 		$post_title = $row['post_title'];
@@ -906,26 +796,6 @@ function showGameplayPosts(){
 		$hours_ago = intval((time() - $timestamp) / 3600);
 		$days_ago = intval((time() - $timestamp) / 86400);
 		$years_ago = intval(((time() - $timestamp) / 86400) / 365);
-		
-		if($hours_ago < 1){
-			$hours_ago = 'less than an hour ago';
-		}elseif($hours_ago == 1){
-			$hours_ago = $hours_ago.' hour ago';
-		}elseif($hours_ago < 5){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 5 && $hours_ago < 22){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 22 && $hours_ago < 24){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 24 && $days_ago == 1){
-			$hours_ago = $days_ago.' day ago';
-		}elseif($days_ago > 1){
-			$hours_ago = $days_ago.' days ago';
-		}elseif($days_ago > 365 && $years_ago >= 1){
-			$hours_ago = $years_ago.' year ago';
-		}elseif($years_ago > 1){
-			$hours_ago = $years_ago.' years ago';
-		}
 		
 		$day =  date('d', $timestamp);
 		$month =  date('m', $timestamp);
@@ -984,18 +854,11 @@ function showGameplayPosts(){
 			$thumbnail = 'css/images/image-missing.png';	
 		}
 		
-		if(strlen($post_content) > 255){
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(czytaj dalej / skomentuj)</a>';
-		}else{
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(skomentuj)</a>';
-		}
-		
 		$total_ratings = 0;
 		$total_score = 0;
 		$datax = mysql_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
 		while($rowx = mysql_fetch_array($datax)){
 			$rating = $rowx['rating'];
-			$author = $rowx['author'];
 			$total_score += $rating;
 			$total_ratings++;
 		}
@@ -1096,7 +959,6 @@ function showArchivePosts($connection){
 	
 	while($row = mysqli_fetch_array($data)){
 		$timestamp = strtotime($row['timestamp']);
-		$date =  date('d.m.Y', $timestamp);
 		$time = date('G:i', $timestamp);
 		$post_id = $row['post_id'];
 		$post_title = $row['post_title'];
@@ -1108,27 +970,7 @@ function showArchivePosts($connection){
 		$hours_ago = intval((time() - $timestamp) / 3600);
 		$days_ago = intval((time() - $timestamp) / 86400);
 		$years_ago = intval(((time() - $timestamp) / 86400) / 365);
-		
-		if($hours_ago < 1){
-			$hours_ago = 'less than an hour ago';
-		}elseif($hours_ago == 1){
-			$hours_ago = $hours_ago.' hour ago';
-		}elseif($hours_ago < 5){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 5 && $hours_ago < 22){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 22 && $hours_ago < 24){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 24 && $days_ago == 1){
-			$hours_ago = $days_ago.' day ago';
-		}elseif($days_ago > 1){
-			$hours_ago = $days_ago.' days ago';
-		}elseif($days_ago > 365 && $years_ago >= 1){
-			$hours_ago = $years_ago.' year ago';
-		}elseif($years_ago > 1){
-			$hours_ago = $years_ago.' years ago';
-		}
-		
+
 		$day =  date('d', $timestamp);
 		$month =  date('m', $timestamp);
 		
@@ -1186,18 +1028,11 @@ function showArchivePosts($connection){
 			$thumbnail = 'css/images/image-missing.png';	
 		}
 		
-		if(strlen($post_content) > 255){
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(czytaj dalej / skomentuj)</a>';
-		}else{
-			$end = '<a href="?id='.$post_id.'" title="'.strtoupper($post_title).'">(skomentuj)</a>';
-		}
-		
 		$total_ratings = 0;
 		$total_score = 0;
 		$datax = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
 		while($rowx = mysqli_fetch_array($datax)){
 			$rating = $rowx['rating'];
-			$author = $rowx['author'];
 			$total_score += $rating;
 			$total_ratings++;
 		}
@@ -1373,7 +1208,6 @@ function showOnePost($connection){
 		$datax = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
 		while($rowx = mysqli_fetch_array($datax)){
 			$rating = $rowx['rating'];
-			$author = $rowx['author'];
 			$total_score += $rating;
 			$total_ratings++;
 		}
@@ -1415,27 +1249,6 @@ function showOnePost($connection){
 		$hours_ago = intval((time() - $timestamp) / 3600);
 		$days_ago = intval((time() - $timestamp) / 86400);
 		$years_ago = intval(((time() - $timestamp) / 86400) / 365);
-		
-		if($hours_ago < 1){
-			$hours_ago = 'less than an hour ago';
-		}elseif($hours_ago == 1){
-			$hours_ago = $hours_ago.' hour ago';
-		}elseif($hours_ago < 5){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 5 && $hours_ago < 22){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 22 && $hours_ago < 24){
-			$hours_ago = $hours_ago.' hours ago';
-		}elseif($hours_ago >= 24 && $days_ago == 1){
-			$hours_ago = $days_ago.' day ago';
-		}elseif($days_ago > 1){
-			$hours_ago = $days_ago.' days ago';
-		}elseif($days_ago > 365 && $years_ago >= 1){
-			$hours_ago = $years_ago.' year ago';
-		}elseif($years_ago > 1){
-			$hours_ago = $years_ago.' years ago';
-		}
-		
 
 		$comment_data = mysqli_query($connection, "SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
 		
