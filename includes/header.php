@@ -71,7 +71,7 @@
 			<div class="container">
 				<div class="float-left">
 					<div style="width:0px;">
-						<a href="/techblog"><img src="css/images/logo-main.jpg" alt="gaming passion logo" /></a>
+						<a href="/"><img src="css/images/logo-main.jpg" alt="gaming passion logo" /></a>
 					</div>
 				</div>
 				<div class="float-right">
