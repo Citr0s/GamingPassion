@@ -16,7 +16,7 @@
 		$(function(){	
 			$("#slideshow > div:gt(0)").hide();
 			setInterval(function() { 
-			  $('#slideshow > div:first')
+			  $('#slideshoiw > div:first')
 			    .fadeOut(1000)
 			    .next()
 			    .fadeIn(1000)
@@ -82,7 +82,7 @@
 							if(isset($_SESSION['username'])){
 								echo '
 									<ul>
-										<li><a href="profile.php?user='.$username.'">My Account ('.$_SESSION['username'].')</a></li>
+										<li><a href="profile.php?user='.$user->username.'">My Account ('.$user->username.')</a></li>
 										<li><a href="badges.php">Badges</a></li>
 										<li><a href="logout.php">Logout</a></li>
 										<li><a href="messages.php">Private Messages</a></li>';

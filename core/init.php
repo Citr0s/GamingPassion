@@ -13,27 +13,8 @@
 	require_once 'functions/users-functions.php';
 	require_once 'functions/error-functions.php';
 
-    if(isset($_SESSION['username'])){
-	    $username = $_SESSION['username'];
-
-        $data = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$username'");
-
-        while($row = mysqli_fetch_array($data)){
-            $user_id = $row['user_id'];
-            $username = $row['username'];
-            $email = $row['email'];
-            $gender = $row['gender'];
-            $home = $row['home'];
-            $active = $row['active'];
-            $joined = $row['joined'];
-            $thumbnail = $row['thumbnail'];
-            $status = $row['status'];
-        }
+    if(isset($_SESSION['username']))
+    {
+        $user = $databaseInstance->getUserByUsername($_SESSION['username']);
     }
-
-	if(empty($thumbnail)){
-		$thumbnail = 'css/images/image-missing.jpg';	
-	}
-
-	$time =  date('H:i', time());
 ?>
