@@ -45,7 +45,7 @@
 											<div class="footer-heading">My account</div>
 										</li>
 										<li>
-											<a href="profile.php?user='.$username.'">My Profile</a>
+											<a href="profile.php?user='.$_SESSION['username'].'">My Profile</a>
 										</li>
 										<li>
 											<a href="messages.php">Private Messages</a>
