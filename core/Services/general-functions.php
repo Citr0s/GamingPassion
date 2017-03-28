@@ -9,12 +9,12 @@ function notVoted($connection, $post_id){
 	$data = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
 
 	while($row = mysqli_fetch_array($data)){
-		$author = $row['author'];
+        if($row['author'] === $_SESSION['username']){
+            return false;
+        }
 	}
 
-	if($author != $_SESSION['username']){
-		return true;
-	}
+	return true;
 }
 function generateNewPassword($length) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

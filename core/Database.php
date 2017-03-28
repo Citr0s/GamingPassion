@@ -1,5 +1,7 @@
 <?php namespace GamingPassion;
 
+use GamingPassion\Models\GetAllRatingsResponse;
+use GamingPassion\Models\Rating;
 use GamingPassion\Models\User;
 use GamingPassion\Models\Post;
 use GamingPassion\Models\ValidationResponse;
@@ -50,12 +52,43 @@ class Database
             $post->id = $row['post_id'];
             $post->title = $row['post_title'];
             $post->author = $row['post_author'];
-            $post->content = $row['post_content'];
+            $post->content = $post_content = preg_replace('/\s+?(\S+)?$/', '', substr($row['post_content'], 0, 255));
             $post->createdAt = strtotime($row['timestamp']);
             $post->thumbnail = $row['thumbnail'];
 
             array_push($response, $post);
         }
+
+        return $response;
+    }
+
+    public function getAllRatingsFor($postId)
+    {
+        $ratings = [];
+        $totalRatings = 0;
+
+        $databaseResponse = $this->connection->query( "SELECT * FROM `ratings` WHERE `post_id` = {$postId}");
+
+        while($row = $databaseResponse->fetch_assoc())
+        {
+            $rating = new Rating();
+
+            $rating->score = $row['rating'];
+            $rating->author = $row['author'];
+
+            $totalRatings += $rating->score;
+
+            array_push($ratings, $rating);
+        }
+
+        $response = new GetAllRatingsResponse();
+
+        if($totalRatings === 0){
+            return $response;
+        }
+
+        $response->ratings = $ratings;
+        $response->average = round($totalRatings / sizeof($ratings), 1);
 
         return $response;
     }

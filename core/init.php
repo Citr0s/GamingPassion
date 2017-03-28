@@ -1,6 +1,7 @@
 <?php namespace GamingPassion;
 
     use GamingPassion\Services\PostService;
+    use GamingPassion\Services\RatingService;
 
     require __DIR__ . '/../vendor/autoload.php';
     require_once __DIR__ . '/../credentials.php';
@@ -27,4 +28,5 @@
     }
 
     $postService = new PostService($databaseInstance);
+    $ratingService = new RatingService($databaseInstance);
 ?>
