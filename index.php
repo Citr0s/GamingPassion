@@ -46,11 +46,11 @@
                                         <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;"><img src="css/images/share-button.png" style="border:none; height:20px;" title="Share on Facebook" /></a>
                                     </td>
                                     <td>
-                                        <a href="https://twitter.com/share" class="twitter-share-button" data-text="'.strtoupper($post_title).'" data-via="GamingPassionPL">Tweet</a>
+                                        <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?php echo $post->title; ?>" data-via="GamingPassionPL">Tweet</a>
                                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                                     </td>
                                     <td>
-                                        <div class="g-plusone" data-size="medium" data-href="http://miloszdura.com/techblog/?id='.$post_id.'"></div>
+                                        <div class="g-plusone" data-size="medium" data-href="https://techblog.miloszdura.com/?id=<?php echo $post->id; ?>"></div>
                                             <script type="text/javascript">
                                                 window.___gcfg = {lang: 'en-GB'};
 

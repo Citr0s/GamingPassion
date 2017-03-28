@@ -52,7 +52,7 @@ class Database
             $post->id = $row['post_id'];
             $post->title = $row['post_title'];
             $post->author = $row['post_author'];
-            $post->content = $post_content = preg_replace('/\s+?(\S+)?$/', '', substr($row['post_content'], 0, 255));
+            $post->content = preg_replace('/\s+?(\S+)?$/', '', substr($row['post_content'], 0, 255));
             $post->createdAt = strtotime($row['timestamp']);
             $post->thumbnail = $row['thumbnail'];
 
