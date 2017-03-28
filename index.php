@@ -19,8 +19,6 @@
 			<div id="index-landing">
 				<div id="main-content">
 				<?php
-                    $postService = new \GamingPassion\functions\PostFunctions($databaseInstance);
-
 					if(isset($_GET['id'])){
                         $postService->showOnePost($_GET['id']);
 					}else{

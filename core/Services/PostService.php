@@ -1,8 +1,8 @@
-<?php namespace GamingPassion\functions;
+<?php namespace GamingPassion\Services;
 
 use GamingPassion\Database;
 
-class PostFunctions
+class PostService
 {
     private $database;
 
