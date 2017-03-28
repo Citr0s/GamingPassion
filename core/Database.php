@@ -1,6 +1,7 @@
 <?php namespace GamingPassion;
 
 use GamingPassion\Models\User;
+use GamingPassion\Models\Post;
 use GamingPassion\Models\ValidationResponse;
 
 class Database
@@ -32,6 +33,29 @@ class Database
         $response->joined = $row['joined'];
         $response->thumbnail = $row['thumbnail'];
         $response->status = $row['status'];
+
+        return $response;
+    }
+
+    public function getAllPosts()
+    {
+        $response = [];
+
+        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE public = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
+
+        while($row = $databaseResponse->fetch_assoc())
+        {
+            $post = new Post();
+
+            $post->id = $row['post_id'];
+            $post->title = $row['post_title'];
+            $post->author = $row['post_author'];
+            $post->content = $row['post_content'];
+            $post->createdAt = strtotime($row['timestamp']);
+            $post->thumbnail = $row['thumbnail'];
+
+            array_push($response, $post);
+        }
 
         return $response;
     }

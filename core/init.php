@@ -8,10 +8,10 @@
 
     session_start();
 
-	require_once 'functions/general-functions.php';
-	require_once 'functions/posts-functions.php';
-	require_once 'functions/users-functions.php';
-	require_once 'functions/error-functions.php';
+	require_once 'Services/general-functions.php';
+	require_once 'Services/PostService.php';
+	require_once 'Services/users-functions.php';
+	require_once 'Services/error-functions.php';
 
     if(isset($_SESSION['username']))
     {
