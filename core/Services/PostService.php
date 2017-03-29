@@ -1,32 +1,35 @@
 <?php namespace GamingPassion\Services;
 
 use GamingPassion\Database;
+use GamingPassion\Factories\PostFactory;
 
 class PostService
 {
     private $database;
+    private $postFactory;
 
-    function __construct(Database $database)
+    function __construct(Database $database, PostFactory $postFactory)
     {
     	$this->database = $database;
+        $this->postFactory = $postFactory;
     }
 
 	public function getAll(){
-        return  $this->database->getAllPosts();
+        return  $this->postFactory->getAllPosts();
 	}
 
     public function getAllFor($category)
     {
-        return  $this->database->getAllPostsFor($category);
+        return  $this->postFactory->getAllPostsFor($category);
     }
 
     public function getArchived()
     {
-        return  $this->database->getAllArchivedPosts();
+        return  $this->postFactory->getAllArchivedPosts();
     }
     
 	function showOnePost($id){
-		$post = $this->database->getSinglePostFor($id);
+		$post = $this->postFactory->getSinglePostFor($id);
 
 		$comment_count = 0;
 
