@@ -32,7 +32,7 @@
                         foreach($posts as $post)
                         {
 
-                            $ratingsResponse = $ratingService->getAllFor($post->id);
+                            $ratingsResponse = $ratingFactory->getAllRatingsFor($post->id);
                 ?>
                     <div class="post">
                         <div class="post-title"><a href="?id=<?php echo $post->id; ?>"><?php echo strtoupper($post->title); ?></a></div>

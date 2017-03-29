@@ -1,6 +1,8 @@
 <?php namespace GamingPassion;
 
     use GamingPassion\Factories\PostFactory;
+    use GamingPassion\Factories\RatingFactory;
+    use GamingPassion\Factories\UserFactory;
     use GamingPassion\Services\PostService;
     use GamingPassion\Services\RatingService;
 
@@ -25,9 +27,10 @@
 
     if(isset($_SESSION['username']))
     {
-        $user = $databaseInstance->getUserByUsername($_SESSION['username']);
+        $userFactory = new UserFactory($databaseInstance);
+        $user = $userFactory->getUserByUsername($_SESSION['username']);
     }
 
-    $postService = new PostService($databaseInstance, new PostFactory($databaseInstance));
-    $ratingService = new RatingService($databaseInstance);
+    $ratingFactory = new RatingFactory($databaseInstance);
+    $postService = new PostService($databaseInstance, new PostFactory($databaseInstance), $ratingFactory);
 ?>

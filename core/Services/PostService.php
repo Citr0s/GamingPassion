@@ -2,16 +2,19 @@
 
 use GamingPassion\Database;
 use GamingPassion\Factories\PostFactory;
+use GamingPassion\Factories\RatingFactory;
 
 class PostService
 {
     private $database;
     private $postFactory;
+    private $ratingFactory;
 
-    function __construct(Database $database, PostFactory $postFactory)
+    function __construct(Database $database, PostFactory $postFactory, RatingFactory $ratingFactory)
     {
     	$this->database = $database;
         $this->postFactory = $postFactory;
+        $this->ratingFactory = $ratingFactory;
     }
 
 	public function getAll(){
@@ -88,8 +91,7 @@ class PostService
 					break;
 			}
 
-        	$ratingService = new RatingService($this->database);
-        	$ratingsResponse = $ratingService->getAllFor($post->id);
+        	$ratingsResponse = $this->ratingFactory->getAllRatingsFor($post->id);
 
 			if(loggedIn() && notVoted($this->database->connection, $id)){
 				$rating = '
