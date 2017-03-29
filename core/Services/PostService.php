@@ -85,45 +85,24 @@ class PostService
 					break;
 			}
 
-			$total_ratings = 0;
-			$total_score = 0;
-			$datax = mysqli_query($this->database->connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
-			while($rowx = mysqli_fetch_array($datax)){
-				$rating = $rowx['rating'];
-				$total_score += $rating;
-				$total_ratings++;
-			}
+        	$ratingService = new RatingService($this->database);
+        	$ratingsResponse = $ratingService->getAllFor($post->id);
 
-			if($total_ratings != 0){
-				$average_rating = round($total_score / $total_ratings, 1);
-				settype($average_rating, 'float');
-			}
-
-			if(loggedIn() && notVoted($this->database->connection, $post_id)){
+			if(loggedIn() && notVoted($this->database->connection, $id)){
 				$rating = '
 					<div class="stars-bg">
-						<a href="vote.php?post_id='.$post_id.'&rating=1"><div class="star-1"></div></a>
-						<a href="vote.php?post_id='.$post_id.'&rating=2"><div class="star-2"></div></a>
-						<a href="vote.php?post_id='.$post_id.'&rating=3"><div class="star-3"></div></a>
-						<a href="vote.php?post_id='.$post_id.'&rating=4"><div class="star-4"></div></a>
-						<a href="vote.php?post_id='.$post_id.'&rating=5"><div class="star-5"></div></a>
-						<a href="vote.php?post_id='.$post_id.'&rating=6"><div class="holder"></div></a>
+						<a href="vote.php?post_id='.$id.'&rating=1"><div class="star-1"></div></a>
+						<a href="vote.php?post_id='.$id.'&rating=2"><div class="star-2"></div></a>
+						<a href="vote.php?post_id='.$id.'&rating=3"><div class="star-3"></div></a>
+						<a href="vote.php?post_id='.$id.'&rating=4"><div class="star-4"></div></a>
+						<a href="vote.php?post_id='.$id.'&rating=5"><div class="star-5"></div></a>
+						<a href="vote.php?post_id='.$id.'&rating=6"><div class="holder"></div></a>
 					</div>
 				';
 			}else{
-				if($total_score <= 0){
-					$rating = '<img src="css/images/rating-0-stars.png" title="'.$total_score.'/5" />';
-				}elseif($average_rating <= 1){
-					$rating = '<img src="css/images/rating-1-star.png" title="'.$average_rating.'/5" />';
-				}elseif($average_rating <= 2){
-					$rating = '<img src="css/images/rating-2-stars.png" title="'.$average_rating.'/5" />';
-				}elseif($average_rating <= 3){
-					$rating = '<img src="css/images/rating-3-stars.png" title="'.$average_rating.'/5" />';
-				}elseif($average_rating <= 4){
-					$rating = '<img src="css/images/rating-4-stars.png" title="'.$average_rating.'/5" />';
-				}elseif($average_rating <= 5){
-					$rating = '<img src="css/images/rating-5-stars.png" title="'.$average_rating.'/5" />';
-				}
+                $ratingAverage = $ratingsResponse->average === null ? 0 : $ratingsResponse->average;
+
+				$rating = "<img src=\"css/images/rating-{$ratingAverage}-stars.png\" title=\"{$ratingAverage}/5\" />";
 			}
 
 			$year =  date('Y', $timestamp);
@@ -173,17 +152,9 @@ class PostService
 						echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Not too fast! You can comment again in <strong>'.$minutes.'</strong> minutes and <strong>'.$seconds.'</strong> seconds.</td></tr></table></div>';
 					}
 
-					if($category == 'news'){
-						$category_en = 'news';
-					}elseif($category == 'recenzja'){
-						$category_en = 'reviews';
-					}elseif($category == 'gameplay'){
-						$category_en = 'gameplay';
-					}
-
 			echo '
 				<p>
-					<strong>You are here:</strong> <a href="\techblog">HOME</a> > <a href="'.$category_en.'.php">'.strtoupper($category).'</a> > <a href="?id='.$post_id.'">'.strtoupper($post_title).'</a>
+					<strong>You are here:</strong> <a href="\techblog">HOME</a> > <a href="'.$post->category.'.php">'.strtoupper($category).'</a> > <a href="?id='.$post_id.'">'.strtoupper($post_title).'</a>
 				</p>
 				<div class="holder"></div>
 					<div class="post" style="margin-top:15px;">
@@ -223,7 +194,7 @@ class PostService
 									<td>
 										<table>
 											<tr>
-												<td>Rating:</td><td>'.$rating.'</td><td>('.$total_ratings.')</td>
+												<td>Rating:</td><td>'.$rating.'</td><td>('.sizeof($ratingsResponse->ratings).')</td>
 											</tr>
 										</table>
 									</td>

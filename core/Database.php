@@ -66,7 +66,7 @@ class Database
     {
         $response = [];
 
-        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE `post_category` = '{$category}' AND `public`` = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
+        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE `post_category` = '{$category}' AND `public` = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
 
         while($row = $databaseResponse->fetch_assoc())
         {
@@ -169,6 +169,14 @@ class Database
         $post->createdAt = strtotime($row['timestamp']);
         $post->thumbnail = $row['thumbnail'];
         $post->category = $row['post_category'];
+
+        if($post->category == 'news'){
+            $post->category = 'news';
+        }elseif($post->category == 'recenzja'){
+            $post->category = 'reviews';
+        }elseif($post->category == 'gameplay'){
+            $post->category = 'gameplay';
+        }
 
         return $post;
     }
