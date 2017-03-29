@@ -26,31 +26,19 @@ class PostService
     }
     
 	function showOnePost($id){
-		$post_id = $id;
+		$post = $this->database->getSinglePostFor($id);
 
-		$data2 = mysqli_query($this->database->connection, "SELECT * FROM `posts` ORDER BY post_id DESC LIMIT 1");
-
-		while($row2 = mysqli_fetch_array($data2)){
-			$top_post_id = $row2['post_id'];
-		}
-
-		if($post_id > $top_post_id || $post_id < 0){
-			echo '<center><h1>Post not found.</h1><br /><p><a href="index.php">HOME</a></p></center>';
-		}
-
-		$data = mysqli_query($this->database->connection, "SELECT * FROM `posts` WHERE section = 'pl' AND `post_id` = $post_id ORDER BY `post_id` DESC LIMIT 1");
 		$comment_count = 0;
 
-		while($row = mysqli_fetch_array($data)){
-			$timestamp = strtotime($row['timestamp']);
+        	$post_id = $id;
+			$timestamp = $post->createdAt;
 			$date =  date('d.m.Y', $timestamp);
 			$time = date('G:i', $timestamp);
-			$public = $row['public'];
-			$thumbnail = $row['thumbnail'];
-			$post_content = $row['post_content'];
-			$post_title = $row['post_title'];
-			$post_author = $row['post_author'];
-			$category = $row['post_category'];
+			$thumbnail = $post->thumbnail;
+			$post_content = $post->content;
+			$post_title = $post->title;
+			$post_author = $post->author;
+			$category = $post->category;
 
 			$day =  date('d', $timestamp);
 			$month =  date('m', $timestamp);
@@ -172,7 +160,6 @@ class PostService
 				$minutes = intval(date('i', $time_difference));
 				$seconds = intval(date('s', $time_difference));
 			}
-			if($public == 1 || adminUser()){
 					if(isset($_GET['success'])){
 						echo '<div class="green-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Your comment has been successfully posted.</td></tr></table></div>';
 					}
@@ -192,9 +179,6 @@ class PostService
 						$category_en = 'reviews';
 					}elseif($category == 'gameplay'){
 						$category_en = 'gameplay';
-					}
-					if($public == 0 && adminUser()){
-						echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Ten post nie jest publiczny.</td></tr></table></div>';
 					}
 
 			echo '
@@ -415,10 +399,6 @@ class PostService
 						</div>
 						';
 					}
-			}else{
-				echo '<center><div class="empty_result">This article is no longer public.</div></center>';
-			}
-		}
 	}
 	function receivedMessages($connection){
 		$user = $_SESSION['username'];

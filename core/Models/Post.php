@@ -8,4 +8,5 @@ class Post
     public $author;
     public $content;
     public $thumbnail;
+    public $category;
 }

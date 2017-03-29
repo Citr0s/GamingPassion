@@ -43,7 +43,7 @@ class Database
     {
         $response = [];
 
-        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE public = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
+        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE `public` = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
 
         while($row = $databaseResponse->fetch_assoc())
         {
@@ -66,7 +66,7 @@ class Database
     {
         $response = [];
 
-        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE `post_category` = '{$category}' AND public = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
+        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE `post_category` = '{$category}' AND `public`` = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
 
         while($row = $databaseResponse->fetch_assoc())
         {
@@ -89,7 +89,7 @@ class Database
     {
         $response = [];
 
-        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE public = 1 ORDER BY `post_id` DESC LIMIT 10, 18446744073709551615");
+        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE `public` = 1 ORDER BY `post_id` DESC LIMIT 10, 18446744073709551615");
 
         while($row = $databaseResponse->fetch_assoc())
         {
@@ -152,5 +152,24 @@ class Database
         $response->validatedField = $this->connection->real_escape_string($username);
 
         return $response;
+    }
+
+    public function getSinglePostFor($id)
+    {
+        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE `public` = 1 AND `post_id` = {$id} ORDER BY `post_id` DESC LIMIT 1");
+
+        $row = $databaseResponse->fetch_assoc();
+
+        $post = new Post();
+
+        $post->id = $row['post_id'];
+        $post->title = $row['post_title'];
+        $post->author = $row['post_author'];
+        $post->content = $row['post_content'];
+        $post->createdAt = strtotime($row['timestamp']);
+        $post->thumbnail = $row['thumbnail'];
+        $post->category = $row['post_category'];
+
+        return $post;
     }
 }
