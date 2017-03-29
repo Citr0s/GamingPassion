@@ -31,6 +31,6 @@
         $user = $userFactory->getUserByUsername($_SESSION['username']);
     }
 
-    $ratingFactory = new RatingFactory($databaseInstance);
-    $postService = new PostService($databaseInstance, new PostFactory($databaseInstance), $ratingFactory);
+    $postService = new PostService($databaseInstance, new PostFactory($databaseInstance), new RatingFactory($databaseInstance));
+    $ratingService = new RatingService($databaseInstance, new RatingFactory($databaseInstance));
 ?>
