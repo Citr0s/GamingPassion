@@ -1,16 +1,13 @@
 <?php namespace GamingPassion\Services;
 
-use GamingPassion\Database;
 use GamingPassion\Factories\RatingFactory;
 
 class RatingService
 {
-    private $database;
     private $ratingFactory;
 
-    function __construct(Database $database, RatingFactory $ratingFactory)
+    function __construct(RatingFactory $ratingFactory)
     {
-        $this->database = $database;
         $this->ratingFactory = $ratingFactory;
     }
 

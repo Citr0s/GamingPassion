@@ -19,9 +19,12 @@
             <div id="index-landing">
                 <div id="main-content">
                     <?php
-                    if(isset($_GET['id'])){
-                        $postService->showOnePost($_GET['id']);
-                    }else{
+                    if(isset($_GET['id']))
+                    {
+                        include_once 'includes/single-post.php';
+                    }
+                    else
+                    {
                     $posts = $postService->getAllFor('news');
 
                     if(sizeof($posts) === 0)

@@ -1,8 +1,10 @@
 <?php namespace GamingPassion;
 
+    use GamingPassion\Factories\CommentFactory;
     use GamingPassion\Factories\PostFactory;
     use GamingPassion\Factories\RatingFactory;
     use GamingPassion\Factories\UserFactory;
+    use GamingPassion\Services\CommentService;
     use GamingPassion\Services\PostService;
     use GamingPassion\Services\RatingService;
 
@@ -32,5 +34,6 @@
     }
 
     $postService = new PostService($databaseInstance, new PostFactory($databaseInstance), new RatingFactory($databaseInstance));
-    $ratingService = new RatingService($databaseInstance, new RatingFactory($databaseInstance));
+    $ratingService = new RatingService(new RatingFactory($databaseInstance));
+    $commentService = new CommentService(new CommentFactory($databaseInstance));
 ?>
