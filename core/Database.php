@@ -62,6 +62,29 @@ class Database
         return $response;
     }
 
+    public function getAllPostsFor($category)
+    {
+        $response = [];
+
+        $databaseResponse = $this->connection->query( "SELECT * FROM `posts` WHERE `post_category` = '{$category}' AND public = 1 ORDER BY `post_id` DESC LIMIT 0, 10");
+
+        while($row = $databaseResponse->fetch_assoc())
+        {
+            $post = new Post();
+
+            $post->id = $row['post_id'];
+            $post->title = $row['post_title'];
+            $post->author = $row['post_author'];
+            $post->content = preg_replace('/\s+?(\S+)?$/', '', substr($row['post_content'], 0, 255));
+            $post->createdAt = strtotime($row['timestamp']);
+            $post->thumbnail = $row['thumbnail'];
+
+            array_push($response, $post);
+        }
+
+        return $response;
+    }
+
     public function getAllRatingsFor($postId)
     {
         $ratings = [];
