@@ -25,64 +25,9 @@
 					}
 					else
                     {
-                        $posts = $postService->getAll();
-
-                        if(sizeof($posts) === 0)
-                        {
-                            echo '<div class="empty_result">Currently there are no records in our database.</div>';
-                        }
-
-                        foreach($posts as $post)
-                        {
-
-                            $ratingsResponse = $ratingService->getAllFor($post->id);
                 ?>
-                    <div class="post">
-                        <div class="post-title"><a href="?id=<?php echo $post->id; ?>"><?php echo strtoupper($post->title); ?></a></div>
-                        <div class="post-social">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <table>
-                                            <tr>
-                                                <td>Rating:</td>
-                                                <td>
-                                                    <?php
-                                                        if(loggedIn() && notVoted($connection, $post->id))
-                                                        {
-                                                    ?>
-                                                            <div class="stars-bg">
-                                                                <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=1"><div class="star-1"></div></a>
-                                                                <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=2"><div class="star-2"></div></a>
-                                                                <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=3"><div class="star-3"></div></a>
-                                                                <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=4"><div class="star-4"></div></a>
-                                                                <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=5"><div class="star-5"></div></a>
-                                                                <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=6"><div class="holder"></div></a>
-                                                            </div>
-                                                    <?php
-                                                        }
-                                                        else
-                                                        {
-                                                            $ratingAverage = $ratingsResponse->average === null ? 0 : $ratingsResponse->average;
-                                                    ?>
-                                                            <img src="css/images/rating-<?php echo $ratingAverage; ?>-stars.png" title="<?php echo $ratingAverage; ?>/5" />
-                                                    <?php
-                                                        }
-                                                    ?>
-                                                </td>
-                                                <td>(<?php echo sizeof($ratingsResponse->ratings); ?>)</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="post-info"><a href="profile.php?user=<?php echo $post->author; ?>"><?php echo $post->author; ?></a> at <?php echo date('H:i \o\n d F Y', $post->createdAt); ?></div>
-                        <div class="post-image"><a href="?id=<?php echo $post->id; ?>"><img src="<?php echo $post->thumbnail; ?>" /></a></div>
-                        <div class="post-sample"><?php echo $post->content; ?><div class="read-full-article"><a href="?id=<?php echo $post->id; ?>" class="read-full-article-hover">Read full post ></a></div></div>
-                    </div>
+                    <post-list></post-list>
                 <?php
-                        }
 					}
 				?>
 				</div>

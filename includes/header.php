@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="gamingPassion">
 <head>
 	<meta charset="UTF-8">
 	<title>Gaming Passion | News, Reviews, Fun</title>
@@ -8,6 +8,8 @@
 	<link rel="icon" href="css/images/favicon.ico" type="image/x-icon" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css' />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="../js/app.js"></script>
 	<script>
 		$(document).one('keydown',function(e){
 		    $('#login').focus();
@@ -65,7 +67,7 @@
 	</script>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body>
+<body ng-controller="PostController">
 	<div id="wrapper">
 		<div id="header">
 			<div class="container">
