@@ -1,12 +1,17 @@
 <?php namespace GamingPassion\Routers;
 
+use GamingPassion\Controllers\PostController;
+
 class Api
 {
-    public static function handle($request)
+    public static function handle($request, $method)
     {
         if($request[0] === 'posts')
         {
-            var_dump('test');
+            if($method === 'GET')
+            {
+                PostController::all();
+            }
         }
     }
 }
