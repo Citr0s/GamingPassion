@@ -55,6 +55,7 @@ class PostFactory
             $post->content = preg_replace('/\s+?(\S+)?$/', '', substr($row['post_content'], 0, 255));
             $post->createdAt = strtotime($row['timestamp']);
             $post->thumbnail = $row['thumbnail'];
+            $post->category = $row['post_category'];
 
             array_push($response, $post);
         }
