@@ -1,18 +1,13 @@
 <?php namespace GamingPassion\Controllers;
 
-use GamingPassion\Database;
 use GamingPassion\Factories\PostFactory;
 use GamingPassion\Services\PostService;
 
-require_once __DIR__ . '/../../credentials.php';
-
-class PostController
+class PostController extends Controller
 {
     public static function all()
     {
-        $mysqlClient = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-        $database = new Database($mysqlClient);
-        $postService = new PostService($database, new PostFactory($database));
+        $postService = new PostService(self::database(), new PostFactory(self::database()));
 
         return $postService->getAll();
     }
