@@ -43,29 +43,6 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmiloszdura.com%2Ftechblog%2F%3Fid%3D'.$post_id.'&amp;width=50&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
-                                    </td>
-                                    <td>
-                                        <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;"><img src="css/images/share-button.png" style="border:none; height:20px;" title="Share on Facebook" /></a>
-                                    </td>
-                                    <td>
-                                        <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?php echo $post->title; ?>" data-via="GamingPassionPL">Tweet</a>
-                                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                                    </td>
-                                    <td>
-                                        <div class="g-plusone" data-size="medium" data-href="https://techblog.miloszdura.com/?id=<?php echo $post->id; ?>"></div>
-                                            <script type="text/javascript">
-                                                window.___gcfg = {lang: 'en-GB'};
-
-                                                (function() {
-                                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                                    po.src = 'https://apis.google.com/js/plusone.js';
-                                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                                                })();
-                                            </script>
-                                        </div>
-                                    </td>
-                                    <td>
                                         <table>
                                             <tr>
                                                 <td>Rating:</td>
