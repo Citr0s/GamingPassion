@@ -10,7 +10,6 @@ class PostController
 {
     public static function all()
     {
-        return 'test';
         $mysqlClient = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
         $database = new Database($mysqlClient);
         $postService = new PostService($database, new PostFactory($database));
