@@ -2,7 +2,9 @@
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-echo json_encode(Router::start(array_values(array_filter(explode('/', $_SERVER['REQUEST_URI']))), $_SERVER['REQUEST_METHOD']));
+header('Content-Type: application/json');
+
+echo json_encode(Router::start(array_values(array_filter(explode('/', $_SERVER['REQUEST_URI']))), $_SERVER['REQUEST_METHOD']), JSON_PRETTY_PRINT);
 
 class Router
 {
