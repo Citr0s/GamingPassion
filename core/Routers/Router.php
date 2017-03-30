@@ -1,6 +1,8 @@
 <?php namespace GamingPassion\Routers;
 
-Router::start(array_values(array_filter(explode('/', $_SERVER['REQUEST_URI']))), $_SERVER['REQUEST_METHOD']);
+require __DIR__ . '/../../vendor/autoload.php';
+
+echo json_encode(Router::start(array_values(array_filter(explode('/', $_SERVER['REQUEST_URI']))), $_SERVER['REQUEST_METHOD']));
 
 class Router
 {
@@ -9,7 +11,7 @@ class Router
         if($request[0] === 'api')
         {
             unset($request[0]);
-            Api::handle(array_values($request), $method);
+            return Api::handle(array_values($request), $method);
         }
     }
 }

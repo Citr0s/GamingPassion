@@ -10,7 +10,7 @@ class Api
         {
             if($method === 'GET')
             {
-                PostController::all();
+                return PostController::all();
             }
         }
     }
