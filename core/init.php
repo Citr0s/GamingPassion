@@ -33,7 +33,7 @@
         $user = $userFactory->getUserByUsername($_SESSION['username']);
     }
 
-    $postService = new PostService($databaseInstance, new PostFactory($databaseInstance), new RatingFactory($databaseInstance));
+    $postService = new PostService(new PostFactory($databaseInstance));
     $ratingService = new RatingService(new RatingFactory($databaseInstance));
     $commentService = new CommentService(new CommentFactory($databaseInstance));
 ?>
