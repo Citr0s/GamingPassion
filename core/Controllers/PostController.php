@@ -16,4 +16,10 @@ class PostController extends Controller
         $postService = new PostService(self::database(), new PostFactory(self::database()));
         return $postService->getSinglePost($id);
     }
+
+    public static function forCategory($category)
+    {
+        $postService = new PostService(self::database(), new PostFactory(self::database()));
+        return $postService->getAllFor($category);
+    }
 }

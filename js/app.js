@@ -7,10 +7,16 @@ angular.module('gamingPassion').controller('PostController', ['$scope', function
 angular.module('gamingPassion').directive('postList', function() {
 
     return {
+        scope: {
+            category: "@"
+        },
         templateUrl: 'js/templates/post.html',
         controller: ['$scope', '$q', 'RetrievePostsService', 'RetrieveRatingsService', function PostController($scope, $q, RetrievePostsService, RetrieveRatingsService) {
 
-                var postService = RetrievePostsService.getData();
+                if($scope.category === undefined)
+                    var postService = RetrievePostsService.getData();
+                else
+                    var postService = RetrievePostsService.getForCategory($scope.category);
 
                 postService.then(function(data){
 
@@ -64,7 +70,26 @@ angular.module('gamingPassion').factory('RetrievePostsService', function($http) 
         });
     };
 
-    return { getData: getData };
+    var getForCategory = function(category) {
+
+        return $http.get('api/posts/' + category).then(function(response) {
+
+            var parsedResponse = response.data;
+
+            for(var key in parsedResponse){
+                var date = new Date(parsedResponse[key].createdAt * 1000);
+
+                parsedResponse[key].formattedDate = date.getHours() + ':' + date.getMinutes() + ' on ' + date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
+            }
+
+            return parsedResponse;
+        });
+    };
+
+    return {
+        getData: getData,
+        getForCategory: getForCategory
+    };
 });
 
 angular.module('gamingPassion').factory('RetrieveRatingsService', function($http) {
