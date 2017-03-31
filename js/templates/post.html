@@ -5,15 +5,10 @@
             <tr>
                 <td>
                     <table>
-                        <tr><!--
+                        <tr>
                             <td>Rating:</td>
                             <td>
-
-                                <?php
-                                                        if(loggedIn() && notVoted($connection, $post->id))
-                                {
-                                ?>
-                                <div class="stars-bg">
+                                <div class="stars-bg" ng-if="false">
                                     <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=1"><div class="star-1"></div></a>
                                     <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=2"><div class="star-2"></div></a>
                                     <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=3"><div class="star-3"></div></a>
@@ -21,20 +16,9 @@
                                     <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=5"><div class="star-5"></div></a>
                                     <a href="vote.php?post_id=<?php echo $post->id; ?>&rating=6"><div class="holder"></div></a>
                                 </div>
-                                <?php
-                                                        }
-                                                        else
-                                                        {
-                                                            $ratingAverage = $ratingsResponse->average === null ? 0 : $ratingsResponse->average;
-                                ?>
-                                <img src="css/images/rating-<?php echo $ratingAverage; ?>-stars.png" title="<?php echo $ratingAverage; ?>/5" />
-                                <?php
-                                                        }
-                                                    ?>
-
+                                <img src="css/images/rating-{{ post.ratings.average }}-stars.png" title="{{ post.ratings.average }}/5" />
                             </td>
-                            <td>(<?php echo sizeof($ratingsResponse->ratings); ?>)</td>
-                            -->
+                            <td>({{ post.ratings.ratings.length }})</td>
                         </tr>
                     </table>
                 </td>
@@ -42,6 +26,6 @@
         </table>
     </div>
     <div class="post-info"><a href="profile.php?user={{ post.author }}">{{ post.author }}</a> at {{ post.formattedDate }}</div>
-    <div class="post-image"><a href="?id=<?php echo $post->id; ?>"><img src="{{ post.thumbnail }}" /></a></div>
+    <div class="post-image"><a href="?id={{ post.id }}"><img src="{{ post.thumbnail }}" /></a></div>
     <div class="post-sample">{{ post.content }}<div class="read-full-article"><a href="?id={{ post.id }}" class="read-full-article-hover">Read full post ></a></div></div>
 </div>
