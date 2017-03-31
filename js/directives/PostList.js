@@ -10,7 +10,7 @@ angular.module('gamingPassion').directive('postList', function() {
             var postService = null;
 
             if($scope.category === undefined)
-                postService = RetrievePostsService.getData();
+                postService = RetrievePostsService.getAll();
             else if($scope.category === 'archive')
                 postService = RetrievePostsService.getArchived();
             else
@@ -33,7 +33,7 @@ angular.module('gamingPassion').directive('postList', function() {
                     if(index === toDo)
                         return;
 
-                    RetrieveRatingsService.getData(actualIndex).then(function(data){
+                    RetrieveRatingsService.getAllFor(actualIndex).then(function(data){
 
                         $scope.posts[index].ratings = data;
                         ++index;

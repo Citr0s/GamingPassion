@@ -4,7 +4,7 @@ angular.module('gamingPassion').factory('RetrievePostsService', function($http) 
         "July", "August", "September", "October", "November", "December"
     ];
 
-    var getData = function() {
+    var getAll = function() {
 
         return $http.get('api/posts').then(function(response) {
 
@@ -53,7 +53,7 @@ angular.module('gamingPassion').factory('RetrievePostsService', function($http) 
     };
 
     return {
-        getData: getData,
+        getAll: getAll,
         getForCategory: getForCategory,
         getArchived: getArchived
     };

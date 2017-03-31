@@ -1,6 +1,6 @@
 angular.module('gamingPassion').factory('RetrieveRatingsService', function($http) {
 
-    var getData = function(postId) {
+    var getAllFor = function(postId) {
 
         return $http.get('api/ratings/' + postId).then(function (response) {
 
@@ -13,5 +13,5 @@ angular.module('gamingPassion').factory('RetrieveRatingsService', function($http
         });
     };
 
-    return { getData: getData };
+    return { getAllFor: getAllFor };
 });
