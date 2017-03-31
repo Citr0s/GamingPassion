@@ -21,6 +21,9 @@
 
 	</script>
     <script src="../js/app.js"></script>
+    <script src="../js/factories/RetrievePostsService.js"></script>
+    <script src="../js/factories/RetrieveRatingsService.js"></script>
+    <script src="../js/directives/PostList.js"></script>
 </head>
 <body ng-controller="PostController">
 	<div id="wrapper">
