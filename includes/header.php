@@ -11,51 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
     <script src="../js/app.js"></script>
 	<script>
-		$(document).one('keydown',function(e){
-		    $('#login').focus();
-		});
-
-		$(function(){	
-			$("#slideshow > div:gt(0)").hide();
-			setInterval(function() { 
-			  $('#slideshow > div:first')
-			    .fadeOut(1000)
-			    .next()
-			    .fadeIn(1000)
-			    .end()
-			    .appendTo('#slideshow');
-			},  6000);
-		});
-
-		$(function(){
-			$('.green-message').delay(5000).fadeOut(400);
-		});
-
-		$(document).scroll(function() {
-			var scrollTop = $(window).scrollTop();
-			var elementOffset = $('#menu').offset().top;
-			 distance = (elementOffset - scrollTop);
-			bar_pos = distance;
-			if (bar_pos <= 0) {
-				document.getElementById("menu").style.top="0";
-				document.getElementById("menu").style.position="fixed";
-				document.getElementById("container").style.marginTop="65px";
-			}
-			if(scrollTop <= 150){
-				document.getElementById("menu").style.top="0";
-				document.getElementById("menu").style.position="static";
-				document.getElementById("container").style.marginTop="15px";
-			}
-		});
-		$(document).ready(function() {
-		  var bodyHeight = $("body").height();
-		  var vwptHeight = $(window).height();
-		  if (vwptHeight > bodyHeight) {
-		    $("#footer").css("position","absolute").css("bottom",0);
-		  }
-		});
-	</script>
-	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
