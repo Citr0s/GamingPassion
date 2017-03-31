@@ -15,6 +15,8 @@ angular.module('gamingPassion').directive('postList', function() {
 
                 if($scope.category === undefined)
                     var postService = RetrievePostsService.getData();
+                else if($scope.category === 'archive')
+                    var postService = RetrievePostsService.getArchived();
                 else
                     var postService = RetrievePostsService.getForCategory($scope.category);
 
@@ -86,9 +88,26 @@ angular.module('gamingPassion').factory('RetrievePostsService', function($http) 
         });
     };
 
+    var getArchived = function() {
+
+        return $http.get('api/posts/archive').then(function(response) {
+
+            var parsedResponse = response.data;
+
+            for(var key in parsedResponse){
+                var date = new Date(parsedResponse[key].createdAt * 1000);
+
+                parsedResponse[key].formattedDate = date.getHours() + ':' + date.getMinutes() + ' on ' + date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
+            }
+
+            return parsedResponse;
+        });
+    };
+
     return {
         getData: getData,
-        getForCategory: getForCategory
+        getForCategory: getForCategory,
+        getArchived: getArchived
     };
 });
 

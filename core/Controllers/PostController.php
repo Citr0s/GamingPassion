@@ -22,4 +22,10 @@ class PostController extends Controller
         $postService = new PostService(self::database(), new PostFactory(self::database()));
         return $postService->getAllFor($category);
     }
+
+    public static function archive()
+    {
+        $postService = new PostService(self::database(), new PostFactory(self::database()));
+        return $postService->getArchived();
+    }
 }

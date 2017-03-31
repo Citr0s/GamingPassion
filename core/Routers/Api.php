@@ -16,6 +16,11 @@ class Api
                     return PostController::single($request[1]);
                 }
 
+                if(array_key_exists(1, $request) && is_string($request[1]) && $request[1] === 'archive')
+                {
+                    return PostController::archive();
+                }
+
                 if(array_key_exists(1, $request) && is_string($request[1]))
                 {
                     return PostController::forCategory($request[1]);
