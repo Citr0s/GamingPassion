@@ -2,7 +2,7 @@
 
 use GamingPassion\Database;
 use GamingPassion\Models\User;
-use GamingPassion\Models\ValidationResponse;
+use GamingPassion\Validators\UsernameValidator;
 
 class UserFactory
 {
@@ -15,7 +15,7 @@ class UserFactory
 
     public function getUserByUsername($username)
     {
-        $validationResponse = $this->validateUsername($username);
+        $validationResponse = UsernameValidator::validateUsername($this->database, $username);
 
         if($validationResponse->hasError)
             return $validationResponse->error->message;
@@ -33,21 +33,6 @@ class UserFactory
         $response->joined = $row['joined'];
         $response->thumbnail = $row['thumbnail'];
         $response->status = $row['status'];
-
-        return $response;
-    }
-
-    private function validateUsername($username) : ValidationResponse
-    {
-        $response = new ValidationResponse();
-
-        if(empty($username))
-        {
-            $response->addError("Username cannot be empty.");
-            return $response;
-        }
-
-        $response->validatedField = $this->database->connection->real_escape_string($username);
 
         return $response;
     }
