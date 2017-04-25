@@ -1,6 +1,7 @@
 <?php namespace GamingPassion\Factories;
 
 use GamingPassion\Database;
+use GamingPassion\Mappers\CommentMapper;
 use GamingPassion\Models\Comment;
 
 class CommentFactory
@@ -19,14 +20,7 @@ class CommentFactory
 
         while($row = $databaseResponse->fetch_assoc())
         {
-            $comment = new Comment();
-
-            $comment->createdAt = strtotime($row['timestamp']);
-            $comment->authorStatus = $row['comment_author_status'];
-            $comment->author = $row['comment_author'];
-            $comment->content = $row['comment_content'];
-
-            array_push($response, $comment);
+            array_push($response, CommentMapper::map($row));
         }
 
         return $response;
