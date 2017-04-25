@@ -7,6 +7,7 @@
     use GamingPassion\Services\CommentService;
     use GamingPassion\Services\PostService;
     use GamingPassion\Services\RatingService;
+    use GamingPassion\Services\UserService;
 
     require __DIR__ . '/../vendor/autoload.php';
     require_once __DIR__ . '/../credentials.php';
@@ -27,7 +28,7 @@
 	require_once 'Services/users-functions.php';
 	require_once 'Services/error-functions.php';
 
-    if(isset($_SESSION['username']))
+    if(UserService::isLoggedIn())
     {
         $userFactory = new UserFactory($databaseInstance);
         $user = $userFactory->getUserByUsername($_SESSION['username']);
