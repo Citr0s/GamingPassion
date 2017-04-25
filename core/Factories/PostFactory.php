@@ -1,6 +1,7 @@
 <?php namespace GamingPassion\Factories;
 
 use GamingPassion\Database;
+use GamingPassion\Mappers\PostMapper;
 use GamingPassion\Models\Post;
 
 class PostFactory
@@ -18,25 +19,7 @@ class PostFactory
 
         $row = $databaseResponse->fetch_assoc();
 
-        $post = new Post();
-
-        $post->id = $row['post_id'];
-        $post->title = $row['post_title'];
-        $post->author = $row['post_author'];
-        $post->content = $row['post_content'];
-        $post->createdAt = strtotime($row['timestamp']);
-        $post->thumbnail = $row['thumbnail'];
-        $post->category = $row['post_category'];
-
-        if($post->category == 'news'){
-            $post->category = 'news';
-        }elseif($post->category == 'recenzja'){
-            $post->category = 'reviews';
-        }elseif($post->category == 'gameplay'){
-            $post->category = 'gameplay';
-        }
-
-        return $post;
+        return PostMapper::map($row);
     }
 
     public function getAllPosts()
