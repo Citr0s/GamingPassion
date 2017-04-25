@@ -1,4 +1,4 @@
-<?php include '../core/init.php'; ?>
+<?php include '../core/bootstrap.php'; ?>
 <?php
 	if(!loggedIn() || !adminUser()){
 		if(!modUser()){

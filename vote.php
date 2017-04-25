@@ -1,6 +1,6 @@
 <?php 
 
-	include_once 'core/init.php';
+	include_once 'core/bootstrap.php';
 
 	if(!loggedIn()){
 		header("Location: login.php?login-required");

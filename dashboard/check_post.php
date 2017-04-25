@@ -1,5 +1,5 @@
 <?php
-	include_once '../core/init.php';
+	include_once '../core/bootstrap.php';
 
 	$chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
 	$length = 5;

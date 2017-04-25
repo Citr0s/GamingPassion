@@ -1,4 +1,4 @@
-<?php include '../core/init.php'; ?>
+<?php include '../core/bootstrap.php'; ?>
 <?php
 	$data = mysql_query("SELECT * FROM comments WHERE '$_POST[comment_id]' = comment_id LIMIT 1");
 ?>

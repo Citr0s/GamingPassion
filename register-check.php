@@ -1,4 +1,4 @@
-<?php include 'core/init.php'; ?>
+<?php include 'core/bootstrap.php'; ?>
 <?php
 	if(empty($_POST['username']) || empty($_POST['password']) || empty($_POST['password_check']) || empty($_POST['email'])){
 		header("Location: register.php?error=1");

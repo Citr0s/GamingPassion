@@ -1,4 +1,4 @@
-<?php include 'core/init.php'; ?>
+<?php include 'core/bootstrap.php'; ?>
 <?php
 	if(isset($_POST['username'])){
 		loginCheck($connection, $_POST['username'], $_POST['password']);

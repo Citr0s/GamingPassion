@@ -1,4 +1,4 @@
-<?php include '../core/init.php'; ?>
+<?php include '../core/bootstrap.php'; ?>
 <?php
 	$data = mysql_query("SELECT * FROM users WHERE '$_SESSION[username]' = username LIMIT 1");
 	

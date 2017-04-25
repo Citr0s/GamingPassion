@@ -84,7 +84,7 @@
 						<span style="color:#ccc;">(<?php echo $status; ?>)</span>
 					</td>
 					<td style="text-align:right; width:100%; color:#a1a1a1; font-size:16px;">
-						<?php require_once '../core/init.php'; echo '<a href="#" onclick="window.open(\'edit_user_entry.php?user_id='.$user_id.'\',\'\',\'scrollbars=no, toolbar=no, menubar=no, location=no, personalbar=no, resizable=no, directories=no, status=no, width=640, height=700\')"><i class="fa fa-cog" title="EDIT"></i></a>'; ?>
+						<?php require_once '../core/bootstrap.php'; echo '<a href="#" onclick="window.open(\'edit_user_entry.php?user_id='.$user_id.'\',\'\',\'scrollbars=no, toolbar=no, menubar=no, location=no, personalbar=no, resizable=no, directories=no, status=no, width=640, height=700\')"><i class="fa fa-cog" title="EDIT"></i></a>'; ?>
 					</td>
 				</tr>
 			</table>
