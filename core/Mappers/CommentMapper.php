@@ -6,14 +6,14 @@ use GamingPassion\Models\Comment;
 class CommentMapper
 {
 
-    public static function map($row) : Comment
+    public static function map($record) : Comment
     {
         $comment = new Comment();
 
-        $comment->createdAt = strtotime($row['timestamp']);
-        $comment->authorStatus = $row['comment_author_status'];
-        $comment->author = $row['comment_author'];
-        $comment->content = $row['comment_content'];
+        $comment->createdAt = strtotime($record['timestamp']);
+        $comment->authorStatus = $record['comment_author_status'];
+        $comment->author = $record['comment_author'];
+        $comment->content = $record['comment_content'];
 
         return $comment;
     }

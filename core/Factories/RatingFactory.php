@@ -1,6 +1,7 @@
 <?php namespace GamingPassion\Factories;
 
 use GamingPassion\Database;
+use GamingPassion\Mappers\RatingMapper;
 use GamingPassion\Models\GetAllRatingsResponse;
 use GamingPassion\Models\Rating;
 
@@ -22,10 +23,7 @@ class RatingFactory
 
         while($row = $databaseResponse->fetch_assoc())
         {
-            $rating = new Rating();
-
-            $rating->score = $row['rating'];
-            $rating->author = $row['author'];
+            $rating = RatingMapper::map($row);
 
             $totalRatings += $rating->score;
 
