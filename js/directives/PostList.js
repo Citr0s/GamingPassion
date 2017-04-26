@@ -5,7 +5,7 @@ angular.module('gamingPassion').directive('postList', function() {
             category: "@"
         },
         templateUrl: 'js/templates/Post.html',
-        controller: ['$scope', '$q', 'RetrievePostsService', 'RetrieveRatingsService', function PostController($scope, $q, RetrievePostsService, RetrieveRatingsService) {
+        controller: ['$scope', '$q', 'RetrievePostsService', 'RetrieveRatingsService', function($scope, $q, RetrievePostsService, RetrieveRatingsService) {
 
             var postService = null;
 
