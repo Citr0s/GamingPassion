@@ -63,7 +63,7 @@
 									<table>
 										<tr>
 											<td style="padding-right:5px;">
-												<img src="css/images/popup-warning-icon.png" />
+												<img src="assets/images/popup-warning-icon.png" />
 											</td>
 											<td>
 												Fields marked with the asterisks (*) are required.
@@ -174,7 +174,7 @@
 										<table>
 											<tr>
 												<td style="padding-right:5px;">
-													<img src="css/images/popup-info-icon.png" />
+													<img src="assets/images/popup-info-icon.png" />
 												</td>
 												<td>
 													Your profile has been edited successfully.
@@ -196,7 +196,7 @@
 						$avatar = 0;
 									
 						if(empty($thumbnail)){
-							$thumbnail = 'css/images/image-missing.jpg';
+							$thumbnail = 'assets/images/image-missing.jpg';
 							$avatar = 1;
 						}
 								

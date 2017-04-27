@@ -5,7 +5,7 @@
 	<title>Gaming Passion Dashboard | News, Reviews, Fun</title>
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
-	<link rel="icon" href="../css/images/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 	<script>
@@ -75,7 +75,7 @@
 <body>
 	<div id="wrapper">
 		<div id="sidebar">
-			<center><img src="css/images/logo-dashboard.jpg" width="150" /></center>
+			<center><img src="assets/images/logo-dashboard.jpg" width="150" /></center>
 			<table>
 				<tr>
 					<td><img src="<?php echo '../'.$thumbnail; ?>" width="50" style="border-radius:50px;" /></td>

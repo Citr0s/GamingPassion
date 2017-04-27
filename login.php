@@ -13,14 +13,14 @@
 			<h2>LOGIN</h2>
 		</div>
 		<div class="container">
-			<div class="loginbox" style="margin-right:15px; background-image:url(css/images/register-box-bg.gif);">
+			<div class="loginbox" style="margin-right:15px; background-image:url(assets/images/register-box-bg.gif);">
 				<h3>NEW USER</h3>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat delectus perferendis, et, corrupti iure quas veritatis similique vitae, dignissimos in iusto facilis nesciunt quis eveniet dolores reprehenderit optio! Delectus, facere?
 					<a href="register.php"><button class="button" style="padding:10px; margin-top:15px;">Create an Account</button></a>
 				</p>
 			</div>
-			<div class="loginbox" style="background-image:url(css/images/login-box-bg.gif);">
+			<div class="loginbox" style="background-image:url(assets/images/login-box-bg.gif);">
 				<h3>REGISTERED USER</h3>
 				<p>If you already have an account with us, use your email and password to login.</p>
 				<?php loginErrors(); ?>

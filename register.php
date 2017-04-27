@@ -13,13 +13,13 @@
 			<h2>LOGIN</h2>
 		</div>
 		<div class="container">
-			<div class="loginbox" style="background-image:url(css/images/login-box-bg.gif); width:990px;">
+			<div class="loginbox" style="background-image:url(assets/images/login-box-bg.gif); width:990px;">
 				<h3>NEW USER</h3>
 				<p>Please register using the form below.</p>
 				<?php registerErrors(); ?>
 				<?php
 					if(isset($_GET['success'])){
-						echo '<div class="green-message" style="margin-bottom:15px;"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>You have been successfully <strong>registered</strong>.</td></tr></table></div>';
+						echo '<div class="green-message" style="margin-bottom:15px;"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>You have been successfully <strong>registered</strong>.</td></tr></table></div>';
 					}
 				?>
 				<form action="register-check.php" method="post">

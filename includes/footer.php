@@ -101,7 +101,7 @@
 							</ul>
 						</td>
 						<td style="padding-right:0px; padding-left:190px;">
-							<img src="css/images/logo-main.jpg" alt="gaming passion logo" />
+							<img src="assets/images/logo-main.jpg" alt="gaming passion logo" />
 						</td>
 					</tr>
 				</table>

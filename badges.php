@@ -237,37 +237,37 @@
             	<tr>
 		<?php
 			if($badge_tester_alfa == true){
-				echo '<td><a title="Alpha Tester - With this badge we are thanking the users who joined our site in the Alpha Phase and helped testing it."><img src="css/images/badges/badge_tester_alfa_unlocked.jpg" height="50" width="50" /></a></td>';
+				echo '<td><a title="Alpha Tester - With this badge we are thanking the users who joined our site in the Alpha Phase and helped testing it."><img src="assets/images/badges/badge_tester_alfa_unlocked.jpg" height="50" width="50" /></a></td>';
 			}
 			if($badge_tester_beta == true){
-				echo '<td><a title="Beta Tester - With this badge we are thanking the users who joined our site in the Beta Phase and helped testing it."><img src="css/images/badges/badge_tester_beta_unlocked.jpg" height="50" width="50" /></a></td>';
+				echo '<td><a title="Beta Tester - With this badge we are thanking the users who joined our site in the Beta Phase and helped testing it."><img src="assets/images/badges/badge_tester_beta_unlocked.jpg" height="50" width="50" /></a></td>';
 			}
             if($badge_pasjonat == true){
-				echo '<td><a title="Passionate - With this badge we are thanking the users who joined our site in the first year of our existance. This is how we thank people who helped shape our community."><img src="css/images/badges/badge_pasjonat_unlocked.jpg" height="50" width="50" /></a></td>';
+				echo '<td><a title="Passionate - With this badge we are thanking the users who joined our site in the first year of our existance. This is how we thank people who helped shape our community."><img src="assets/images/badges/badge_pasjonat_unlocked.jpg" height="50" width="50" /></a></td>';
 			}
 			if($badge_perfekcjonista == true){
-				echo '<td><a title="Perfectionist - Fully completed the profile information."><img src="css/images/badges/badge_profile_complete_unlocked.jpg" height="50" width="50" /></a></td>';
+				echo '<td><a title="Perfectionist - Fully completed the profile information."><img src="assets/images/badges/badge_profile_complete_unlocked.jpg" height="50" width="50" /></a></td>';
 			}
 			if($badge_komentator_1 == true){
-				echo '<td><a title="Student Commentator - Commented for the first time."><img src="css/images/badges/badge_komentator_1_unlocked.jpg" height="50" width="50" /><a></td>';
+				echo '<td><a title="Student Commentator - Commented for the first time."><img src="assets/images/badges/badge_komentator_1_unlocked.jpg" height="50" width="50" /><a></td>';
 			}
 			if($badge_komentator_10 == true){
-				echo '<td><a title="Master Commentator - You commented 10 times!"><img src="css/images/badges/badge_komentator_10_unlocked.jpg" height="50" width="50" /></a></td>';
+				echo '<td><a title="Master Commentator - You commented 10 times!"><img src="assets/images/badges/badge_komentator_10_unlocked.jpg" height="50" width="50" /></a></td>';
 			}
 			if($badge_komentator_100 == true){
-				echo '<td><a title="Ninja Commentator - You commented 100 times!"><img src="css/images/badges/badge_komentator_100_unlocked.jpg" height="50" width="50" /></a></td>';
+				echo '<td><a title="Ninja Commentator - You commented 100 times!"><img src="assets/images/badges/badge_komentator_100_unlocked.jpg" height="50" width="50" /></a></td>';
 			}
 			if($badge_mailman == true){
-				echo '<td><a title="Whisperer - Send your first private message."><img src="css/images/badges/badge_first_mail_unlocked.gif" height="50" width="50" /></a></td>';
+				echo '<td><a title="Whisperer - Send your first private message."><img src="assets/images/badges/badge_first_mail_unlocked.gif" height="50" width="50" /></a></td>';
 			}
 			if($badge_judge == true){
-				echo '<td><a title="Judge - Rate at least 1 post."><img src="css/images/badges/badge_judge_unlocked.png" height="50" width="50" /></a></td>';
+				echo '<td><a title="Judge - Rate at least 1 post."><img src="assets/images/badges/badge_judge_unlocked.png" height="50" width="50" /></a></td>';
 			}
 			if($badge_judge_10 == true){
-				echo '<td><a title="Master Commentator - You commented 10 times!"><img src="css/images/badges/badge_judge_10_unlocked.jpg" height="50" width="50" /></a></td>';
+				echo '<td><a title="Master Commentator - You commented 10 times!"><img src="assets/images/badges/badge_judge_10_unlocked.jpg" height="50" width="50" /></a></td>';
 			}
 			if($badge_judge_100 == true){
-				echo '<td><a title="Ninja Commentator - You commented 100 times!"><img src="css/images/badges/badge_judge_100_unlocked.jpg" height="50" width="50" /></a></td>';
+				echo '<td><a title="Ninja Commentator - You commented 100 times!"><img src="assets/images/badges/badge_judge_100_unlocked.jpg" height="50" width="50" /></a></td>';
 			}
 		?>
         		</tr>
@@ -276,62 +276,62 @@
             <h2>Other Badges</h2>
 <?php
 			if($badge_perfekcjonista == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_profile_complete_unlocked.jpg" height="50" width="50" /></td><td><h3>Perfectionist</h3><p>Fully completed the profile information.</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_profile_complete_unlocked.jpg" height="50" width="50" /></td><td><h3>Perfectionist</h3><p>Fully completed the profile information.</td></tr></table></div>';
 			}if($badge_perfekcjonista == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_profile_complete_locked.jpg" height="50" width="50" /></td><td><h3>Perfectionist</h3><p>Fully completed the profile information.</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_profile_complete_locked.jpg" height="50" width="50" /></td><td><h3>Perfectionist</h3><p>Fully completed the profile information.</td></tr></table></div>';
 			}			
 			if($badge_komentator_1 == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_komentator_1_unlocked.jpg" height="50" width="50" /></td><td><h3>Student Commentator</h3><p>Commented for the first time.</p>'.$progress_bar_1.'</td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_komentator_1_unlocked.jpg" height="50" width="50" /></td><td><h3>Student Commentator</h3><p>Commented for the first time.</p>'.$progress_bar_1.'</td></tr></table></div>';
 			}if($badge_komentator_1 == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_komentator_1_locked.jpg" height="50" width="50" /></td><td><h3>Student Commentator</h3><p>Commented for the first time.'.$progress_bar_1.'</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_komentator_1_locked.jpg" height="50" width="50" /></td><td><h3>Student Commentator</h3><p>Commented for the first time.'.$progress_bar_1.'</td></tr></table></div>';
 			}
 			if($badge_komentator_10 == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_komentator_10_unlocked.jpg" height="50" width="50" /></td><td><h3>Master Commentator</h3><p>You commented 10 times!'.$progress_bar_2.'</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_komentator_10_unlocked.jpg" height="50" width="50" /></td><td><h3>Master Commentator</h3><p>You commented 10 times!'.$progress_bar_2.'</p></td></tr></table></div>';
 			}if($badge_komentator_10 == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_komentator_10_locked.jpg" height="50" width="50" /></td><td><h3>Master Commentator</h3><p>You commented 10 times!'.$progress_bar_2.'</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_komentator_10_locked.jpg" height="50" width="50" /></td><td><h3>Master Commentator</h3><p>You commented 10 times!'.$progress_bar_2.'</td></tr></table></div>';
 			}
 			if($badge_komentator_100 == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_komentator_100_unlocked.jpg" height="50" width="50" /></td><td><h3>Ninja Commentator</h3><p>You commented 100 times!'.$progress_bar_3.'</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_komentator_100_unlocked.jpg" height="50" width="50" /></td><td><h3>Ninja Commentator</h3><p>You commented 100 times!'.$progress_bar_3.'</p></td></tr></table></div>';
 			}if($badge_komentator_100 == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_komentator_100_locked.jpg" height="50" width="50" /></td><td><h3>Ninja Commentator</h3><p>You commented 100 times!'.$progress_bar_3.'</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_komentator_100_locked.jpg" height="50" width="50" /></td><td><h3>Ninja Commentator</h3><p>You commented 100 times!'.$progress_bar_3.'</td></tr></table></div>';
 			}
 			if($badge_mailman == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_first_mail_unlocked.gif" height="50" width="50" /></td><td><h3>Whisperer</h3><p>Send your first private message.</td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_first_mail_unlocked.gif" height="50" width="50" /></td><td><h3>Whisperer</h3><p>Send your first private message.</td></tr></table></div>';
 			}if($badge_mailman == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_first_mail_locked.gif" height="50" width="50" /></td><td><h3>Whisperer</h3><p>Send your first private message.</td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_first_mail_locked.gif" height="50" width="50" /></td><td><h3>Whisperer</h3><p>Send your first private message.</td></tr></table></div>';
 			}
 			if($badge_judge == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_judge_unlocked.png" height="50" width="50" /></td><td><h3>Judge</h3><p>Rate at least 1 post.'.$progress_bar_1_judge.'</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_judge_unlocked.png" height="50" width="50" /></td><td><h3>Judge</h3><p>Rate at least 1 post.'.$progress_bar_1_judge.'</p></td></tr></table></div>';
 			}if($badge_judge == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_judge_locked.png" height="50" width="50" /></td><td><h3>Judge</h3><p>Rate at least 1 post.'.$progress_bar_1_judge.'</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_judge_locked.png" height="50" width="50" /></td><td><h3>Judge</h3><p>Rate at least 1 post.'.$progress_bar_1_judge.'</p></td></tr></table></div>';
 			}
 			if($badge_komentator_10 == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_judge_10_unlocked.jpg" height="50" width="50" /></td><td><h3>Student Judge</h3><p>You judged 10 times!'.$progress_bar_2_judge.'</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_judge_10_unlocked.jpg" height="50" width="50" /></td><td><h3>Student Judge</h3><p>You judged 10 times!'.$progress_bar_2_judge.'</p></td></tr></table></div>';
 			}if($badge_judge_10 == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_judge_10_locked.jpg" height="50" width="50" /></td><td><h3>Student Judge</h3><p>You judged 10 times!'.$progress_bar_2_judge.'</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_judge_10_locked.jpg" height="50" width="50" /></td><td><h3>Student Judge</h3><p>You judged 10 times!'.$progress_bar_2_judge.'</td></tr></table></div>';
 			}
 			if($badge_judge_100 == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_judge_100_unlocked.jpg" height="50" width="50" /></td><td><h3>Master Judge</h3><p>You judged 100 times!'.$progress_bar_3_judge.'</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_judge_100_unlocked.jpg" height="50" width="50" /></td><td><h3>Master Judge</h3><p>You judged 100 times!'.$progress_bar_3_judge.'</p></td></tr></table></div>';
 			}if($badge_judge_100 == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_judge_100_locked.jpg" height="50" width="50" /></td><td><h3>Master Judge</h3><p>You judged 100 times!'.$progress_bar_3_judge.'</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_judge_100_locked.jpg" height="50" width="50" /></td><td><h3>Master Judge</h3><p>You judged 100 times!'.$progress_bar_3_judge.'</td></tr></table></div>';
 			}
 		?>
             <br /><h2>Special Badges</h2>
 		<?php
 			if($badge_pasjonat == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_pasjonat_unlocked.jpg" height="50" width="50" /></td><td><h3>Passionate</h3><p>With this badge we are thanking the users who joined our site in the first year of our existance. This is how we thank people who helped shape our community.</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_pasjonat_unlocked.jpg" height="50" width="50" /></td><td><h3>Passionate</h3><p>With this badge we are thanking the users who joined our site in the first year of our existance. This is how we thank people who helped shape our community.</p></td></tr></table></div>';
 			}if($badge_pasjonat == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_pasjonat_locked.jpg" height="50" width="50" /></td><td><h3>Passionate</h3><p>With this badge we are thanking the users who joined our site in the first year of our existance. This is how we thank people who helped shape our community.</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_pasjonat_locked.jpg" height="50" width="50" /></td><td><h3>Passionate</h3><p>With this badge we are thanking the users who joined our site in the first year of our existance. This is how we thank people who helped shape our community.</td></tr></table></div>';
 			}
 			if($badge_tester_alfa == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_tester_alfa_unlocked.jpg" height="50" width="50" /></td><td><h3>Alpha Tester</h3><p>With this badge we are thanking the users who joined our site in the Alpha Phase and helped testing it.</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_tester_alfa_unlocked.jpg" height="50" width="50" /></td><td><h3>Alpha Tester</h3><p>With this badge we are thanking the users who joined our site in the Alpha Phase and helped testing it.</p></td></tr></table></div>';
 			}if($badge_tester_alfa == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_tester_alfa_locked.jpg" height="50" width="50" /></td><td><h3>Alpha Tester</h3><p>With this badge we are thanking the users who joined our site in the Alpha Phase and helped testing it.</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_tester_alfa_locked.jpg" height="50" width="50" /></td><td><h3>Alpha Tester</h3><p>With this badge we are thanking the users who joined our site in the Alpha Phase and helped testing it.</td></tr></table></div>';
 			}
 			if($badge_tester_beta == true){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_tester_beta_unlocked.jpg" height="50" width="50" /></td><td><h3>Beta Tester</h3><p>With this badge we are thanking the users who joined our site in the Beta Phase and helped testing it.</p></td></tr></table></div>';
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_tester_beta_unlocked.jpg" height="50" width="50" /></td><td><h3>Beta Tester</h3><p>With this badge we are thanking the users who joined our site in the Beta Phase and helped testing it.</p></td></tr></table></div>';
 			}if($badge_tester_beta == false){
-				echo '<div class="badge-info"><table><tr><td width="60"><img src="css/images/badges/badge_tester_beta_locked.jpg" height="50" width="50" /></td><td><h3>Beta Tester</h3><p>With this badge we are thanking the users who joined our site in the Beta Phase and helped testing it.</td></tr></table></div>';	
+				echo '<div class="badge-info"><table><tr><td width="60"><img src="assets/images/badges/badge_tester_beta_locked.jpg" height="50" width="50" /></td><td><h3>Beta Tester</h3><p>With this badge we are thanking the users who joined our site in the Beta Phase and helped testing it.</td></tr></table></div>';
 			}
 		?>
 		</div>

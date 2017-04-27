@@ -28,16 +28,16 @@ $seconds = intval(date('s', $time_difference));
 }
 
 if(isset($_GET['success'])){
-echo '<div class="green-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Your comment has been successfully posted.</td></tr></table></div>';
+echo '<div class="green-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>Your comment has been successfully posted.</td></tr></table></div>';
 }
 if(isset($_GET['fields-not-set'])){
-echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>All fields are required.</td></tr></table></div>';
+echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>All fields are required.</td></tr></table></div>';
 }
 if(isset($_GET['bot-alert'])){
-echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Recaptcha is wrong.</td></tr></table></div>';
+echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>Recaptcha is wrong.</td></tr></table></div>';
 }
 if(isset($_GET['time'])){
-echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Not too fast! You can comment again in <strong>'.$minutes.'</strong> minutes and <strong>'.$seconds.'</strong> seconds.</td></tr></table></div>';
+echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>Not too fast! You can comment again in <strong>'.$minutes.'</strong> minutes and <strong>'.$seconds.'</strong> seconds.</td></tr></table></div>';
 }
 ?>
 <p>
@@ -53,7 +53,7 @@ echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img sr
                     <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmiloszdura.com%2Ftechblog%2F%3Fid%3D'.$post_id.'&amp;width=50&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
                 </td>
                 <td>
-                    <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;"><img src="css/images/share-button.png" style="border:none; height:20px;" title="Share on Facebook" /></a>
+                    <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;"><img src="assets/images/share-button.png" style="border:none; height:20px;" title="Share on Facebook" /></a>
                 </td>
                 <td>
                     <a href="https://twitter.com/share" class="twitter-share-button" data-text="<?php echo $post->title; ?>" data-via="GamingPassionPL">Tweet</a>
@@ -95,7 +95,7 @@ echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img sr
                     {
                         $ratingAverage = $ratingsResponse->average === null ? 0 : $ratingsResponse->average;
                         ?>
-                        <img src="css/images/rating-<?php echo $ratingAverage; ?>-stars.png" title="<?php echo $ratingAverage; ?>/5" />
+                        <img src="assets/images/rating-<?php echo $ratingAverage; ?>-stars.png" title="<?php echo $ratingAverage; ?>/5" />
                         <?php
                     }
                     ?>

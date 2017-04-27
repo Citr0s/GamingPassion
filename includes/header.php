@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Gaming Passion | News, Reviews, Fun</title>
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-	<link rel="icon" href="css/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="dist/css/app.css">
+	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css' />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
@@ -20,18 +20,14 @@
 	  ga('send', 'pageview');
 
 	</script>
-    <script src="../js/app.js"></script>
-    <script src="../js/factories/RetrievePostsService.js"></script>
-    <script src="../js/factories/RetrieveRatingsService.js"></script>
-    <script src="../js/directives/PostList.js"></script>
-</head>
+    <script src="dist/js/app.js"></script>
 <body ng-controller="PostController">
 	<div id="wrapper">
 		<div id="header">
 			<div class="container">
 				<div class="float-left">
 					<div style="width:0px;">
-						<a href="/"><img src="css/images/logo-main.jpg" alt="gaming passion logo" /></a>
+						<a href="/"><img src="assets/images/logo-main.jpg" alt="gaming passion logo" /></a>
 					</div>
 				</div>
 				<div class="float-right">

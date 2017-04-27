@@ -17,7 +17,7 @@
 	                    $thumbnail = $row['thumbnail'];
 	            
 	                    if(empty($thumbnail)){
-	                        $thumbnail = '../css/images/image-missing.png';	
+	                        $thumbnail = '../assets/images/image-missing.png';
 	                    }
 	            
 	                    if($public == 1){

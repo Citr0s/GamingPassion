@@ -354,7 +354,7 @@ function showAllPostsDashboard(){
 		}
 
 		if(empty($thumbnail)){
-			$thumbnail = 'css/images/image-missing.jpg';	
+			$thumbnail = 'assets/images/image-missing.jpg';
 		}
 		
 		if(strlen($post_content) > 255){
@@ -391,17 +391,17 @@ function showAllPostsDashboard(){
 			';
 		}else{
 			if($total_score <= 0){
-				$rating = '<img src="../css/images/rating-0-stars.png" title="'.$total_score.'/5" />';	
+				$rating = '<img src="../assets/images/rating-0-stars.png" title="'.$total_score.'/5" />';
 			}elseif($average_rating <= 1){
-				$rating = '<img src="../css/images/rating-1-star.png" title="'.$average_rating.'/5" />';	
+				$rating = '<img src="../assets/images/rating-1-star.png" title="'.$average_rating.'/5" />';
 			}elseif($average_rating <= 2){
-				$rating = '<img src="../css/images/rating-2-stars.png" title="'.$average_rating.'/5" />';	
+				$rating = '<img src="../assets/images/rating-2-stars.png" title="'.$average_rating.'/5" />';
 			}elseif($average_rating <= 3){
-				$rating = '<img src="../css/images/rating-3-stars.png" title="'.$average_rating.'/5" />';	
+				$rating = '<img src="../assets/images/rating-3-stars.png" title="'.$average_rating.'/5" />';
 			}elseif($average_rating <= 4){
-				$rating = '<img src="../css/images/rating-4-stars.png" title="'.$average_rating.'/5" />';	
+				$rating = '<img src="../assets/images/rating-4-stars.png" title="'.$average_rating.'/5" />';
 			}elseif($average_rating <= 5){
-				$rating = '<img src="../css/images/rating-5-stars.png" title="'.$average_rating.'/5" />';	
+				$rating = '<img src="../assets/images/rating-5-stars.png" title="'.$average_rating.'/5" />';
 			}
 		}
 
@@ -466,7 +466,7 @@ function showAllUsersDashboard(){
 		$user_id = $row2['user_id'];
 
 		if(empty($thumbnail)){
-			$thumbnail = 'css/images/image-missing.jpg';	
+			$thumbnail = 'assets/images/image-missing.jpg';
 		}
 
 		if(empty($bio)){

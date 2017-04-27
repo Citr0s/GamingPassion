@@ -104,7 +104,7 @@ function showOneUser($connection){
 			$user_id = $row['user_id'];
 			
 			if(empty($thumbnail)){
-				$thumbnail = '../css/images/image-missing.jpg';	
+				$thumbnail = '../assets/images/image-missing.jpg';
 			}
 			if(empty($name)){
 				$name = ' - ';	
@@ -250,7 +250,7 @@ function showOneUser($connection){
 						$thumbnail = $row['thumbnail'];
 				
 						if(empty($thumbnail)){
-							$thumbnail = '../css/images/image-missing.jpg';	
+							$thumbnail = '../assets/images/image-missing.jpg';
 						}
 				
 						if($public == 1){
@@ -285,7 +285,7 @@ function showUsers(){
 		$email = $row2['email'];
 
 		if(empty($thumbnail)){
-			$thumbnail = '../css/images/image-missing.jpg';	
+			$thumbnail = '../assets/images/image-missing.jpg';
 		}
 		if(empty($bio)){
 			$bio = ' - ';	

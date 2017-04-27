@@ -14,7 +14,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
-<link rel="icon" href="../css/images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="css/request-styles.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="Gaming-Passion.eu | Bo Gry to Nasza Pasja!" />
@@ -128,7 +128,7 @@
 		$tags = $row['tags'];
 
 		if(empty($thumbnail)){
-			$thumbnail = '../css/images/image-missing.jpg';	
+			$thumbnail = '../assets/images/image-missing.jpg';
 		}
 		
 		echo '

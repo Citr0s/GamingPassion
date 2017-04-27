@@ -52,7 +52,7 @@ class MessageService
         $tags = $_POST['tags'];
 
         if(empty($thumbnail)){
-            $thumbnail = 'css/images/image-missing.jpg';
+            $thumbnail = 'assets/images/image-missing.jpg';
         }
 
         if(empty($post_title) || empty($post_content) || empty($post_author) || empty($post_category) || empty($tags)){
@@ -117,14 +117,14 @@ class MessageService
             }
 
             if($read == 0){
-                $message_read_status = '<span style="float:right;"><a href="read-message.php?message_id='.$message_id.'"><img src="css/images/message-not-read.png" title="Mark as read." /></a></span>';
+                $message_read_status = '<span style="float:right;"><a href="read-message.php?message_id='.$message_id.'"><img src="assets/images/message-not-read.png" title="Mark as read." /></a></span>';
             }elseif($read == 1){
-                $message_read_status = '<span style="float:right;"><img src="css/images/message-read.png" title="Marked as read."/></span>';
+                $message_read_status = '<span style="float:right;"><img src="assets/images/message-read.png" title="Marked as read."/></span>';
             }
 
             echo '
 				<div class="inbox-post">
-					<span style="float:right;"><a href="delete-message.php?message_id='.$message_id.'"><img src="css/images/popup-close-icon.png" title="Delete" /></a></span>
+					<span style="float:right;"><a href="delete-message.php?message_id='.$message_id.'"><img src="assets/images/popup-close-icon.png" title="Delete" /></a></span>
 					'.$message_read_status.'
 					<div class="holder"></div>
 					Title: <strong>'.substr($title, 0, 25).'</strong>
@@ -181,14 +181,14 @@ class MessageService
             }
 
             if($read == 0){
-                $message_read_status = '<span style="float:right;"><a href="read-message.php?message_id='.$message_id.'"><img src="css/images/message-not-read.png" title="Mark as read." /></a></span>';
+                $message_read_status = '<span style="float:right;"><a href="read-message.php?message_id='.$message_id.'"><img src="assets/images/message-not-read.png" title="Mark as read." /></a></span>';
             }elseif($read == 1){
-                $message_read_status = '<span style="float:right;"><img src="css/images/message-read.png" title="Marked as read."/></span>';
+                $message_read_status = '<span style="float:right;"><img src="assets/images/message-read.png" title="Marked as read."/></span>';
             }
 
             echo '
 				<div class="inbox-post">
-					<span style="float:right;"><a href="delete-message.php?message_id='.$message_id.'"><img src="css/images/popup-close-icon.png" title="Delete" /></a></span>
+					<span style="float:right;"><a href="delete-message.php?message_id='.$message_id.'"><img src="assets/images/popup-close-icon.png" title="Delete" /></a></span>
 					'.$message_read_status.'
 					<div class="holder"></div>
 					Title: <strong>'.$title.'</strong>
@@ -245,14 +245,14 @@ class MessageService
             }
 
             if($read == 0){
-                $message_read_status = '<span style="float:right;"><img src="css/images/message-not-read.png" title="Not read." /></span>';
+                $message_read_status = '<span style="float:right;"><img src="assets/images/message-not-read.png" title="Not read." /></span>';
             }elseif($read == 1){
-                $message_read_status = '<span style="float:right;"><img src="css/images/message-read.png" title="Read."/></span>';
+                $message_read_status = '<span style="float:right;"><img src="assets/images/message-read.png" title="Read."/></span>';
             }
 
             echo '
 				<div class="inbox-post">
-					<span style="float:right;"><a href="delete-message.php?message_id='.$message_id.'"><img src="css/images/popup-close-icon.png" title="Delete" /></a></span>
+					<span style="float:right;"><a href="delete-message.php?message_id='.$message_id.'"><img src="assets/images/popup-close-icon.png" title="Delete" /></a></span>
 					'.$message_read_status.'
 					<div class="holder"></div>
 					Title: <strong>'.substr($title, 0, 25).'</strong>
@@ -309,14 +309,14 @@ class MessageService
             }
 
             if($read == 0){
-                $message_read_status = '<span style="float:right;"><img src="css/images/message-not-read.png" title="Not read." /></span>';
+                $message_read_status = '<span style="float:right;"><img src="assets/images/message-not-read.png" title="Not read." /></span>';
             }elseif($read == 1){
-                $message_read_status = '<span style="float:right;"><img src="css/images/message-read.png" title="Read."/></span>';
+                $message_read_status = '<span style="float:right;"><img src="assets/images/message-read.png" title="Read."/></span>';
             }
 
             echo '
 				<div class="inbox-post">
-					<span style="float:right;"><a href="delete-message.php?message_id='.$message_id.'"><img src="css/images/popup-close-icon.png" title="Delete" /></a></span>
+					<span style="float:right;"><a href="delete-message.php?message_id='.$message_id.'"><img src="assets/images/popup-close-icon.png" title="Delete" /></a></span>
 					'.$message_read_status.'
 					<div class="holder"></div>
 					Title: <strong>'.$title.'</strong>

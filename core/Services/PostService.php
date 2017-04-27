@@ -79,7 +79,7 @@ class PostService
         $tags = $_POST['tags'];
 
         if(empty($thumbnail)){
-            $thumbnail = 'css/images/image-missing.jpg';
+            $thumbnail = 'assets/images/image-missing.jpg';
         }
 
         if(empty($post_title) || empty($post_content) || empty($post_author) || empty($post_category) || empty($tags)){

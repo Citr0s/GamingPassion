@@ -4,3 +4,5 @@ uploads_new/
 .idea/
 .DS_Store
 vendor/
+node_modules/
+dist/

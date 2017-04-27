@@ -20,19 +20,19 @@
 	<h1 class="h1" style="margin-top:5px;">PRIVATE MESSAGES</h1>
 <?php
 		if(isset($_GET['success'])){
-			echo '<div class="green-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Your message has been sent successfully.</td></tr></table></div>';
+			echo '<div class="green-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>Your message has been sent successfully.</td></tr></table></div>';
 		}
 		if(isset($_GET['user-doesnt-exist'])){
-			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>This user doesn\'t exist.</td></tr></table></div>';
+			echo ';
 		}
 		if(isset($_GET['fields-not-set'])){
-			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>All fields are required.</td></tr></table></div>';
+			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>All fields are required.</td></tr></table></div>';
 		}
 		if(isset($_GET['bot-alert'])){
-			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Bot alert. Try again.</td></tr></table></div>';
+			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>Bot alert. Try again.</td></tr></table></div>';
 		}
 		if(isset($_GET['self'])){
-			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>You can\'t send messages to yourself.</td></tr></table></div>';
+			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>You can\'t send messages to yourself.</td></tr></table></div>';
 		}
 		
 		$user = $_SESSION['username'];
@@ -53,7 +53,7 @@
 		$seconds = intval(date('s', $time_difference));
 		
 		if(isset($_GET['time'])){
-			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>Not too fast! You can send your next message in <strong>'.$minutes.'</strong> minutes and <strong>'.$seconds.'</strong> seconds.</td></tr></table></div>';
+			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>Not too fast! You can send your next message in <strong>'.$minutes.'</strong> minutes and <strong>'.$seconds.'</strong> seconds.</td></tr></table></div>';
 		}
 ?>
     <?php
