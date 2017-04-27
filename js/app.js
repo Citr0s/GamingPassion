@@ -11,8 +11,9 @@ $(function(){
 $(document).scroll(function() {
     var scrollTop = $(window).scrollTop();
     var elementOffset = $('#menu').offset().top;
-    distance = (elementOffset - scrollTop);
-    bar_pos = distance;
+    var distance = (elementOffset - scrollTop);
+    var bar_pos = distance;
+    
     if (bar_pos <= 0) {
         document.getElementById("menu").style.top="0";
         document.getElementById("menu").style.position="fixed";
