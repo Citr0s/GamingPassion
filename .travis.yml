@@ -3,6 +3,10 @@ language: php
 php:
   - 7.1
 
+node_js:
+  - "4"
+
+
 before_script:
   - composer self-update
   - composer install
@@ -12,3 +16,5 @@ script: phpunit --bootstrap vendor/autoload.php --colors=always core/Tests/ && g
 
 notifications:
     email: false
+
+cache: yarn
