@@ -29,7 +29,7 @@
 					</tr>
 				</table>
 					<div id="postContaiener" style="margin-top:15px;">
-						<?php showAllCommentsDashboard(); ?>
+						<?php showAllCommentsDashboard($connection); ?>
 						<div class="holder"></div>
 					</div>
 			</div>

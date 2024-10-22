@@ -525,7 +525,7 @@ function showAllUsersDashboard()
     }
 }
 
-function showAllCommentsDashboard()
+function showAllCommentsDashboard($connection)
 {
     $data = mysqli_query($connection, "SELECT * FROM `comments` ORDER BY `comment_id`");
     $comment_count = 0;
