@@ -205,7 +205,7 @@ if (loggedIn() == true) {
                             <td></td>
                             <td>
                                 <div class="g-recaptcha" data-sitekey="6LeXsf4SAAAAAF8YxjHnQw3VYqZPF9BQ79QR4osg"></div>
-                                <input type="text" name="comment_author_status" value="admin" style="visibility:hidden; width:0px; height:0px;"/>
+                                <input type="text" name="comment_author_status" value="admin"/>
                                 <input type="hidden" name="post_id" value="<?php echo $post->id; ?>"/>
                             </td>
                         </tr>
@@ -236,7 +236,7 @@ if (loggedIn() == true) {
                             <td></td>
                             <td>
                                 <div class="g-recaptcha" data-sitekey="6LeXsf4SAAAAAF8YxjHnQw3VYqZPF9BQ79QR4osg"></div>
-                                <input type="text" name="comment_author_status" value="mod" style="visibility:hidden; width:0px; height:0px;"/>
+                                <input type="hidden" name="comment_author_status" value="mod"/>
                                 <input type="hidden" name="post_id" value="<?php echo $post->id; ?>"/>
                             </td>
                         </tr>
