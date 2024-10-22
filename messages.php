@@ -42,6 +42,8 @@ include_once 'includes/header.php';
 
                     $data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active` = 1 ORDER BY `timestamp` DESC LIMIT 1");
 
+                    $last_comment_time = date("Y/m/d H:i:s");
+
                     while ($row = mysqli_fetch_array($data)) {
                         $last_comment_time = $row['timestamp'];
                     }
