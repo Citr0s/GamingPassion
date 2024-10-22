@@ -13,8 +13,13 @@ include_once 'includes/header.php';
         </div>
         <div id="index-landing">
             <div id="main-content">
+                <?php
+
+                $user = $_SESSION['username'];
+
+                ?>
                 <p>
-                    <strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="profile.php?user=<?php echo $username; ?>">MY PROFILE</a> > <a href="messages.php">PRIVATE MESSAGES</a>
+                    <strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="profile.php?user=<?php echo $user; ?>">MY PROFILE</a> > <a href="messages.php">PRIVATE MESSAGES</a>
                 </p>
                 <div id="badges-container">
                     <h1 class="h1" style="margin-top:5px;">PRIVATE MESSAGES</h1>
@@ -35,7 +40,6 @@ include_once 'includes/header.php';
                         echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-info-icon.png" /></td><td>You can\'t send messages to yourself.</td></tr></table></div>';
                     }
 
-                    $user = $_SESSION['username'];
                     $data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active` = 1 ORDER BY `timestamp` DESC LIMIT 1");
 
                     while ($row = mysqli_fetch_array($data)) {
