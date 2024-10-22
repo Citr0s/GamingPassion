@@ -23,16 +23,16 @@
 	                    if($public == 1){
 	                        echo '
 	                            <div class="post-small">
-	                                <a href="/article/?id='.$post_id.'">
+	                                <a href="/?id='.$post_id.'">
 	                                    <h3 style="font:14px Arial; color:#333; padding:15px 0px; text-align:right; font-weight:bold;">'.strtoupper($post_title).'</h3>
 	                                </a>
-	                                <a href="/article/?id='.$post_id.'">
+	                                <a href="/?id='.$post_id.'">
 	                                    <img src="'.$thumbnail.'" width="100%" />
 	                                </a>
 	                                <p style="color:#777; text-align:right; padding-bottom:15px;">
 	                                    '.substr($post_content, 0, 152).'...
 	                                    <div class="float-right">
-	                                        <a href="/article/?id='.$post_id.'" style="font-weight:bold;">
+	                                        <a href="/?id='.$post_id.'" style="font-weight:bold;">
 	                                            <h6 style="font:10px Arial; margin-bottom:15px;">(czytaj dalej / skomentuj)</h6>
 	                                        </a>
 	                                    </div>

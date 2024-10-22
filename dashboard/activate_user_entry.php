@@ -15,7 +15,7 @@
 	if(isset($user_id)){
 	mysqli_query($connection, "UPDATE `users` SET active = 1 WHERE $user_id = user_id");
 	}else{
-		header('Location: index.php');	
+		header('Location: /');	
 	}
 	header('Location: users.php?activated');
 ?>

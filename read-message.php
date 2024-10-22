@@ -1,7 +1,7 @@
 <?php include 'core/bootstrap.php'; ?>
 <?php
 	if(!loggedIn()){
-		header("Location: index.php");
+		header("Location: /");
 		die();
 	}
 ?>
@@ -23,12 +23,12 @@
 	}
 	
 	if($message_count == 0){
-		header('Location: index.php');
+		header('Location: /');
 	}else{
 		if(isset($message_id)){
 			mysqli_query($connection, "UPDATE `private_messages` SET `read` = 1 WHERE `message_id` = $message_id");
 		}else{
-			header('Location: index.php');
+			header('Location: /');
 		}
 		header('Location: messages.php?deleted');
 	}

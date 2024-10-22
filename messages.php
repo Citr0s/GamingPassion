@@ -2,7 +2,7 @@
 include_once 'core/bootstrap.php';
 
 if (!loggedIn()) {
-    header("Location: index.php");
+    header("Location: /");
 }
 
 include_once 'includes/header.php';

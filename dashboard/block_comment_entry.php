@@ -11,7 +11,7 @@
 	if(isset($comment_id)){
 	mysqli_query($connection, "UPDATE `comments` SET active = 0 WHERE $comment_id = comment_id");
 	}else{
-		header('Location: index.php');	
+		header('Location: /');	
 	}
 	header('Location: comments.php?activated');
 ?>

@@ -1,7 +1,7 @@
 <?php include 'core/bootstrap.php'; ?>
 <?php
 	if(!loggedIn()){
-		header("Location: index.php");
+		header("Location: /");
 		die();
 	}
 ?>
@@ -23,22 +23,22 @@
 	}
 	
 	if($message_count == 0){
-		header('Location: index.php');
+		header('Location: /');
 	}elseif($message_count == 1){
 		if(isset($message_id)){
 			mysqli_query($connection, "UPDATE `private_messages` SET `active` = 0 WHERE `message_id` = $message_id");
 		}else{
-			header('Location: index.php');
+			header('Location: /');
 		}
 		header('Location: messages.php?deleted');
 	}elseif($message_count == 2){
 		if(isset($message_id)){
 			mysqli_query($connection, "UPDATE `private_messages` SET `active_from` = 0 WHERE `message_id` = $message_id");
 		}else{
-			header('Location: index.php');
+			header('Location: /');
 		}
 		header('Location: messages.php?deleted');
 	}else{
-		header('Location: index.php');
+		header('Location: /');
 	}
 ?>

@@ -359,9 +359,9 @@ function showAllPostsDashboard($connection)
         }
 
         if (strlen($post_content) > 255) {
-            $end = '<a href="../article/?id=' . $post_id . '" title="' . strtoupper($post_title) . '">(czytaj dalej / skomentuj)</a>';
+            $end = '<a href="../?id=' . $post_id . '" title="' . strtoupper($post_title) . '">(czytaj dalej / skomentuj)</a>';
         } else {
-            $end = '<a href="../article/?id=' . $post_id . '" title="' . strtoupper($post_title) . '">(skomentuj)</a>';
+            $end = '<a href="../?id=' . $post_id . '" title="' . strtoupper($post_title) . '">(skomentuj)</a>';
         }
 
         $total_ratings = 0;
@@ -382,12 +382,12 @@ function showAllPostsDashboard($connection)
         if (loggedIn() && notVoted($connection, $post_id)) {
             $rating = '
 	        	<div class="stars-bg">
-	        		<a href="../article/vote.php?post_id=' . $post_id . '&rating=1"><div class="star-1"></div></a>
-	        		<a href="../article/vote.php?post_id=' . $post_id . '&rating=2"><div class="star-2"></div></a>
-	        		<a href="../article/vote.php?post_id=' . $post_id . '&rating=3"><div class="star-3"></div></a>
-	        		<a href="../article/vote.php?post_id=' . $post_id . '&rating=4"><div class="star-4"></div></a>
-	        		<a href="../article/vote.php?post_id=' . $post_id . '&rating=5"><div class="star-5"></div></a>
-	        		<a href="../article/vote.php?post_id=' . $post_id . '&rating=6"><div class="holder"></div></a>
+	        		<a href="../vote.php?post_id=' . $post_id . '&rating=1"><div class="star-1"></div></a>
+	        		<a href="../vote.php?post_id=' . $post_id . '&rating=2"><div class="star-2"></div></a>
+	        		<a href="../vote.php?post_id=' . $post_id . '&rating=3"><div class="star-3"></div></a>
+	        		<a href="../vote.php?post_id=' . $post_id . '&rating=4"><div class="star-4"></div></a>
+	        		<a href="../vote.php?post_id=' . $post_id . '&rating=5"><div class="star-5"></div></a>
+	        		<a href="../vote.php?post_id=' . $post_id . '&rating=6"><div class="holder"></div></a>
 	        	</div>
 			';
         } else {

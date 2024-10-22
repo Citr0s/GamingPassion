@@ -30,7 +30,7 @@ function loginCheck($connection, $username, $password)
         } elseif ($user_info[4] == 1) {
             if ($username === $user_info[1] && md5($password) === $user_info[2]) {
                 $_SESSION['username'] = $username;
-                header("Location: index.php?success");
+                header("Location: /?success");
             }
         }
     }
@@ -314,7 +314,7 @@ function showOneUser($connection)
                     }
 
                     if ($public == 1) {
-                        echo '<div class="post-small"><a href="/article/?post_id=' . $post_id . '"><img src="' . $thumbnail . '" width="50" height="50" style="float:left; border:1px solid #666; margin:20px 5px 0px 0px;" /></a><a href="/article/?post_id=' . $post_id . '"><br /><h3>' . $post_title . '</h3></a><p>' . substr($post_content, 0, 152) . '&nbsp;<a href="/article/?post_id=' . $post_id . '" style="font-weight:bold;">(czytaj dalej / skomentuj)</a></p><br /></div>';
+                        echo '<div class="post-small"><a href="/?post_id=' . $post_id . '"><img src="' . $thumbnail . '" width="50" height="50" style="float:left; border:1px solid #666; margin:20px 5px 0px 0px;" /></a><a href="/?post_id=' . $post_id . '"><br /><h3>' . $post_title . '</h3></a><p>' . substr($post_content, 0, 152) . '&nbsp;<a href="/?post_id=' . $post_id . '" style="font-weight:bold;">(czytaj dalej / skomentuj)</a></p><br /></div>';
                     }
                 }
                 if ($post_count == 0) {

@@ -3,6 +3,6 @@
 	if(isset($_POST['username'])){
 		loginCheck($connection, $_POST['username'], $_POST['password']);
 	}else{
-		header("Location: index.php");
+		header("Location: /");
 	}
 ?>

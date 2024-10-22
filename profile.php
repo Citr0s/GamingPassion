@@ -2,7 +2,7 @@
 	include_once 'core/bootstrap.php';
 
 	if(!isset($_GET['user'])){
-		header('Location: index.php');
+		header('Location: /');
 		die();
 	}
 

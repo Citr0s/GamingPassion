@@ -4,7 +4,7 @@
 
 	if(!loggedIn() || !adminUser($connection)){
 		if(!modUser($connection)){
-			header("Location: index.php");
+			header("Location: /");
 		}
 	}
 
