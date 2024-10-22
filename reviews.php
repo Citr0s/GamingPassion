@@ -48,7 +48,7 @@ include_once 'includes/header.php';
                         <tr>
                             <td>
                                 <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmiloszdura.com%2Ftechblog%2F%3Fid%3D'.$post_id.'&amp;width=50&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21"
-                                        scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+                                        scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:70px; height:21px;" allowTransparency="true"></iframe>
                             </td>
                             <td>
                                 <a href="#"
