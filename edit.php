@@ -34,9 +34,9 @@ include_once 'includes/header.php';
                     $user_id = $user_row['user_id'];
                 }
 
-                $current_password = $_POST['current_password'];
-                $new_password = $_POST['new_password'];
-                $new_password_check = $_POST['new_password_check'];
+                $current_password = $_POST['current_password'] ?? '';
+                $new_password = $_POST['new_password'] ?? '';
+                $new_password_check = $_POST['new_password_check'] ?? '';
 
                 if (isset($_POST['current_password'])) {
                     if (!empty($current_password) && !empty($new_password) && !empty($new_password_check)) {
