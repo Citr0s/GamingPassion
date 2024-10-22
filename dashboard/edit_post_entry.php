@@ -1,8 +1,8 @@
 <?php include '../core/bootstrap.php'; ?>
 <?php
-	$data = mysql_query("SELECT * FROM users WHERE '$_SESSION[username]' = username LIMIT 1");
+	$data = mysqli_query($connection, "SELECT * FROM users WHERE '$_SESSION[username]' = username LIMIT 1");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$user_info = array($row['user_id'], $row['username'], $row['password'], $row['email'], $row['active'], $row['status']);
 	}
 ?>
@@ -33,9 +33,9 @@
 
 	if(!empty($_POST['filename'])){
 
-		$data = mysql_query("SELECT * FROM `posts` WHERE $post_id = post_id");
+		$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE $post_id = post_id");
 
-		while($row = mysql_fetch_array($data)){
+		while($row = mysqli_fetch_array($data)){
 			$thumbnail = $row['thumbnail'];	
 		}
 
@@ -70,18 +70,18 @@
 		
 		if(empty($name)){
 			echo "(Obrazek nie został zmieniony.)";
-			$data = mysql_query("SELECT * FROM `posts` WHERE $post_id = post_id");
+			$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE $post_id = post_id");
 	
-			while($row = mysql_fetch_array($data)){
+			while($row = mysqli_fetch_array($data)){
 				$thumbnail = $row['thumbnail'];
 			}
 		}else{
 			$size = $_FILES['filename']['size'];
 			if($size > 524288){
 				echo "Obrazek jest za duży. Maxymalna wielkość to 500kb.";
-				$data = mysql_query("SELECT * FROM `posts` WHERE $post_id = post_id");
+				$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE $post_id = post_id");
 		
-				while($row = mysql_fetch_array($data)){
+				while($row = mysqli_fetch_array($data)){
 					$thumbnail = $row['thumbnail'];
 				}
 			}else{
@@ -113,13 +113,13 @@
 		$post_category = $_POST['post_category'];
 		$tags = $_POST['tags'];
 		
-		mysql_query("UPDATE `posts` SET post_title = '$post_title', post_content = '$post_content', post_author = '$post_author', post_category = '$post_category', thumbnail = '$thumbnail', tags = '$tags' WHERE $post_id = post_id");	
+		mysqli_query($connection, "UPDATE `posts` SET post_title = '$post_title', post_content = '$post_content', post_author = '$post_author', post_category = '$post_category', thumbnail = '$thumbnail', tags = '$tags' WHERE $post_id = post_id");	
 			echo '<div class="green-message">Post zosta&#322; pomy&#347;lnie edytowany.</div>';
 	}
 	
-	$data = mysql_query("SELECT * FROM `posts` WHERE $post_id = post_id");
+	$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE $post_id = post_id");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$post_title = $row['post_title'];
 		$post_author = $row['post_author'];
 		$post_content = $row['post_content'];

@@ -74,7 +74,7 @@
 		
 	}elseif(!empty($post_title) && !empty($post_content) && !empty($post_author) && !empty($post_category) && !empty($tags)){
 			
-		mysql_query("INSERT INTO `posts` VALUES ('', '$post_title', 'test', '$post_author', CURRENT_TIMESTAMP, 1, '$post_category', '$thumbnail', 'pl', '$tags')") or die ('Something went wrong. Please try again later.');
+		mysqli_query($connection, "INSERT INTO `posts` VALUES ('', '$post_title', 'test', '$post_author', CURRENT_TIMESTAMP, 1, '$post_category', '$thumbnail', 'pl', '$tags')") or die ('Something went wrong. Please try again later.');
 		echo 'OK GO';
 		echo '
 			<script>

@@ -29,185 +29,185 @@
 	/** Counter Variables End **/
 	
 	/** Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$total_post_count++;
 	}
 	/** Post Count End **/
 
 	/** Approved Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `public` = 1 ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `public` = 1 ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$approved_post_count++;
 	}
 	/** Approved Post Count End **/
 	
 	/** Rejected Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `public` = 0 ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `public` = 0 ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$rejected_post_count++;
 	}
 	/** Rejected Post Count End **/
 	
 	/** News Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'news' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'news' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$news_post_count++;
 	}
 	/** News Post Count End **/
 
 	/** Review Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'recenzja' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'recenzja' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$review_post_count++;
 	}
 	/** Review Post Count End **/
 	
 	/** Guide Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'poradnik' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'poradnik' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$guide_post_count++;
 	}
 	/** Guide Post Count End **/
 	
 	/** Gameplay Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'gameplay' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'gameplay' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$gameplay_post_count++;
 	}
 	/** Gameplay Post Count End **/
 	
 	/** Overall User Count **/
-	$user_count = mysql_query("SELECT * FROM `users` ORDER BY `user_id`");
+	$user_count = mysqli_query($connection, "SELECT * FROM `users` ORDER BY `user_id`");
 	
-	while($user_count_row = mysql_fetch_array($user_count)){
+	while($user_count_row = mysqli_fetch_array($user_count)){
 		$overall_user_count++;
 	}
 	/** Overall User Count End **/
 	
 	/** Active User Count **/
-	$user_count = mysql_query("SELECT * FROM `users` WHERE `active` = 1 ORDER BY `user_id`");
+	$user_count = mysqli_query($connection, "SELECT * FROM `users` WHERE `active` = 1 ORDER BY `user_id`");
 	
-	while($user_count_row = mysql_fetch_array($user_count)){
+	while($user_count_row = mysqli_fetch_array($user_count)){
 		$active_user_count++;
 	}
 	/** Active User Count End **/
 	
 	/** Unactive User Count **/
-	$user_count = mysql_query("SELECT * FROM `users` WHERE `active` = 0 ORDER BY `user_id`");
+	$user_count = mysqli_query($connection, "SELECT * FROM `users` WHERE `active` = 0 ORDER BY `user_id`");
 	
-	while($user_count_row = mysql_fetch_array($user_count)){
+	while($user_count_row = mysqli_fetch_array($user_count)){
 		$unactive_user_count++;
 	}
 	/** Unactive User Count End **/
 
 	/** Overall Comment Count **/
-	$comment_count = mysql_query("SELECT * FROM `comments` ORDER BY `comment_id`");
+	$comment_count = mysqli_query($connection, "SELECT * FROM `comments` ORDER BY `comment_id`");
 	
-	while($user_count_row = mysql_fetch_array($comment_count)){
+	while($user_count_row = mysqli_fetch_array($comment_count)){
 		$overall_comment_count++;
 	}
 	/** Overall Comment Count End **/
 	
 	/** Active Comment Count **/
-	$comment_count = mysql_query("SELECT * FROM `comments` WHERE `active` = 1 ORDER BY `comment_id`");
+	$comment_count = mysqli_query($connection, "SELECT * FROM `comments` WHERE `active` = 1 ORDER BY `comment_id`");
 	
-	while($user_count_row = mysql_fetch_array($comment_count)){
+	while($user_count_row = mysqli_fetch_array($comment_count)){
 		$active_comment_count++;
 	}
 	/** Active Comment Count End **/
 	
 	/** Unactive Comment Count **/
-	$comment_count = mysql_query("SELECT * FROM `comments` WHERE `active` = 0 ORDER BY `comment_id`");
+	$comment_count = mysqli_query($connection, "SELECT * FROM `comments` WHERE `active` = 0 ORDER BY `comment_id`");
 	
-	while($user_count_row = mysql_fetch_array($comment_count)){
+	while($user_count_row = mysqli_fetch_array($comment_count)){
 		$unactive_comment_count++;
 	}
 	/** Unactive Comment Count End **/
 
 	/** User Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_author` = '$username' ORDER BY `post_id` DESC");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_author` = '$username' ORDER BY `post_id` DESC");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$user_total_post_count++;
 	}
 	/** User Post Count End **/
 	
 	/** User Approved Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `public` = 1 AND `post_author` = '$username' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `public` = 1 AND `post_author` = '$username' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$user_approved_post_count++;
 	}
 	/** User Approved Post Count End **/
 	
 	/** User Rejected Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `public` = 0 AND `post_author` = '$username' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `public` = 0 AND `post_author` = '$username' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$user_rejected_post_count++;
 	}
 	/** User Rejected Post Count End **/
 	
 	/** User News Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'news' AND `post_author` = '$username' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'news' AND `post_author` = '$username' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$user_news_post_count++;
 	}
 	/** User News Post Count End **/
 
 	/** User Review Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'recenzja' AND `post_author` = '$username' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'recenzja' AND `post_author` = '$username' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$user_review_post_count++;
 	}
 	/** User Review Post Count End **/
 	
 	/** User Guide Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'poradnik' AND `post_author` = '$username' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'poradnik' AND `post_author` = '$username' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$user_guide_post_count++;
 	}
 	/** User Guide Post Count End **/
 	
 	/** User Gameplay Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` WHERE `post_category` = 'gameplay' AND `post_author` = '$username' ORDER BY `post_id`");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_category` = 'gameplay' AND `post_author` = '$username' ORDER BY `post_id`");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$user_gameplay_post_count++;
 	}
 	/** User Gameplay Post Count End **/
 	
 	/** User Overall Comment Count **/
-	$comment_count = mysql_query("SELECT * FROM `comments` WHERE `comment_author` = '$username' ORDER BY `comment_id`");
+	$comment_count = mysqli_query($connection, "SELECT * FROM `comments` WHERE `comment_author` = '$username' ORDER BY `comment_id`");
 	
-	while($user_count_row = mysql_fetch_array($comment_count)){
+	while($user_count_row = mysqli_fetch_array($comment_count)){
 		$user_overall_comment_count++;
 	}
 	/** User Overall Comment Count End **/
 	
 	/** User Active Comment Count **/
-	$comment_count = mysql_query("SELECT * FROM `comments` WHERE `active` = 1 AND `comment_author` = '$username' ORDER BY `comment_id`");
+	$comment_count = mysqli_query($connection, "SELECT * FROM `comments` WHERE `active` = 1 AND `comment_author` = '$username' ORDER BY `comment_id`");
 	
-	while($user_count_row = mysql_fetch_array($comment_count)){
+	while($user_count_row = mysqli_fetch_array($comment_count)){
 		$user_active_comment_count++;
 	}
 	/** User Active Comment Count End **/
 	
 	/** User Unactive Comment Count **/
-	$comment_count = mysql_query("SELECT * FROM `comments` WHERE `active` = 0 AND `comment_author` = '$username' ORDER BY `comment_id`");
+	$comment_count = mysqli_query($connection, "SELECT * FROM `comments` WHERE `active` = 0 AND `comment_author` = '$username' ORDER BY `comment_id`");
 	
-	while($user_count_row = mysql_fetch_array($comment_count)){
+	while($user_count_row = mysqli_fetch_array($comment_count)){
 		$user_unactive_comment_count++;
 	}
 	/** User Unactive Comment Count End **/
@@ -222,9 +222,9 @@
 	$unactive_comment_percentage = round(($unactive_comment_count / $overall_comment_count) * 100, 0);
 
 	/** Posts/Day Post Count **/
-	$post_count = mysql_query("SELECT * FROM `posts` ORDER BY `post_id` DESC LIMIT 1");
+	$post_count = mysqli_query($connection, "SELECT * FROM `posts` ORDER BY `post_id` DESC LIMIT 1");
 	
-	while($post_count_row = mysql_fetch_array($post_count)){
+	while($post_count_row = mysqli_fetch_array($post_count)){
 		$first_post_date = strtotime($post_count_row['timestamp']);
 	}
 	$days_since_first_post = intval((time() - $first_post_date) / 86400);
@@ -233,9 +233,9 @@
 	/** Posts/Day Post Count End **/
 
 	/** Users/Day Post Count **/
-	$user_count = mysql_query("SELECT * FROM `users` ORDER BY `user_id` DESC LIMIT 1");
+	$user_count = mysqli_query($connection, "SELECT * FROM `users` ORDER BY `user_id` DESC LIMIT 1");
 	
-	while($user_count_row = mysql_fetch_array($user_count)){
+	while($user_count_row = mysqli_fetch_array($user_count)){
 		$first_user_date = strtotime($user_count_row['joined']);
 	}
 	$days_since_first_user = intval((time() - $first_user_date) / 86400);
@@ -244,9 +244,9 @@
 	/** Users/Day Post Count End **/
 
 	/** Comments/Day Post Count **/
-	$comment_count = mysql_query("SELECT * FROM `comments` ORDER BY `comment_id` DESC LIMIT 1");
+	$comment_count = mysqli_query($connection, "SELECT * FROM `comments` ORDER BY `comment_id` DESC LIMIT 1");
 	
-	while($comment_count_row = mysql_fetch_array($comment_count)){
+	while($comment_count_row = mysqli_fetch_array($comment_count)){
 		$first_comment_date = strtotime($comment_count_row['timestamp']);
 	}
 	$days_since_first_comment = intval((time() - $first_user_date) / 86400);
@@ -256,14 +256,14 @@
 
 function showAllPostsDashboard(){
 	if(adminUser()){
-		$data = mysql_query("SELECT * FROM `posts` WHERE section = 'pl' ORDER BY `post_id` DESC");
+		$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE section = 'pl' ORDER BY `post_id` DESC");
 	}else{
-		$data = mysql_query("SELECT * FROM `posts` WHERE section = 'pl' AND `author` = '$_SESSION[username]' ORDER BY `post_id` DESC");
+		$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE section = 'pl' AND `author` = '$_SESSION[username]' ORDER BY `post_id` DESC");
 	}
 	$post_count = 0;
 	$comment_count = 0;
 		
-	while($row = mysql_fetch_array($data)){		
+	while($row = mysqli_fetch_array($data)){		
 		$timestamp = strtotime($row['timestamp']);
 		$date =  date('d.m.Y', $timestamp);
 		$time = date('G:i', $timestamp);
@@ -347,9 +347,9 @@ function showAllPostsDashboard(){
 
 		$year =  date('Y', $timestamp);
 
-		$comment_data = mysql_query("SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
+		$comment_data = mysqli_query($connection, "SELECT * FROM `comments` WHERE comment_post_id = $post_id AND active = 1");
 		
-		while($comment_row = mysql_fetch_array($comment_data)){
+		while($comment_row = mysqli_fetch_array($comment_data)){
 			$comment_count++;
 		}
 
@@ -365,8 +365,8 @@ function showAllPostsDashboard(){
 		
 		$total_ratings = 0;
 		$total_score = 0;
-		$datax = mysql_query("SELECT * FROM `ratings` WHERE `post_id` = $post_id");
-		while($rowx = mysql_fetch_array($datax)){
+		$datax = mysqli_query($connection, "SELECT * FROM `ratings` WHERE `post_id` = $post_id");
+		while($rowx = mysqli_fetch_array($datax)){
 			$rating = $rowx['rating'];
 			$author = $rowx['author'];
 			$total_score += $rating;
@@ -449,10 +449,10 @@ function showAllPostsDashboard(){
 	}
 }
 function showAllUsersDashboard(){
-	$data = mysql_query("SELECT * FROM `users` ORDER BY `user_id`");
+	$data = mysqli_query($connection, "SELECT * FROM `users` ORDER BY `user_id`");
 	$user_count = 0;
 	
-	while($row2 = mysql_fetch_array($data)){
+	while($row2 = mysqli_fetch_array($data)){
 		$user_count++;
 		$active = $row2['active'];
 		$thumbnail = $row2['thumbnail'];
@@ -522,10 +522,10 @@ function showAllUsersDashboard(){
 	}
 }
 function showAllCommentsDashboard(){
-	$data = mysql_query("SELECT * FROM `comments` ORDER BY `comment_id`");
+	$data = mysqli_query($connection, "SELECT * FROM `comments` ORDER BY `comment_id`");
 	$comment_count = 0;
 	
-	while($row2 = mysql_fetch_array($data)){
+	while($row2 = mysqli_fetch_array($data)){
 		$comment_count++;
 		$comment_id = $row2['comment_id'];
 		$active = $row2['active'];

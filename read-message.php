@@ -10,15 +10,15 @@
 	$user = $_SESSION['username'];
 	$message_count = 0;
 		
-	$data = mysql_query("SELECT * FROM `private_messages` WHERE `to` = '$user'");
+	$data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `to` = '$user'");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$message_count++;
 	}
 	
-	$data = mysql_query("SELECT * FROM `private_messages` WHERE `from` = '$user'");
+	$data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user'");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$message_count++;
 	}
 	
@@ -26,7 +26,7 @@
 		header('Location: index.php');
 	}else{
 		if(isset($message_id)){
-			mysql_query("UPDATE `private_messages` SET `read` = 1 WHERE `message_id` = $message_id");
+			mysqli_query($connection, "UPDATE `private_messages` SET `read` = 1 WHERE `message_id` = $message_id");
 		}else{
 			header('Location: index.php');
 		}

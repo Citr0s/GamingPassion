@@ -1,8 +1,8 @@
 <?php include '../core/bootstrap.php'; ?>
 <?php
-	$data = mysql_query("SELECT * FROM users WHERE '$_SESSION[username]' = username LIMIT 1");
+	$data = mysqli_query($connection, "SELECT * FROM users WHERE '$_SESSION[username]' = username LIMIT 1");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$user_info = array($row['user_id'], $row['username'], $row['password'], $row['email'], $row['active'], $row['status']);
 	}
 ?>
@@ -38,16 +38,16 @@
 			$email = $_POST['email'];
 			$status = $_POST['status'];
 
-			mysql_query("UPDATE `users` SET `email` = '$email', `status` = '$status' WHERE `user_id` = $user_id");
+			mysqli_query($connection, "UPDATE `users` SET `email` = '$email', `status` = '$status' WHERE `user_id` = $user_id");
 			echo '<div class="green-message">User has been edited successfully.</div>';
 		}else{
 			echo '<div class="red-message">This status is invalid. Use <strong>user</strong>, <strong>mod</strong> or <strong>admin</strong>.</div>';
 		}
 	}
 
-	$data = mysql_query("SELECT * FROM `users` WHERE $user_id = user_id LIMIT 1");
+	$data = mysqli_query($connection, "SELECT * FROM `users` WHERE $user_id = user_id LIMIT 1");
 	
-	while($row = mysql_fetch_array($data)){
+	while($row = mysqli_fetch_array($data)){
 		$username = $row['username'];
 		$email = $row['email'];
 		$status = $row['status'];

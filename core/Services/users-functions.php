@@ -91,9 +91,9 @@ function showOneUser($connection){
 		echo '<center><h1>Taki u&#380;ytkownik nie istnieje!</h1><br /><p><a href="http://www.gaming-passion.eu/">Wr&#243;&#263; na Stron&#281; G&#322;&#243;wna.</a></p></center>';
 	}else{
 
-		$data = mysql_query("SELECT * FROM `mod_users` WHERE username = '$user'");	
+		$data = mysqli_query($connection, "SELECT * FROM `mod_users` WHERE username = '$user'");	
 		
-		while($row = mysql_fetch_array($data)){
+		while($row = mysqli_fetch_array($data)){
 			$active = $row['active'];
 			$thumbnail = $row['thumbnail'];
 			$name = $row['name'];
@@ -122,9 +122,9 @@ function showOneUser($connection){
 				$email = ' - ';	
 			}		
 			
-			$data2 = mysql_query("SELECT * FROM `posts` WHERE '$user' = post_author");
+			$data2 = mysqli_query($connection, "SELECT * FROM `posts` WHERE '$user' = post_author");
 			$post_count = 0;
-			while($row2 = mysql_fetch_array($data2)){
+			while($row2 = mysqli_fetch_array($data2)){
 				$post_count++;
 			}
 			
@@ -233,10 +233,10 @@ function showOneUser($connection){
 							</div>
 				<p>
 				';
-					$data = mysql_query("SELECT * FROM `posts` WHERE `post_author` = '$user' ORDER BY `post_id` DESC"); 
+					$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE `post_author` = '$user' ORDER BY `post_id` DESC"); 
 					$post_count = 0;
 					
-					while($row = mysql_fetch_array($data)){
+					while($row = mysqli_fetch_array($data)){
 						
 						$timestamp = strtotime($row['timestamp']);
 						$date =  date('d/m/Y', $timestamp);
@@ -270,10 +270,10 @@ function showOneUser($connection){
 }
 function showUsers(){
 	echo '<h1>NASI REDAKTORZY</h1>';
-	$data = mysql_query("SELECT * FROM `mod_users` WHERE active = 1 ORDER BY `user_id`");
+	$data = mysqli_query($connection, "SELECT * FROM `mod_users` WHERE active = 1 ORDER BY `user_id`");
 	$user_count = 0;
 	
-	while($row2 = mysql_fetch_array($data)){
+	while($row2 = mysqli_fetch_array($data)){
 		$user_count++;
 		$active = $row2['active'];
 		$thumbnail = $row2['thumbnail'];

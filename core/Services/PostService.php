@@ -88,13 +88,13 @@ class PostService
 
         }elseif(!empty($post_title) && !empty($post_content) && !empty($post_author) && !empty($post_category) && !empty($tags)){
 
-            $query = mysql_query("SELECT * FROM `posts` ORDER BY `post_id` DESC LIMIT 1");
+            $query = mysqli_query($connection, "SELECT * FROM `posts` ORDER BY `post_id` DESC LIMIT 1");
 
-            while($row = mysql_fetch_array($query)){
+            while($row = mysqli_fetch_array($query)){
                 $post_id = $row['post_id'] + 1;
             }
 
-            mysql_query("INSERT INTO `posts` VALUES ('', '$post_title', '$post_content', '$post_author', CURRENT_TIMESTAMP, 1, '$post_category', '$thumbnail', 'pl', '$tags')") or die ('Wystapi&#322; b&#322;&#261;d. Prosz&#281; spr&#243;bowa&#263; ponownie za kilka minut.');
+            mysqli_query($connection, "INSERT INTO `posts` VALUES ('', '$post_title', '$post_content', '$post_author', CURRENT_TIMESTAMP, 1, '$post_category', '$thumbnail', 'pl', '$tags')") or die ('Wystapi&#322; b&#322;&#261;d. Prosz&#281; spr&#243;bowa&#263; ponownie za kilka minut.');
             echo '<div class="green-message">Post wrzucony. Mo&#380;esz go obejrze&#263; klikaj&#261;c na ten link: <a href="/?post_id='.$post_id.'">http://www.gaming-passion.eu/?post_id='.$post_id.'</a></div>';
 
         }else{

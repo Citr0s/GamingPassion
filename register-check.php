@@ -18,9 +18,9 @@
 			if($password != $password_check){
 				header("Location: /register.php?error=3");
 			}else{
-				$data = mysql_query("SELECT * FROM `users`");
+				$data = mysqli_query($connection, "SELECT * FROM `users`");
 				$i = 0;
-				while($row = mysql_fetch_array($data)){
+				while($row = mysqli_fetch_array($data)){
 					if($username == $row['username']){
 						$i = 1;
 						header("Location: /register.php?error=4");
@@ -39,7 +39,7 @@
 					}elseif(isset($json['success'])){
 						$password = md5($password);
 						if($i != 1){
-							mysql_query("INSERT INTO `users` (username, password, email, active, status, joined) VALUES ('$username', '$password', '$email', 1, 'user', CURRENT_TIMESTAMP)");
+							mysqli_query($connection, "INSERT INTO `users` (username, password, email, active, status, joined) VALUES ('$username', '$password', '$email', 1, 'user', CURRENT_TIMESTAMP)");
 							header("Location: /register.php?success");
 						}
 					}

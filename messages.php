@@ -36,9 +36,9 @@
 		}
 		
 		$user = $_SESSION['username'];
-		$data = mysql_query("SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active` = 1 ORDER BY `timestamp` DESC LIMIT 1");
+		$data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active` = 1 ORDER BY `timestamp` DESC LIMIT 1");
 		
-		while($row = mysql_fetch_array($data)){
+		while($row = mysqli_fetch_array($data)){
 			$last_comment_time = $row['timestamp'];
 		}
 		
@@ -57,10 +57,10 @@
 		}
 ?>
     <?php
-		$data = mysql_query("SELECT * FROM `private_messages` WHERE `to` = '$user' AND `active` = 1 ORDER BY `message_id` DESC");
+		$data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `to` = '$user' AND `active` = 1 ORDER BY `message_id` DESC");
 		$message_count = 0;
 		
-		while($row = mysql_fetch_array($data)){
+		while($row = mysqli_fetch_array($data)){
 			$message_count++;
 		}
 	?>
@@ -69,10 +69,10 @@
 		receivedMessagesFull();
 	?>
     <?php
-		$data = mysql_query("SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active_from` = 1 ORDER BY `message_id` DESC");
+		$data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active_from` = 1 ORDER BY `message_id` DESC");
 		$sent_count = 0;
 		
-		while($row = mysql_fetch_array($data)){
+		while($row = mysqli_fetch_array($data)){
 			$sent_count++;
 		}
 	?>
