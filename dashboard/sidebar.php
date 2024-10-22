@@ -91,21 +91,18 @@
 
         $user = getUserDetails($connection, $username);
 
-        var_dump($user);
-        die();
-
         ?>
 
         <table>
             <tr>
-                <td><img src="<?php echo '../' . $thumbnail; ?>" width="50" style="border-radius:50px;"/></td>
+                <td><img src="<?php echo '../' . $user->thumbnail; ?>" width="50" style="border-radius:50px;"/></td>
                 <td style="padding:5px;">
-                    <strong><a href="../profile.php?user=<?php echo $username; ?>" style="color:#FFF;"><?php echo $username; ?></a></strong><br/>
-                    <span style="color:#ccc;">(<?php echo $status; ?>)</span>
+                    <strong><a href="../profile.php?user=<?php echo $user->username; ?>" style="color:#FFF;"><?php echo $user->username; ?></a></strong><br/>
+                    <span style="color:#ccc;">(<?php echo $user->status; ?>)</span>
                 </td>
                 <td style="text-align:right; width:100%; color:#a1a1a1; font-size:16px;">
                     <?php require_once '../core/bootstrap.php';
-                    echo '<a href="#" onclick="window.open(\'edit_user_entry.php?user_id=' . $user_id . '\',\'\',\'scrollbars=no, toolbar=no, menubar=no, location=no, personalbar=no, resizable=no, directories=no, status=no, width=640, height=700\')"><i class="fa fa-cog" title="EDIT"></i></a>'; ?>
+                    echo '<a href="#" onclick="window.open(\'edit_user_entry.php?user_id=' . $user->user_id . '\',\'\',\'scrollbars=no, toolbar=no, menubar=no, location=no, personalbar=no, resizable=no, directories=no, status=no, width=640, height=700\')"><i class="fa fa-cog" title="EDIT"></i></a>'; ?>
                 </td>
             </tr>
         </table>

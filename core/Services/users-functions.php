@@ -103,6 +103,7 @@ function getUserDetails($connection, $username = null)
         $bio = $row['bio'];
         $email = $row['email'];
         $user_id = $row['user_id'];
+        $status = $row['status'];
 
         if (empty($thumbnail)) {
             $thumbnail = '/assets/images/image-missing.jpg';
@@ -117,6 +118,7 @@ function getUserDetails($connection, $username = null)
         $user->bio = $bio;
         $user->email = $email;
         $user->active = $active;
+        $user->status = $status;
     }
 
     return $user;
