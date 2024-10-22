@@ -450,7 +450,7 @@ function showAllPostsDashboard()
     }
 }
 
-function showAllUsersDashboard()
+function showAllUsersDashboard($connection)
 {
     $data = mysqli_query($connection, "SELECT * FROM `users` ORDER BY `user_id`");
     $user_count = 0;

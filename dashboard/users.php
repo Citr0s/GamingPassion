@@ -27,7 +27,7 @@
 					</tr>
 				</table>
 					<div id="postContaiener" style="margin-top:15px;">
-						<?php showAllUsersDashboard(); ?>
+						<?php showAllUsersDashboard($connection); ?>
 						<div class="holder"></div>
 					</div>
 			</div>

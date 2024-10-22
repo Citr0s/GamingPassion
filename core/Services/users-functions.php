@@ -55,10 +55,16 @@ function adminUser($connection)
 {
     $username = $_SESSION['username'];
 
-    $data = mysqli_query($connection, "SELECT * FROM users WHERE '$username' = username LIMIT 1");
+    $data = mysqli_query($connection, "SELECT * FROM users WHERE username = '$username' LIMIT 1");
+
+    $user_info = [];
 
     while ($row = mysqli_fetch_array($data)) {
         $user_info = array($row['user_id'], $row['username'], $row['password'], $row['email'], $row['active'], $row['status'], $row['joined']);
+    }
+
+    if (sizeof($user_info) === 0) {
+        return false;
     }
 
     if ($user_info[5] == 'admin') {
