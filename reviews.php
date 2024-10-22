@@ -129,7 +129,7 @@ include_once 'includes/header.php';
             </div>
             <div class="post-info"><a href="/profile.php?user=<?php echo $post->author; ?>"><?php echo $post->author; ?></a> at <?php echo date('H:i \o\n d F Y', $post->createdAt); ?></div>
             <div class="post-image"><a href="?id=<?php echo $post->id; ?>"><img src="<?php echo $post->thumbnail; ?>"/></a></div>
-            <div class="post-sample"><?php echo $post->content; ?>
+            <div class="post-sample"><?php echo htmlspecialchars($post->content); ?>...
                 <div class="read-full-article"><a href="?id=<?php echo $post->id; ?>" class="read-full-article-hover">Read full post ></a></div>
             </div>
         </div>
