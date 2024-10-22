@@ -17,7 +17,6 @@ include_once 'includes/header.php';
                 <?php
                 $user = $_GET['user'];
                 ?>
-                ?>
 
                 <p>
                     <strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="profile.php?user=<?php echo $user; ?>">MY PROFILE</a> > <a href="edit.php?user='.$user.'">EDIT</a>
