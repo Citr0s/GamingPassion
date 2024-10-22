@@ -271,7 +271,7 @@ class MessageService
     }
     function sentMessagesFull($connection){
         $user = $_SESSION['username'];
-        $data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active_from` = 1 ORDER BY `message_id` DESC");
+        $data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active` = 1 ORDER BY `message_id` DESC");
         $message_count_sent = 0;
 
         while($row = mysqli_fetch_array($data)){
