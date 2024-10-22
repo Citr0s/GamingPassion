@@ -1,7 +1,7 @@
 <?php
 $post = $postService->getSinglePost($_GET['id']);
 
-if (sizeof($post) === 0) {
+if (!$post) {
     echo '<div class="empty_result">Currently there are no records in our database.</div>';
 }
 
