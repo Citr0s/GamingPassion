@@ -11,35 +11,38 @@ class PostService
         $this->postFactory = $postFactory;
     }
 
-	public function getAll(){
-        return  $this->postFactory->getAllPosts();
-	}
+    public function getAll()
+    {
+        return $this->postFactory->getAllPosts();
+    }
 
     public function getAllFor($category)
     {
-        return  $this->postFactory->getAllPostsFor($category);
+        return $this->postFactory->getAllPostsFor($category);
     }
 
     public function getArchived()
     {
-        return  $this->postFactory->getAllArchivedPosts();
+        return $this->postFactory->getAllArchivedPosts();
     }
-    
-	function getSinglePost($id){
-		return $this->postFactory->getSinglePostFor($id);
-	}
 
-    function savePost($connection){
+    function getSinglePost($id)
+    {
+        return $this->postFactory->getSinglePostFor($id);
+    }
+
+    function savePost($connection)
+    {
         $query = mysqli_query($connection, "SELECT * FROM `posts` ORDER BY `post_id` DESC LIMIT 1");
 
-        while($row = mysqli_fetch_array($query)){
+        while ($row = mysqli_fetch_array($query)) {
             $post_id = $row['post_id'] + 1;
         }
 
-        if($_FILES){
+        if ($_FILES) {
             $name = $_FILES['filename']['name'];
 
-            switch($_FILES['filename']['type']){
+            switch ($_FILES['filename']['type']) {
                 case 'image/jpeg':
                     $ext = 'jpg';
                     break;
@@ -54,18 +57,18 @@ class PostService
                     break;
             }
 
-            if(empty($name)){
+            if (empty($name)) {
                 echo "(Obrazek nie został zmieniony.)";
-            }else{
+            } else {
                 $size = $_FILES['filename']['size'];
-                if($size > 524288){
+                if ($size > 524288) {
                     echo "Obrazek jest za duży. Maxymalna wielkość to 500kb.";
-                }else{
-                    if($ext){
+                } else {
+                    if ($ext) {
                         $n = "uploads/$post_id.$ext";
                         move_uploaded_file($_FILES['filename']['tmp_name'], $n);
                         $thumbnail = $n;
-                    }else{
+                    } else {
                         echo "Nieprawidłowe rozszerzenie! ('$name')";
                     }
                 }
@@ -78,30 +81,31 @@ class PostService
         $post_category = $_POST['post_category'];
         $tags = $_POST['tags'];
 
-        if(empty($thumbnail)){
+        if (empty($thumbnail)) {
             $thumbnail = 'assets/images/image-missing.jpg';
         }
 
-        if(empty($post_title) || empty($post_content) || empty($post_author) || empty($post_category) || empty($tags)){
+        if (empty($post_title) || empty($post_content) || empty($post_author) || empty($post_category) || empty($tags)) {
 
             echo '<div class="red-message">Proszę wypełnić wszystkie pola.</div>';
 
-        }elseif(!empty($post_title) && !empty($post_content) && !empty($post_author) && !empty($post_category) && !empty($tags)){
+        } elseif (!empty($post_title) && !empty($post_content) && !empty($post_author) && !empty($post_category) && !empty($tags)) {
 
             $query = mysqli_query($connection, "SELECT * FROM `posts` ORDER BY `post_id` DESC LIMIT 1");
 
-            while($row = mysqli_fetch_array($query)){
+            while ($row = mysqli_fetch_array($query)) {
                 $post_id = $row['post_id'] + 1;
             }
 
             mysqli_query($connection, "INSERT INTO `posts` VALUES ('', '$post_title', '$post_content', '$post_author', CURRENT_TIMESTAMP, 1, '$post_category', '$thumbnail', 'pl', '$tags')") or die ('Wystapi&#322; b&#322;&#261;d. Prosz&#281; spr&#243;bowa&#263; ponownie za kilka minut.');
-            echo '<div class="green-message">Post wrzucony. Mo&#380;esz go obejrze&#263; klikaj&#261;c na ten link: <a href="/?post_id='.$post_id.'">http://www.gaming-passion.eu/?post_id='.$post_id.'</a></div>';
+            echo '<div class="green-message">Post wrzucony. Mo&#380;esz go obejrze&#263; klikaj&#261;c na ten link: <a href="/?post_id=' . $post_id . '">http://www.gaming-passion.eu/?post_id=' . $post_id . '</a></div>';
 
-        }else{
+        } else {
 
             echo '<div class="red-message">Wystapi&#322; b&#322;&#261;d. Prosz&#281; spr&#243;bowa&#263; ponownie za kilka minut.</div>';
 
         }
     }
 }
+
 ?>

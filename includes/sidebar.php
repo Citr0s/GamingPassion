@@ -45,7 +45,7 @@
 	                    echo '<center><div class="empty_result">Currently there are no records in our database.</div></center>';
 	                }
 	            ?>
-<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FGamingPassionPL&amp;width=276&amp;height=185&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;show_border=false&amp;header=false" scrolling="no" frameborder="0" style="border:1px solid #ccc; overflow:hidden; width:276px; height:185px;" allowTransparency="true"></iframe><br /><br />
+<iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FGamingPassionPL&amp;width=276&amp;height=185&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;show_border=false&amp;header=false" scrolling="no" frameborder="0" style="border:1px solid #ccc; overflow:hidden; width:276px; height:185px;" allowTransparency="true"></iframe><br /><br />
 	                <a class="twitter-timeline" href="https://twitter.com/GamingPassionPL" data-widget-id="348161875491569664">Tweets by @GamingPassionPL</a>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><br /><br />
 	            </div>
