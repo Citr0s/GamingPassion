@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Gaming Passion | News, Reviews, Fun</title>
-	<link rel="stylesheet" href="dist/css/app.css">
-	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="./dist/css/app.css">
+	<link rel="stylesheet" href=".//assets/font-awesome/css/font-awesome.min.css">
+	<link rel="icon" href=".//assets/images/favicon.ico" type="image/x-icon" />
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css' />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
@@ -20,7 +20,7 @@
 	  ga('send', 'pageview');
 
 	</script>
-    <script src="dist/js/app.js"></script>
+    <script src="./dist/js/app.js"></script>
 <body>
 	<div id="wrapper">
 		<div id="header">
