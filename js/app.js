@@ -1,9 +1,3 @@
-angular.module('gamingPassion', []);
-
-angular.module('gamingPassion').controller('PostController', function() {
-
-});
-
 $(function(){
     $('.green-message').delay(5000).fadeOut(400);
 });
