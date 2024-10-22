@@ -5,12 +5,12 @@ include_once 'includes/header.php';
     <div id="container">
         <?php
         if (isset($_GET['success'])) {
-            echo '<div class="green-message" style="margin-bottom:15px;"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>You have been successfully <strong>logged in</strong>.</td></tr></table></div>';
+            echo '<div class="green-message" style="margin-bottom:15px;"><table><tr><td style="padding-right:5px;"><img src="/assets/images/popup-info-icon.png" /></td><td>You have been successfully <strong>logged in</strong>.</td></tr></table></div>';
         }
         ?>
         <?php
         if (isset($_GET['logout'])) {
-            echo '<div class="green-message" style="margin-bottom:15px;"><table><tr><td style="padding-right:5px;"><img src="css/images/popup-info-icon.png" /></td><td>You have been successfully <strong>logged out</strong>.</td></tr></table></div>';
+            echo '<div class="green-message" style="margin-bottom:15px;"><table><tr><td style="padding-right:5px;"><img src="/assets/images/popup-info-icon.png" /></td><td>You have been successfully <strong>logged out</strong>.</td></tr></table></div>';
         }
         ?>
         <div id="slideshow">
@@ -66,7 +66,7 @@ include_once 'includes/header.php';
                                                         } else {
                                                             $ratingAverage = $ratingsResponse->average === null ? 0 : $ratingsResponse->average;
                                                             ?>
-                                                            <img src="css/images/rating-<?php echo $ratingAverage; ?>-stars.png" title="<?php echo $ratingAverage; ?>/5"/>
+                                                            <img src="/assets/images/rating-<?php echo $ratingAverage; ?>-stars.png" title="<?php echo $ratingAverage; ?>/5"/>
                                                             <?php
                                                         }
                                                         ?>
