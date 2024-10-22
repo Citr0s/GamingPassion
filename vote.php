@@ -3,7 +3,7 @@
 	include_once 'core/bootstrap.php';
 
 	if(!loggedIn()){
-		header("Location: login.php?login-required");
+		header("Location: /login.php?login-required");
 	}
 
 	$post_id = $_GET['post_id'];

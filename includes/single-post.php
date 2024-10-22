@@ -269,8 +269,8 @@ if(loggedIn() == true){
     <div class="not-logged-in-comment"><br />
         <h2 style="border-bottom:2px solid #ccc;">Add Comment</h2><br />
         <p>
-            You need to <a href="login.php"><span style="color:#0093D9;" class="underline_link">login</span></a> to comment.<br />
-            Don\'t have an account? <a href="register.php"><span style="color:#0093D9;" class="underline_link">Register</span></a> for free!
+            You need to <a href="/login.php"><span style="color:#0093D9;" class="underline_link">login</span></a> to comment.<br />
+            Don\'t have an account? <a href="/register.php"><span style="color:#0093D9;" class="underline_link">Register</span></a> for free!
         </p>
     </div>
     <?php

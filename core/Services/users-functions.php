@@ -11,7 +11,7 @@ function loginCheck($connection, $username, $password){
 	sanitise($connection, $password);
 	
 	if(empty($username) || empty($password)){	
-		header("Location: login.php?error=1");
+		header("Location: /login.php?error=1");
 	}elseif(!empty($username) && !empty($password)){
 		
 		$data = mysqli_query($connection, "SELECT * FROM `users` WHERE '$username' = `username` LIMIT 1");
@@ -21,9 +21,9 @@ function loginCheck($connection, $username, $password){
 		}
 		
 		if($username != $user_info[1] || md5($password) != $user_info[2]){
-			header("Location: login.php?error=2");
+			header("Location: /login.php?error=2");
 		}elseif($user_info[4] == 0){
-			header("Location: login.php?error=3");
+			header("Location: /login.php?error=3");
 		}elseif($user_info[4] == 1){
 			if($username === $user_info[1] && md5($password) === $user_info[2]){
 				$_SESSION['username'] = $username;

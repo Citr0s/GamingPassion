@@ -54,10 +54,10 @@
 							}else{
 								echo '
 									<ul>
-										<li><a hrefg="login.php">My Account</a></li>
-										<li><a href="login.php">Badges</a></li>
-										<li><a href="login.php">Login</a></li>
-										<li><a href="register.php">Register</a></li>
+										<li><a hrefg="/login.php">My Account</a></li>
+										<li><a href="/login.php">Badges</a></li>
+										<li><a href="/login.php">Login</a></li>
+										<li><a href="/register.php">Register</a></li>
 									</ul>
 								';
 							}

@@ -65,16 +65,16 @@
 											<div class="footer-heading">My account</div>
 										</li>
 										<li>
-											<a href="login.php">Login</a>
+											<a href="/login.php">Login</a>
 										</li>
 										<li>
-											<a href="register.php">Register</a>
+											<a href="/register.php">Register</a>
 										</li>
 										<li>
-											<a href="login.php">Private Messages</a>
+											<a href="/login.php">Private Messages</a>
 										</li>
 										<li>
-											<a href="login.php">Badges</a>
+											<a href="/login.php">Badges</a>
 										</li>
 									</ul>
 								';

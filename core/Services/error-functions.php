@@ -8,7 +8,7 @@ function loginErrors(){
 		}elseif($_GET['error'] == 3){
 			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-warning-icon.png" /></td><td>This account has been <strong>terminated</strong>.</td></tr></table></div>';
 		}else{
-			header("Location: login.php");	
+			header("Location: /login.php");	
 		}
 	}
 }
@@ -29,7 +29,7 @@ function registerErrors(){
 		}elseif($_GET['error'] == 7){
 			echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img src="assets/images/popup-warning-icon.png" /></td><td><strong>Recaptcha</strong> is wrong.</td></tr></table></div>';
 		}else{
-			header("Location: register.php");
+			header("Location: /register.php");
 		}
 	}
 }
