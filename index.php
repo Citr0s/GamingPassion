@@ -1,5 +1,5 @@
 <?php
-include_once 'core/init.php';
+include_once 'core/bootstrap.php';
 include_once 'includes/header.php';
 ?>
     <div id="container">
