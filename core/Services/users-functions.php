@@ -86,26 +86,13 @@ function modUser($connection)
 
 function getUserDetails($connection, $username = null)
 {
-    $user = $username ?? $_GET['user'];
-
-    $data2 = mysqli_query($connection, "SELECT * FROM `mod_users` ORDER BY user_id");
-
-    while ($row2 = mysqli_fetch_array($data2)) {
-        if ($user == $row2['username']) {
-            $user_exists = true;
-            break;
-        } else {
-            $user_exists = false;
-        }
-    }
-
-    if ($user_exists == false) {
-        return null;
-    }
-
     $user = new \GamingPassion\Models\User();
 
-    $data = mysqli_query($connection, "SELECT * FROM `mod_users` WHERE username = '$user'");
+    $data = mysqli_query($connection, "SELECT * FROM `users` WHERE username = '$username'");
+
+    if ($data == false) {
+        return null;
+    }
 
     while ($row = mysqli_fetch_array($data)) {
         $active = $row['active'];
