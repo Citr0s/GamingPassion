@@ -250,7 +250,7 @@
 						echo '
 								<div id="main-content">
 									<p style="margin-bottom:10px;">
-										<strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="profile.php?user='.$user.'">'; if($user == $_SESSION['username']){echo 'MY PROFILE';}else{ echo $user; } echo '</a>
+										<strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="/profile.php?user='.$user.'">'; if($user == $_SESSION['username']){echo 'MY PROFILE';}else{ echo $user; } echo '</a>
 									</p>
 									<div id="user-info-sidebar">
 										<div class="user-info-sidebar-block">

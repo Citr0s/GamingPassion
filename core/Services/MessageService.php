@@ -134,8 +134,8 @@ class MessageService
 					' . $message_read_status . '
 					<div class="holder"></div>
 					Title: <strong>' . substr($title, 0, 25) . '</strong>
-					<div class="message-info">From: <a href="profile.php?user=' . $from . '"><strong>' . $from . '</strong></a></div>
-					<div class="message-info">To: <a href="profile.php?user=' . $to . '"><strong>' . $to . '</strong></a></div>
+					<div class="message-info">From: <a href="/profile.php?user=' . $from . '"><strong>' . $from . '</strong></a></div>
+					<div class="message-info">To: <a href="/profile.php?user=' . $to . '"><strong>' . $to . '</strong></a></div>
 					<div class="message-info" style="margin-bottom:5px;">Sent: <strong>' . $date . '</strong> at <strong>' . $time . '</strong> (' . $hours_ago . ')</div>
 					<div class="message-info"><span style="font:13px Arial; font-style:italic; color:#777; font-size:14px;">' . substr($content, 0, 152) . '</span></div>
 				</div>
@@ -200,8 +200,8 @@ class MessageService
 					' . $message_read_status . '
 					<div class="holder"></div>
 					Title: <strong>' . $title . '</strong>
-					<div class="message-info">From: <a href="profile.php?user=' . $from . '"><strong>' . $from . '</strong></a></div>
-					<div class="message-info">To: <a href="profile.php?user=' . $to . '"><strong>' . $to . '</strong></a></div>
+					<div class="message-info">From: <a href="/profile.php?user=' . $from . '"><strong>' . $from . '</strong></a></div>
+					<div class="message-info">To: <a href="/profile.php?user=' . $to . '"><strong>' . $to . '</strong></a></div>
 					<div class="message-info" style="margin-bottom:5px;">Sent: <strong>' . $date . '</strong> at <strong>' . $time . '</strong> (' . $hours_ago . ')</div>
 					<div class="message-info"><span style="font:13px Arial; font-style:italic; color:#777; font-size:14px;">' . $content . '</span></div>
 				</div>
@@ -266,8 +266,8 @@ class MessageService
 					' . $message_read_status . '
 					<div class="holder"></div>
 					Title: <strong>' . substr($title, 0, 25) . '</strong>
-					<div class="message-info">From: <a href="profile.php?user=' . $from . '"><strong>' . $from . '</strong></a></div>
-					<div class="message-info">To: <a href="profile.php?user=' . $to . '"><strong>' . $to . '</strong></a></div>
+					<div class="message-info">From: <a href="/profile.php?user=' . $from . '"><strong>' . $from . '</strong></a></div>
+					<div class="message-info">To: <a href="/profile.php?user=' . $to . '"><strong>' . $to . '</strong></a></div>
 					<div class="message-info" style="margin-bottom:5px;">Sent: <strong>' . $date . '</strong> at <strong>' . $time . '</strong> (' . $hours_ago . ')</div>
 					<div class="message-info"><span style="font:13px Arial; font-style:italic; color:#777; font-size:14px;">' . substr($content, 0, 152) . '</span></div>
 				</div>
@@ -332,8 +332,8 @@ class MessageService
 					' . $message_read_status . '
 					<div class="holder"></div>
 					Title: <strong>' . $title . '</strong>
-					<div class="message-info">From: <a href="profile.php?user=' . $from . '"><strong>' . $from . '</strong></a></div>
-					<div class="message-info">To: <a href="profile.php?user=' . $to . '"><strong>' . $to . '</strong></a></div>
+					<div class="message-info">From: <a href="/profile.php?user=' . $from . '"><strong>' . $from . '</strong></a></div>
+					<div class="message-info">To: <a href="/profile.php?user=' . $to . '"><strong>' . $to . '</strong></a></div>
 					<div class="message-info" style="margin-bottom:5px;">Sent: <strong>' . $date . '</strong> at <strong>' . $time . '</strong> (' . $hours_ago . ')</div>
 					<div class="message-info"><span style="font:13px Arial; font-style:italic; color:#777; font-size:14px;">' . $content . '</span></div>
 				</div>

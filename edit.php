@@ -19,7 +19,7 @@ include_once 'includes/header.php';
                 ?>
 
                 <p>
-                    <strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="profile.php?user=<?php echo $user; ?>">MY PROFILE</a> > <a href="edit.php?user='.$user.'">EDIT</a>
+                    <strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="/profile.php?user=<?php echo $user; ?>">MY PROFILE</a> > <a href="edit.php?user='.$user.'">EDIT</a>
                 </p><br/>
                 <?php
 
@@ -58,7 +58,7 @@ include_once 'includes/header.php';
                             echo '<div class="green-message">Your password has been updated successfully.</div>';
                         }
                     }
-                    echo '<p><a href="profile.php?user=' . $_SESSION['username'] . '">< MY PROFILE</a></p>';
+                    echo '<p><a href="/profile.php?user=' . $_SESSION['username'] . '">< MY PROFILE</a></p>';
                     echo '<div class="red-message">Please fill in all fields marked with asterisks (*).</div>';
                 } elseif (isset($_POST['email'])) {
                     if (empty($_POST['email'])) {
@@ -172,7 +172,7 @@ include_once 'includes/header.php';
                         $from = $_POST['from'];
 
                         mysqli_query($connection, "UPDATE `users` SET thumbnail = '$thumbnail', gender = '$gender', home = '$from', email = '$email' WHERE $user_id = user_id");
-                        echo '<p><a href="profile.php?user=' . $_SESSION['username'] . '">< MY PROFILE</a></p>';
+                        echo '<p><a href="/profile.php?user=' . $_SESSION['username'] . '">< MY PROFILE</a></p>';
                         echo '
 									<div class="green-message">
 										<table>

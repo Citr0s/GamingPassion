@@ -97,7 +97,7 @@
             <tr>
                 <td><img src="<?php echo '../' . $user->thumbnail; ?>" width="50" style="border-radius:50px;"/></td>
                 <td style="padding:5px;">
-                    <strong><a href="../profile.php?user=<?php echo $user->username; ?>" style="color:#FFF;"><?php echo $user->username; ?></a></strong><br/>
+                    <strong><a href="/profile.php?user=<?php echo $user->username; ?>" style="color:#FFF;"><?php echo $user->username; ?></a></strong><br/>
                     <span style="color:#ccc;">(<?php echo $user->status; ?>)</span>
                 </td>
                 <td style="text-align:right; width:100%; color:#a1a1a1; font-size:16px;">

@@ -211,7 +211,7 @@
 					$percentage_collected = ($badge_count / $overall_badge_count) * 100;
 				?>        
 			<p>
-				<strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="profile.php?user=<?php echo $username; ?>">MY PROFILE</a> > <a href="/badges.php">BADGES</a>
+				<strong>You are here:</strong> <a href="index.php">HOME</a> > <a href="/profile.php?user=<?php echo $username; ?>">MY PROFILE</a> > <a href="/badges.php">BADGES</a>
 			</p>
 			<div id="badges-container">
         	<h1>BADGES</h1><br />

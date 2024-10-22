@@ -503,9 +503,9 @@ function showAllUsersDashboard($connection)
 					</div>
 					<div class="holder"></div>
 				</div>
-				<div class="post-title"><a href="../profile.php?id=' . $user_id . '">' . strtoupper($user) . '</a></div>
+				<div class="post-title"><a href="/profile.php?id=' . $user_id . '">' . strtoupper($user) . '</a></div>
 				<div class="post-info"></div>
-				<div class="user-thumbnail"><a href="../profile.php?id=' . $user_id . '"><img src="../' . $thumbnail . '" /></a></div>
+				<div class="user-thumbnail"><a href="/profile.php?id=' . $user_id . '"><img src="../' . $thumbnail . '" /></a></div>
 				<div class="post-content">
 					<table style="margin-top:10px;">
 						<tr>
@@ -563,7 +563,7 @@ function showAllCommentsDashboard($connection)
 					</div>
 					<div class="holder"></div>
 				</div>
-				<div class="post-title"><a href="../profile.php?id=' . $user_id . '">' . strtoupper($user) . '</a></div>
+				<div class="post-title"><a href="/profile.php?id=' . $user_id . '">' . strtoupper($user) . '</a></div>
 				<div class="post-info"></div>
 				<div class="post-content">
 					<table style="margin-top:10px;">

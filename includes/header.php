@@ -37,7 +37,7 @@
 							if(isset($_SESSION['username'])){
 								echo '
 									<ul>
-										<li><a href="profile.php?user='.$user->username.'">My Account ('.$user->username.')</a></li>
+										<li><a href="/profile.php?user='.$user->username.'">My Account ('.$user->username.')</a></li>
 										<li><a href="badges.php">Badges</a></li>
 										<li><a href="logout.php">Logout</a></li>
 										<li><a href="messages.php">Private Messages</a></li>';

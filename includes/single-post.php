@@ -107,7 +107,7 @@ echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img sr
     </tr>
     </table>
 </div>
-<div class="post-info"><a href="profile.php?user=<?php echo $post->author; ?>"><?php echo $post->author; ?></a> at <?php echo date('H:i \o\n d F Y', $post->createdAt); ?></div>
+<div class="post-info"><a href="/profile.php?user=<?php echo $post->author; ?>"><?php echo $post->author; ?></a> at <?php echo date('H:i \o\n d F Y', $post->createdAt); ?></div>
 <div class="post-image"><a href="?id=<?php echo $post->id; ?>"><img src="<?php echo $post->thumbnail; ?>" /></a></div>
 <div class="post-sample"><?php echo $post->content; ?></div>
 </div>
@@ -175,7 +175,7 @@ foreach($comments as $comment){
 
     ?>
     <div class="post-comment">
-        <i><strong><a href="profile.php?user=<?php echo $comment->author; ?>" class="comment-author-link" style="color:<?php echo $color; ?>"><?php echo $comment->author; ?></a></strong></strong> at <strong><?php echo $time; ?></strong> on <strong><?php echo $date; ?></strong> (<?php echo $hours_ago; ?>)</strong></i><br /><br />
+        <i><strong><a href="/profile.php?user=<?php echo $comment->author; ?>" class="comment-author-link" style="color:<?php echo $color; ?>"><?php echo $comment->author; ?></a></strong></strong> at <strong><?php echo $time; ?></strong> on <strong><?php echo $date; ?></strong> (<?php echo $hours_ago; ?>)</strong></i><br /><br />
         <span style="font:13px Arial; font-style:italic; color:#777; font-size:14px;">"<?php echo $comment->content; ?>"</span>
     </div>
     <?php
