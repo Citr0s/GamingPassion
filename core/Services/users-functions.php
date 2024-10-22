@@ -62,7 +62,7 @@ function adminUser($connection){
 function modUser($connection){
 	$username = $_SESSION['username'];
 	
-	$data = mysql_query($connection, "SELECT * FROM users WHERE '$username' = username LIMIT 1");
+	$data = mysqli_query($connection, "SELECT * FROM users WHERE '$username' = username LIMIT 1");
 	
 	while($row = mysqli_fetch_array($data)){
 		$user_info = array($row['user_id'], $row['username'], $row['password'], $row['email'], $row['active'], $row['status'], $row['joined']);
