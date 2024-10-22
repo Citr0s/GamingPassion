@@ -1,10 +1,7 @@
 <?php
 function loggedIn()
 {
-    if (isset($_SESSION['username']) || isset($_COOKIE['username'])) {
-        $logged_in = true;
-        return $logged_in;
-    }
+    return isset($_SESSION['username']) || isset($_COOKIE['username']);
 }
 
 function loginCheck($connection, $username, $password)
