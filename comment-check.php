@@ -31,20 +31,20 @@
 		$json = json_decode($content, true);
 		
 		if(isset($json['error-codes'])){
-			header('Location: http://miloszdura.com/techblog/index.php?id='.$post_id.'&bot-alert');
+			header('Location: //index.php?id='.$post_id.'&bot-alert');
 		}elseif(isset($json['success'])){
 			if(!empty($comment_content) && !empty($comment_author_status)){
 				if($time_difference < 300){
-					header('Location: http://miloszdura.com/techblog/index.php?id='.$post_id.'&time');
+					header('Location: //index.php?id='.$post_id.'&time');
 				}else{
 					mysqli_query($connection, "INSERT INTO `comments` (`comment_content`, `comment_author`, `comment_post_id`, `timestamp`, `active`, `comment_author_status`) VALUES ('$comment_content', '$comment_author', $post_id, CURRENT_TIMESTAMP, 1, '$comment_author_status')");
-					header('Location: http://miloszdura.com/techblog/index.php?id='.$post_id.'&success');
+					header('Location: //index.php?id='.$post_id.'&success');
 				}
 			}else{
-				header('Location: http://miloszdura.com/techblog/index.php?id='.$post_id.'&fields-not-set');
+				header('Location: //index.php?id='.$post_id.'&fields-not-set');
 			}
 		}
 	}else{
-		header('Location: http://miloszdura.com/techblog/index.php?id='.$post_id.'&bot-alert');
+		header('Location: //index.php?id='.$post_id.'&bot-alert');
 	}
 ?>

@@ -78,7 +78,7 @@
 		echo 'OK GO';
 		echo '
 			<script>
-				window.location = "http://miloszdura.com/techblog/dashboard/articles.php?success";
+				window.location = "//dashboard/articles.php?success";
 			</script>
 		';
 		
