@@ -72,7 +72,7 @@ include_once 'includes/header.php';
                     ?>
                     <h2 class="profile-sidebar-li-big" id="received" style="margin-top:10px;">INBOX (<?php echo $message_count; ?>)</h2>
                     <?php
-                    receivedMessagesFull();
+                    $messageService->receivedMessagesFull($connection);
                     ?>
                     <?php
                     $data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active_from` = 1 ORDER BY `message_id` DESC");
@@ -84,7 +84,7 @@ include_once 'includes/header.php';
                     ?>
                     <h2 class="profile-sidebar-li-big" id="sent">SENT (<?php echo $sent_count; ?>)</h2>
                     <?php
-                    sentMessagesFull();
+                    $messageService->sentMessagesFull($connection);
                     ?>
                     <h2 class="profile-sidebar-li-big" id="compose" style="	border-top:2px solid #ccc; padding-top:10px; margin-top:10px;">CREATE</h2>
                     <form method="post" action="message-check.php">

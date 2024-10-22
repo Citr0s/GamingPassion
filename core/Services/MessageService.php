@@ -269,7 +269,7 @@ class MessageService
             echo '<div class="inbox-post"><center>You didn\'t send any messages yet.</center></div>';
         }
     }
-    function sentMessagesFull(){
+    function sentMessagesFull($connection){
         $user = $_SESSION['username'];
         $data = mysqli_query($connection, "SELECT * FROM `private_messages` WHERE `from` = '$user' AND `active_from` = 1 ORDER BY `message_id` DESC");
         $message_count_sent = 0;

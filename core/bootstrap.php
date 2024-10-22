@@ -5,6 +5,7 @@
     use GamingPassion\Factories\RatingFactory;
     use GamingPassion\Factories\UserFactory;
     use GamingPassion\Services\CommentService;
+    use GamingPassion\Services\MessageService;
     use GamingPassion\Services\PostService;
     use GamingPassion\Services\RatingService;
     use GamingPassion\Services\UserService;
@@ -37,4 +38,5 @@
     $postService = new PostService(new PostFactory($databaseInstance));
     $ratingService = new RatingService(new RatingFactory($databaseInstance));
     $commentService = new CommentService(new CommentFactory($databaseInstance));
+    $messageService = new MessageService();
 ?>
