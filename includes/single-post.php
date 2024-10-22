@@ -206,7 +206,7 @@ if (loggedIn() == true) {
                             <td>
                                 <div class="g-recaptcha" data-sitekey="6LeXsf4SAAAAAF8YxjHnQw3VYqZPF9BQ79QR4osg"></div>
                                 <input type="text" name="comment_author_status" value="admin" style="visibility:hidden; width:0px; height:0px;"/>
-                                <input type="text" name="post_id" value="'.$_GET['id'].'" style="visibility:hidden; width:0px; height:0px;"/>
+                                <input type="text" name="post_id" value="<?php $_GET['id'] ?>" style="visibility:hidden; width:0px; height:0px;"/>
                             </td>
                         </tr>
                         <tr>
@@ -237,7 +237,7 @@ if (loggedIn() == true) {
                             <td>
                                 <div class="g-recaptcha" data-sitekey="6LeXsf4SAAAAAF8YxjHnQw3VYqZPF9BQ79QR4osg"></div>
                                 <input type="text" name="comment_author_status" value="mod" style="visibility:hidden; width:0px; height:0px;"/>
-                                <input type="text" name="post_id" value="'.$_GET['id'].'" style="visibility:hidden; width:0px; height:0px;"/>
+                                <input type="text" name="post_id" value="<?php $_GET['id'] ?>" style="visibility:hidden; width:0px; height:0px;"/>
                             </td>
                         </tr>
                         <tr>
@@ -268,7 +268,7 @@ if (loggedIn() == true) {
                             <td>
                                 <div class="g-recaptcha" data-sitekey="6LeXsf4SAAAAAF8YxjHnQw3VYqZPF9BQ79QR4osg"></div>
                                 <input type="text" name="comment_author_status" value="user" style="visibility:hidden; width:0px; height:0px;"/>
-                                <input type="text" name="post_id" value="'.$_GET['id'].'" style="visibility:hidden; width:0px; height:0px;"/>
+                                <input type="text" name="post_id" value="<?php $_GET['id'] ?>" style="visibility:hidden; width:0px; height:0px;"/>
                             </td>
                         </tr>
                         <tr>
