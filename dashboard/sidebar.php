@@ -93,7 +93,7 @@
 				<a href="new_article.php"><li id="new-articles-button"><i class="fa fa-pencil"></i> Create Article</li></a>
 				<a href="articles.php"><li id="articles-button"><i class="fa fa-file-text"></i> Articles</li></a>
 				<?php
-					if(adminUser()){
+					if(adminUser($connection)){
 					echo '
 						<a href="users.php"><li id="users-button"><i class="fa fa-users"></i> Users</li></a>
 						<a href="comments.php"><li id="comments-button"><i class="fa fa-comment"></i> Comments</li></a>

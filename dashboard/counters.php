@@ -255,7 +255,7 @@
 	/** Comments/Day Post Count End **/
 
 function showAllPostsDashboard(){
-	if(adminUser()){
+	if(adminUser($connection)){
 		$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE section = 'pl' ORDER BY `post_id` DESC");
 	}else{
 		$data = mysqli_query($connection, "SELECT * FROM `posts` WHERE section = 'pl' AND `author` = '$_SESSION[username]' ORDER BY `post_id` DESC");

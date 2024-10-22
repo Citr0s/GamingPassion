@@ -209,7 +209,7 @@ if(loggedIn() == true){
             </center>
         </div>
         <?php
-    }elseif(modUser() == true){
+    }elseif(modUser($connection) == true){
         ?>
         <br />
         <h2 style="border-bottom:2px solid #ccc;">Add Comment</h2>
@@ -236,7 +236,7 @@ if(loggedIn() == true){
             </center>
         </div>
         <?php
-    }elseif(!adminUser() && !modUser()){
+    }elseif(!adminUser($connection) && !modUser($connection)){
         ?>
         <br />
         <h2 style="border-bottom:2px solid #ccc;">Add Comment</h2>

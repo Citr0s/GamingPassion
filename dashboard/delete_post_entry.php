@@ -1,7 +1,7 @@
 <?php include '../core/bootstrap.php'; ?>
 <?php
-	if(!loggedIn() || !adminUser()){
-		if(!modUser()){
+	if(!loggedIn() || !adminUser($connection)){
+		if(!modUser($connection)){
 			header("Location: index.php");
 			die();
 		}

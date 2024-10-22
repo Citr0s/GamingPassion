@@ -202,9 +202,9 @@ function showOneUser($connection){
 								<h3>'.$user.'</h3>';
 								
 			if($_GET['user'] == $_SESSION['username']){
-				if(adminUser() == true){
+				if(adminUser($connection) == true){
 					echo '<p><a href="/admin/edit_mod_entry.php?user_id='.$user_id.'">Edytuj</a></p><br />';
-				}elseif(modUser() == true){
+				}elseif(modUser($connection) == true){
 					echo '<p><a href="/mod/edit_mod_entry.php?user_id='.$user_id.'">Edytuj</a></p><br />';
 				}
 			}

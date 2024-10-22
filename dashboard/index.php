@@ -2,8 +2,8 @@
 	include_once '../core/bootstrap.php';
 	require_once 'counters.php';
 
-	if(!loggedIn() || !adminUser()){
-		if(!modUser()){
+	if(!loggedIn() || !adminUser($connection)){
+		if(!modUser($connection)){
 			header("Location: /techblog/index.php");
 		}
 	}
@@ -29,7 +29,7 @@
 					</tr>
 				</table>
 				<?php
-					if(adminUser()){
+					if(adminUser($connection)){
 				?>
 				<table style="margin-top:15px;">
 					<tr>

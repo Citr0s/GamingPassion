@@ -22,7 +22,7 @@
 
 	$databaseInstance = new Database($mysqlClient);
     $connection = $databaseInstance->connection;
-
+    
     session_start();
 
 	require_once 'Services/general-functions.php';

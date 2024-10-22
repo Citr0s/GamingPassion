@@ -97,7 +97,7 @@ include_once 'includes/header.php';
                                 <td style="text-align:right;">To:<span class="green-text">*</span></td>
                                 <td><input type="text" name="to"/></td>
                             </tr>
-                            <?php if (adminUser()) {
+                            <?php if (adminUser($connection)) {
                                 echo '<tr><td align="right">Send to all:</td><td><input type="checkbox" name="send-to-all" style="width:15px; margin:10px;" /></td></tr>';
                             } ?>
                             <tr>

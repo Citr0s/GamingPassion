@@ -2,8 +2,8 @@
 	include_once '../core/bootstrap.php';
 	require_once 'counters.php';
 
-	if(!loggedIn() || !adminUser()){
-		if(!modUser()){
+	if(!loggedIn() || !adminUser($connection)){
+		if(!modUser($connection)){
 			header("Location: index.php");
 		}
 	}

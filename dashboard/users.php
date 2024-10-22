@@ -2,7 +2,7 @@
 	include_once '../core/bootstrap.php';
 	require_once 'counters.php';
 
-	if(!loggedIn() || !adminUser()){
+	if(!loggedIn() || !adminUser($connection)){
 		header("Location: /techblog/index.php");
 	}
 
