@@ -128,7 +128,7 @@ while($tags_row = mysqli_fetch_array($tags_data)){
 <br />
 <h2 style="border-bottom:2px solid #ccc;">Facebook Comments</h2><br />
 <center>
-    <div class="fb-comments" data-href="http://www.gaming-passion.com/?id='.$post_id.'" data-width="670" data-numposts="10" data-colorscheme="light"></div>
+    <div class="fb-comments" data-href="https://www.gaming-passion.com/?id='.$post_id.'" data-width="670" data-numposts="10" data-colorscheme="light"></div>
 </center>
 <h2 style="border-bottom:2px solid #ccc;">Comments</h2>
 <?php

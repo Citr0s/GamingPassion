@@ -105,7 +105,7 @@
 						</td>
 					</tr>
 				</table>
-				<div style="font-size:11px; margin-bottom:20px;">&copy; 2013 - 2014 <a href="http://www.gaming-passion.com/">Gaming Passion.</a> All Rights Reserved.<br />Designed and Developed by <a href="http://www.miloszdura.com/">Milosz Dura</a></div>
+				<div style="font-size:11px; margin-bottom:20px;">&copy; 2013 - 2014 <a href="https://www.gaming-passion.com/">Gaming Passion.</a> All Rights Reserved.<br />Designed and Developed by <a href="http://www.miloszdura.com/">Milosz Dura</a></div>
 			</div>
 		</div>
 	</div>
