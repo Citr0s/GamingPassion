@@ -109,7 +109,7 @@ echo '<div class="red-message"><table><tr><td style="padding-right:5px;"><img sr
 </div>
 <div class="post-info"><a href="/profile.php?user=<?php echo $post->author; ?>"><?php echo $post->author; ?></a> at <?php echo date('H:i \o\n d F Y', $post->createdAt); ?></div>
 <div class="post-image"><a href="?id=<?php echo $post->id; ?>"><img src="<?php echo $post->thumbnail; ?>" /></a></div>
-<div class="post-sample"><?php echo htmlspecialchars($post->content); ?>...</div>
+<div class="post-sample"><?php echo $post->content; ?></div>
 </div>
 <h2 style="border-bottom:2px solid #ccc; padding-bottom:3px;">Tags</h2>
 <?php
