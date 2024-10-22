@@ -87,7 +87,7 @@ class MessageService
         if (!$data) {
             echo '<div class="inbox-post"><center>Your inbox is empty.</center></div>';
         }
-        
+
         while ($row = mysqli_fetch_array($data)) {
             $message_id = $row['message_id'];
             $title = $row['title'];

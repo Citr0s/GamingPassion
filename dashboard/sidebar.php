@@ -75,7 +75,7 @@
 <body>
 	<div id="wrapper">
 		<div id="sidebar">
-			<center><img src="assets/images/logo-dashboard.jpg" width="150" /></center>
+			<center><img src="/assets/images/logo-dashboard.jpg" width="150" /></center>
 			<table>
 				<tr>
 					<td><img src="<?php echo '../'.$thumbnail; ?>" width="50" style="border-radius:50px;" /></td>
