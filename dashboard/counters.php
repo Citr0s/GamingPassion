@@ -254,7 +254,7 @@ $comments_per_day = round($overall_user_count / $days_since_first_comment, 1);
 
 /** Comments/Day Post Count End **/
 
-function showAllPostsDashboard()
+function showAllPostsDashboard($connection)
 {
     if (adminUser($connection)) {
         $data = mysqli_query($connection, "SELECT * FROM `posts` WHERE section = 'pl' ORDER BY `post_id` DESC");
