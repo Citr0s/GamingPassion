@@ -89,7 +89,7 @@
 
         <?php
 
-        $user = getUserDetails($connection, $_SESSION['username']);
+        $user = getUserDetails($connection, $username);
 
         var_dump($user);
         die();
